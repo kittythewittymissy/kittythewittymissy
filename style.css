@@ -65,17 +65,20 @@ h1 {
 
 /* ===== SCROLL ARROW (CODYSTAR DOWN ARROW) ===== */
 .scroll-arrow {
-  margin-top: 20px;
   font-family: 'Codystar', sans-serif;
-  font-size: 4.5em;          /* match title size */
+  font-size: 4em;
   color: #FFD662;
   text-align: center;
+  line-height: 0.8;
   opacity: 0;
-  text-shadow: 0 0 6px #FFD662, 0 0 16px rgba(255, 214, 98, 0.8);
+  animation: arrowFadeIn 2s ease forwards 3.5s, arrowPulse 2s ease-in-out infinite 6s;
+  cursor: pointer;
+}
 
-  animation:
-    arrowFadeIn 2s ease forwards 3.5s,
-    arrowPulse 2s ease-in-out infinite 6s;
+@keyframes arrowFadeIn { to { opacity: 1; } }
+@keyframes arrowPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* Fade in */
