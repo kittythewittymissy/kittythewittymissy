@@ -1,40 +1,54 @@
-/* Body */
+/* Body styling */
 body {
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-color: #000;
+  background-color: #000; /* pitch black background */
   color: #eaeaea;
   line-height: 1.6;
 }
 
-/* Container */
+/* Container for content */
 .container {
   max-width: 700px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
-/* Site title with glow */
+/* Animated golden neon glow for site title */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #FDDC5C,
+      0 0 5px #FDDC5C,
+      0 0 10px #FDDC5C,
+      0 0 20px #FDDC5C,
+      0 0 30px #FDDC5C;
+  }
+  50% {
+    text-shadow:
+      0 0 5px #FDDC5C,
+      0 0 10px #FDDC5C,
+      0 0 20px #FDDC5C,
+      0 0 40px #FDDC5C,
+      0 0 60px #FDDC5C;
+  }
+}
+
+/* Site title */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 4em;
-  color: #fff;
+  color: #FDDC5C; /* golden letters */
   text-align: center;
   margin-bottom: 1em;
 
-  /* Glowing effect */
-  text-shadow:
-     0 0 5px #fff,
-     0 0 10px #fff,
-     0 0 20px #ff7eb9,
-     0 0 30px #ff7eb9,
-     0 0 40px #ff7eb9;
+  animation: neonPulse 2.5s infinite alternate;
 }
 
 /* Subtitles */
 h2 {
-  font-family: 'Raleway Dots', sans-serif; /* or clean sans-serif if you prefer */
+  font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 2em;
   color: #fff;
