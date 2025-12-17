@@ -116,25 +116,16 @@ h1 {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  h1 { 
-    font-size: 2.5em; 
-    letter-spacing: 0.05em; 
+  .title-box {
+    padding: 20px;
+    max-width: 90%;
+    box-sizing: border-box;
   }
-  .title-box { 
-    padding: 20px; 
-    max-width: 90%; 
-  }
-  .scroll-arrow { 
-    font-size: 3em; 
-    margin-top: 20px; 
-  }
-  .section-columns { 
-    flex-direction: column; 
-    gap: 30px; 
-    margin: 40px 15px 80px; 
-  }
-  .column { 
-    max-width: 100%; 
-    text-align: center; 
+
+  h1 {
+    font-size: 2.5em;
+    white-space: normal; /* IMPORTANT: allow wrapping */
+    word-break: break-word;
+    letter-spacing: 0.05em; /* tighten for mobile */
   }
 }
