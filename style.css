@@ -20,78 +20,30 @@ body {
   0% {
     text-shadow:
       0 0 1px #FFD662;
-    box-shadow: none;
     opacity: 0;
   }
 
-  15% {
-    text-shadow:
-      0 0 2px #FFD662,
-      0 0 4px #FFD662;
-    box-shadow:
-      0 0 4px rgba(255, 214, 98, 0.15);
-    opacity: 0.25;
-  }
-
-  30% {
+  25% {
     text-shadow:
       0 0 4px #FFD662,
-      0 0 10px #FFD662,
-      0 0 18px #FFD662;
-    box-shadow:
-      0 0 10px rgba(255, 214, 98, 0.25);
+      0 0 10px #FFD662;
     opacity: 0.6;
   }
 
-  40% {
+  45% {
     text-shadow:
       0 0 8px #FFD662,
-      0 0 22px #FFD662,
-      0 0 40px #FFD662,
-      0 0 70px #ffffff;
-    box-shadow:
-      0 0 18px rgba(255, 214, 98, 0.45),
-      0 0 40px rgba(255, 255, 255, 0.35);
-    opacity: 0.85;
+      0 0 20px #FFD662,
+      0 0 40px #ffffff;
+    opacity: 4;
   }
 
-  /* ---- BLINDING PEAK ---- */
-  50% {
-    text-shadow:
-      0 0 12px #FFD662,
-      0 0 40px #FFD662,
-      0 0 90px #FFD662,
-      0 0 160px #ffffff,
-      0 0 260px #ffffff,
-      0 0 340px #ffffff;
-    box-shadow:
-      0 0 60px rgba(255, 214, 98, 0.95),
-      0 0 180px rgba(255, 255, 255, 0.9),
-      0 0 320px rgba(255, 255, 255, 0.7);
-    opacity: 1;
-  }
-
-  62% {
-    text-shadow:
-      0 0 10px #FFD662,
-      0 0 30px #FFD662,
-      0 0 70px #ffffff,
-      0 0 120px #ffffff;
-    box-shadow:
-      0 0 30px rgba(255, 214, 98, 0.6),
-      0 0 90px rgba(255, 255, 255, 0.45);
-    opacity: 0.97;
-  }
-
-  78% {
+  70% {
     text-shadow:
       0 0 6px #FFD662,
       0 0 18px #FFD662,
       0 0 30px #ffffff;
-    box-shadow:
-      0 0 14px rgba(255, 214, 98, 0.35),
-      0 0 42px rgba(255, 255, 255, 0.25);
-    opacity: 0.93;
+    opacity: 0.95;
   }
 
   100% {
@@ -99,9 +51,6 @@ body {
       0 0 4px #FFD662,
       0 0 12px #FFD662,
       0 0 30px #ffffff;
-    box-shadow:
-      0 0 8px rgba(255, 214, 98, 0.25),
-      0 0 18px rgba(255, 255, 255, 0.2);
     opacity: 0.9;
   }
 }
