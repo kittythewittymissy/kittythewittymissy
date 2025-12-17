@@ -87,7 +87,7 @@ h1 {
 /* Main column headings (Languages, Images) */
 .main-column-heading {
   font-family: 'Codystar', sans-serif; /* thick, playful, like your title */
-  font-weight: 700; /* bold for heavy glow */
+  font-weight: 500; /* bold for heavy glow */
   font-size: 2.5em;
   color: #FFD662;
   text-shadow:
