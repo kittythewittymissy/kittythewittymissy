@@ -13,12 +13,20 @@ body {
 }
 
 h1 {
-  font-family: 'Didot', serif;
-  font-weight: 400;
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400; /* Raleway Dots only has regular weight */
   font-size: 4em;
   color: #fff;
   text-align: center;
   margin-bottom: 1em;
+
+  /* Glow effect */
+  text-shadow:
+     0 0 5px #fff,
+     0 0 10px #fff,
+     0 0 20px #ff7eb9,
+     0 0 30px #ff7eb9,
+     0 0 40px #ff7eb9;
 }
 
 h2 {
