@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cai Người - Kitty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      background: #000;
+      color: #eaeaea;
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Page container with two columns */
+    .writing-page {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    /* Left column: title */
+    .writing-title-column {
+      width: 20%;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      border-right: 2px solid rgba(255,255,255,0.25); /* thin glowing line */
+      box-shadow: 0 0 6px rgba(255,255,255,0.3);
+    }
+
+    /* Title glow */
+    .writing-title-column h1 {
+      font-family: 'Codystar', sans-serif;
+      font-weight: 700;
+      font-size: 4em;
+      color: #FFD662;
+      text-shadow:
+        0 0 6px #FFD662,
+        0 0 18px #FFD662,
+        0 0 36px rgba(255,214,98,0.8),
+        0 0 60px rgba(255,214,98,0.6);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    /* Right column: writing content */
+    .writing-content {
+      flex: 1;
+      padding: 50px;
+      overflow-y: auto;
+    }
+
+    /* Neon thin line effect */
+    .writing-title-column {
+      border-right: 2px solid rgba(255,255,255,0.25);
+      box-shadow: 0 0 4px rgba(255,255,255,0.5);
+    }
+
+    /* Scrollbar style (optional) */
+    .writing-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .writing-content::-webkit-scrollbar-thumb {
+      background: #FFD66255;
+      border-radius: 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .writing-page {
+        flex-direction: column;
+      }
+      .writing-title-column {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid rgba(255,255,255,0.25);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="writing-page">
+    <!-- Left column: title -->
+    <div class="writing-title-column">
+      <h1>Cai Người</h1>
+    </div>
+
+    <!-- Right column: writing content -->
+    <div class="writing-content">
+      <p>This is where your story text will go.</p>
+      <p>You can add subheadings, paragraphs, quotes, etc. here.</p>
+    </div>
+  </div>
+
+</body>
+</html>
