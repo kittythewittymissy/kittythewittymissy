@@ -7,14 +7,15 @@ body {
   line-height: 1.7;
 }
 
-.container {
-  max-width: 700px;
-  margin: 90px auto;
-  padding: 0 20px;
-  text-align: center;
+/* ===== HERO (DEAD CENTER) ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ===== NEON ANIMATION (CONTROLLED) ===== */
+/* ===== NEON ANIMATION (ONE-TIME) ===== */
 @keyframes neonBlaze {
   0% {
     text-shadow:
@@ -24,7 +25,7 @@ body {
     opacity: 0.85;
   }
 
-  20% {
+  30% {
     text-shadow:
       0 0 6px #FFD662,
       0 0 18px #FFD662,
@@ -33,29 +34,40 @@ body {
     opacity: 1;
   }
 
-  30% {
+  45% {
     text-shadow:
       0 0 2px #FFD662;
-    opacity: 0.45; /* subtle flicker */
+    opacity: 0.45;
   }
 
-  55% {
+  70% {
     text-shadow:
       0 0 10px #FFD662,
       0 0 30px #FFD662,
-      0 0 80px #ffffff,
-      0 0 140px #ffffff;
+      0 0 80px #ffffff;
     opacity: 1;
   }
 
   100% {
     text-shadow:
-      0 0 6px #FFD662,
-      0 0 22px #FFD662,
-      0 0 60px #ffffff,
-      0 0 120px #ffffff;
+      0 0 4px #FFD662,
+      0 0 12px #FFD662,
+      0 0 30px #ffffff;
     opacity: 0.95;
   }
+}
+
+/* ===== TITLE BOX ===== */
+.title-box {
+  padding: 28px 42px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  display: inline-block;
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.35),
+    0 0 18px rgba(255, 214, 98, 0.25);
+
+  animation: neonBlaze 3.5s ease-out forwards;
 }
 
 /* ===== SITE TITLE ===== */
@@ -70,9 +82,15 @@ h1 {
   text-align: center;
 
   -webkit-text-stroke: 0.4px #FFD662;
+  margin: 0;
+}
 
-  animation: neonBlaze 4.2s infinite;
-  margin-bottom: 2em;
+/* ===== CONTENT ===== */
+.container {
+  max-width: 700px;
+  margin: 0 auto 120px;
+  padding: 0 20px;
+  text-align: center;
 }
 
 /* ===== HEADINGS ===== */
@@ -97,6 +115,11 @@ p {
 /* ===== MEDIA ===== */
 .media {
   margin: 40px 0;
+}
+
+iframe {
+  max-width: 100%;
+  border: none;
 }
 
 img {
