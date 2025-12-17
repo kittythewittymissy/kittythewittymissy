@@ -63,18 +63,19 @@ h1 {
   margin: 0;
 }
 
-/* ===== SCROLL ARROW (BIG DOTTED) ===== */
+/* ===== SCROLL ARROW (CODYSTAR DOWN ARROW) ===== */
 .scroll-arrow {
   margin-top: 20px;
   font-family: 'Codystar', sans-serif;
-  font-size: 4.5em;         /* match title size */
+  font-size: 4.5em;          /* match title size */
   color: #FFD662;
   text-align: center;
-  line-height: 0.8;         /* tight vertical spacing for dots */
   opacity: 0;
   text-shadow: 0 0 6px #FFD662, 0 0 16px rgba(255, 214, 98, 0.8);
 
-  animation: arrowFadeIn 2s ease forwards 3.5s, arrowPulse 2s ease-in-out infinite 6s;
+  animation:
+    arrowFadeIn 2s ease forwards 3.5s,
+    arrowPulse 2s ease-in-out infinite 6s;
 }
 
 /* Fade in */
