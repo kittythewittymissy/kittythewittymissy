@@ -66,16 +66,28 @@ h1 {
 /* ===== SCROLL ARROW (CODYSTAR DOWN ARROW) ===== */
 .scroll-arrow {
   margin-top: 20px;
-  font-family: 'Codystar', sans-serif;
-  font-size: 4.5em;          /* match title size */
-  color: #FFD662;
-  text-align: center;
+  width: 6px;                     /* arrow shaft width */
+  height: 80px;                   /* length of the dotted line */
+  border-left: 4px dotted #FFD662; /* dotted shaft */
+  position: relative;
   opacity: 0;
-  text-shadow: 0 0 6px #FFD662, 0 0 16px rgba(255, 214, 98, 0.8);
+  animation: arrowFadeIn 2s ease forwards 3.5s, arrowPulse 2s ease-in-out infinite 6s;
+  display: flex;
+  justify-content: center;
+}
 
-  animation:
-    arrowFadeIn 2s ease forwards 3.5s,
-    arrowPulse 2s ease-in-out infinite 6s;
+/* Arrowhead using :after */
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;                  /* place below shaft */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid #FFD662;
+  border-right: 4px solid #FFD662;
+  box-shadow: 0 0 6px #FFD662, 0 0 16px rgba(255, 214, 98, 0.8);
 }
 
 /* Fade in */
@@ -83,15 +95,15 @@ h1 {
   to { opacity: 1; }
 }
 
-/* Gentle neon pulse */
+/* Gentle pulse */
 @keyframes arrowPulse {
   0%, 100% {
-    text-shadow: 0 0 6px #FFD662, 0 0 16px rgba(255, 214, 98, 0.8);
+    opacity: 1;
     transform: translateY(0);
   }
   50% {
-    text-shadow: 0 0 10px #FFD662, 0 0 26px rgba(255, 214, 98, 0.9);
-    transform: translateY(8px);
+    opacity: 0.8;
+    transform: translateY(6px);
   }
 }
 
