@@ -1,54 +1,40 @@
-/* Body styling */
+/* Body */
 body {
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-color: #000; /* pitch black background */
+  background-color: #000;
   color: #eaeaea;
   line-height: 1.6;
 }
 
-/* Container for content */
+/* Container */
 .container {
   max-width: 700px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
-/* Animated neon glow for site title */
-@keyframes neonPulse {
-  0%, 100% {
-    text-shadow:
-      0 0 2px #fff,
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 20px #FFD700,
-      0 0 30px #FFD700;
-  }
-  50% {
-    text-shadow:
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 40px #FFD700,
-      0 0 60px #FFD700;
-  }
-}
-
-/* Site title */
+/* Site title with glow */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 4em;
-  color: #FFD700; /* golden letters */
+  color: #fff;
   text-align: center;
   margin-bottom: 1em;
 
-  animation: neonPulse 2.5s infinite alternate;
+  /* Glowing effect */
+  text-shadow:
+     0 0 5px #fff,
+     0 0 10px #fff,
+     0 0 20px #ff7eb9,
+     0 0 30px #ff7eb9,
+     0 0 40px #ff7eb9;
 }
 
 /* Subtitles */
 h2 {
-  font-family: 'Raleway Dots', sans-serif;
+  font-family: 'Raleway Dots', sans-serif; /* or clean sans-serif if you prefer */
   font-weight: 400;
   font-size: 2em;
   color: #fff;
