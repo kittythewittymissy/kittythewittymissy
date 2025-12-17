@@ -4,29 +4,27 @@
   <meta charset="UTF-8">
   <title>Kitty, the witty missy.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HERO / DEAD-CENTER GLOWING SIGN -->
+  <!-- HERO SECTION -->
   <div class="hero">
     <div class="title-box">
       <h1>Kitty, the witty missy.</h1>
     </div>
 
-    <!-- SIMPLE GLOWING V ARROW -->
+    <!-- SIMPLE THIN GLOWING V ARROW -->
     <div class="scroll-arrow">⌄</div>
   </div>
 
   <!-- COLUMNS SECTION -->
   <div class="section-columns" id="columns">
 
-    <!-- WRITING COLUMN -->
+    <!-- WRITING -->
     <div class="column">
       <h2>Writing</h2>
       <ul>
@@ -36,7 +34,7 @@
       </ul>
     </div>
 
-    <!-- VIDEO COLUMN -->
+    <!-- VIDEOS -->
     <div class="column">
       <h2>Videos</h2>
       <ul>
@@ -45,7 +43,7 @@
       </ul>
     </div>
 
-    <!-- COLLECTIONS COLUMN -->
+    <!-- COLLECTIONS -->
     <div class="column">
       <h2>Collections</h2>
       <ul>
@@ -56,11 +54,10 @@
 
   </div>
 
-  <!-- Smooth scroll JS -->
+  <!-- SMOOTH SCROLL JS -->
   <script>
     const arrow = document.querySelector('.scroll-arrow');
     const columns = document.getElementById('columns');
-
     arrow.addEventListener('click', () => {
       columns.scrollIntoView({ behavior: 'smooth' });
     });
