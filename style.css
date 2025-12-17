@@ -18,16 +18,16 @@ body {
 @keyframes neonFlicker {
   0% {
     text-shadow:
-      0 0 4px #FDDC5C,
-      0 0 10px #FDDC5C,
+      0 0 4px #FFD662,
+      0 0 10px #FFD662,
       0 0 20px #ffffff;
     opacity: 0.85;
   }
 
   20% {
     text-shadow:
-      0 0 6px #FDDC5C,
-      0 0 15px #FDDC5C,
+      0 0 6px #FFD662,
+      0 0 15px #FFD662,
       0 0 35px #ffffff,
       0 0 70px #ffffff;
     opacity: 1;
@@ -35,15 +35,15 @@ body {
 
   22% {
     text-shadow:
-      0 0 2px #FDDC5C,
+      0 0 2px #FFD662,
       0 0 5px #ffffff;
     opacity: 0.6;
   }
 
   30% {
     text-shadow:
-      0 0 8px #FDDC5C,
-      0 0 20px #FDDC5C,
+      0 0 8px #FFD662,
+      0 0 20px #FFD662,
       0 0 45px #ffffff,
       0 0 90px #ffffff;
     opacity: 1;
@@ -51,16 +51,16 @@ body {
 
   55% {
     text-shadow:
-      0 0 5px #FDDC5C,
-      0 0 12px #FDDC5C,
+      0 0 5px #FFD662,
+      0 0 12px #FFD662,
       0 0 25px #ffffff;
     opacity: 0.9;
   }
 
   70% {
     text-shadow:
-      0 0 12px #FDDC5C,
-      0 0 30px #FDDC5C,
+      0 0 12px #FFD662,
+      0 0 30px #FFD662,
       0 0 80px #ffffff,
       0 0 140px #ffffff;
     opacity: 1;
@@ -68,8 +68,8 @@ body {
 
   100% {
     text-shadow:
-      0 0 6px #FDDC5C,
-      0 0 15px #FDDC5C,
+      0 0 6px #FFD662,
+      0 0 15px #FFD662,
       0 0 35px #ffffff;
     opacity: 0.85;
   }
@@ -80,7 +80,7 @@ h1 {
   font-family: 'Raleway Dots', sans-serif;
   font-size: 4.2em;
   font-weight: 400;
-  color: #FDDC5C;
+  color: #FFD662;
 
   animation: neonFlicker 4.2s infinite;
   letter-spacing: 0.08em;
