@@ -69,49 +69,39 @@ h1 {
 @keyframes arrowFadeIn { to { opacity: 1; } }
 @keyframes arrowPulse { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
-/* ===== COLUMNS ===== */
-.section-columns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin: 60px 20px 120px;
-}
-
-.column {
-  flex: 1 1 250px;
-  max-width: 300px;
-  text-align: left;
-}
-
+/* Main heading (Languages) */
 .column h2 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
-  font-size: 1.8em;
+  font-size: 2em;
   letter-spacing: 0.1em;
-  color: #FFD662;
-  margin-bottom: 20px;
+  color: #fff; /* white */
+  text-shadow: 0 0 4px #FFD662, 0 0 12px #FFD662, 0 0 20px rgba(255,214,98,0.7); /* gold glow */
+  margin-bottom: 25px;
 }
 
-.column ul {
-  list-style: none;
-  padding: 0;
-}
-
-.column ul li {
+/* Subsections (Creating, Teaching, Images) */
+.column h3 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  letter-spacing: 0.1em;
+  color: #fff; /* white */
+  text-shadow: 0 0 3px #FFD662, 0 0 8px #FFD662, 0 0 15px rgba(255,214,98,0.6); /* smaller gold glow */
+  margin-top: 20px;
   margin-bottom: 12px;
 }
 
-.column ul li a {
-  text-decoration: none;
-  color: #eaeaea;
-  font-size: 1.1em;
-  transition: all 0.2s ease;
-}
-
-.column ul li a:hover {
-  color: #FFD662;
-  text-shadow: 0 0 6px #FFD662;
+/* Sub-subsections (Stills, Movies) */
+.column h4 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
+  letter-spacing: 0.08em;
+  color: #fff; /* white */
+  text-shadow: 0 0 2px #FFD662, 0 0 5px #FFD662, 0 0 10px rgba(255,214,98,0.5);
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 /* ===== RESPONSIVE ===== */
