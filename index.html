@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Kitty, the witty missy.</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Google Fonts -->
@@ -12,7 +11,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- HERO / DEAD-CENTER GLOWING SIGN -->
@@ -21,12 +19,12 @@
       <h1>Kitty, the witty missy.</h1>
     </div>
 
- <!-- SIMPLE GLOWING V ARROW -->
-  <div class="scroll-arrow">⌄</div>
-</div>
+    <!-- SIMPLE GLOWING V ARROW -->
+    <div class="scroll-arrow">⌄</div>
+  </div>
 
   <!-- COLUMNS SECTION -->
-  <div class="section-columns">
+  <div class="section-columns" id="columns">
 
     <!-- WRITING COLUMN -->
     <div class="column">
@@ -57,6 +55,16 @@
     </div>
 
   </div>
+
+  <!-- Smooth scroll JS -->
+  <script>
+    const arrow = document.querySelector('.scroll-arrow');
+    const columns = document.getElementById('columns');
+
+    arrow.addEventListener('click', () => {
+      columns.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
