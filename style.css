@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Didot', serif;
+  font-family: 'Cormorant Garamond', serif;
   background-color: #000;
   color: #eaeaea;
   line-height: 1.6;
@@ -13,17 +13,34 @@ body {
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400;
+  font-size: 4em;
+  color: #fff;
+  text-align: center;
+  text-shadow:
+     0 0 5px #fff,
+     0 0 10px #fff,
+     0 0 20px #ff7eb9,
+     0 0 30px #ff7eb9,
+     0 0 40px #ff7eb9;
+  margin-bottom: 1em;
 }
 
 h2 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400;
   font-size: 2em;
+  color: #fff;
+  text-shadow:
+     0 0 3px #fff,
+     0 0 6px #ff7eb9;
   margin-top: 2em;
 }
 
 p {
   font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
 .media {
@@ -35,3 +52,4 @@ img {
   display: block;
   margin: 20px 0;
 }
+
