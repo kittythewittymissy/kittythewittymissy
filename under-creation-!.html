@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     html, body {
       margin: 0;
-      height: 100%;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-height: 100%;
       background: #000;
       text-align: center;
       padding: 20px;
       box-sizing: border-box;
+      overflow-y: auto; /* ensures text is never clipped */
+      display: flex;
+      justify-content: flex-start; /* prevents vertical centering from pushing text off-screen */
+      align-items: flex-start;
     }
 
     .placeholder-container {
@@ -29,13 +30,14 @@
       gap: 2rem;
       max-width: 90vw;
       word-break: break-word;
+      padding-top: 5vh; /* spacing from top of viewport */
     }
 
     /* ⚠ Warning sign: Big and Central */
     .warning-sign {
       font-family: 'Codystar', sans-serif;
-      font-size: min(18vw, 40vh); /* ensures triangle is huge but never taller than viewport */
-      max-font-size: 250px; /* optional cap for ultra-wide screens */
+      font-size: min(18vw, 40vh); /* huge but never taller than viewport */
+      max-font-size: 250px;
       color: #FFD662;
       text-shadow:
         0 0 12px #FFD662,
@@ -52,9 +54,9 @@
     }
 
     /* “UNDER CREATION” text */
-    .under-creation {
+    .under-construction {
       font-family: 'Poppins', sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 5vw;
       max-font-size: 40px;
       color: #fff;
@@ -73,7 +75,7 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .warning-sign { font-size: 35vw; max-font-size: 300px; }
+      .warning-sign { font-size: min(35vw, 40vh); max-font-size: 300px; }
       .under-construction { font-size: 8vw; max-font-size: 32px; }
     }
   </style>
