@@ -12,15 +12,15 @@
     html, body {
       margin: 0;
       width: 100%;
-      min-height: 100%;
+      height: 100%;
       background: #000;
       text-align: center;
+      display: flex;
+      justify-content: center; /* horizontal center */
+      align-items: center;     /* vertical center */
       padding: 20px;
       box-sizing: border-box;
-      overflow-y: auto; /* ensures text is never clipped */
-      display: flex;
-      justify-content: flex-start; /* prevents vertical centering from pushing text off-screen */
-      align-items: flex-start;
+      overflow: hidden; /* keep everything centered without scroll */
     }
 
     .placeholder-container {
@@ -30,14 +30,13 @@
       gap: 2rem;
       max-width: 90vw;
       word-break: break-word;
-      padding-top: 5vh; /* spacing from top of viewport */
     }
 
     /* ⚠ Warning sign: Big and Central */
     .warning-sign {
       font-family: 'Codystar', sans-serif;
       font-size: min(18vw, 40vh); /* huge but never taller than viewport */
-      max-font-size: 250px;
+      max-font-size: 250px; 
       color: #FFD662;
       text-shadow:
         0 0 12px #FFD662,
@@ -56,8 +55,8 @@
     /* “UNDER CREATION” text */
     .under-construction {
       font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 5vw;
+      font-weight: 600;
+      font-size: 4vw;
       max-font-size: 40px;
       color: #fff;
       text-shadow:
@@ -75,7 +74,7 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .warning-sign { font-size: min(35vw, 40vh); max-font-size: 300px; }
+      .warning-sign { font-size: min(35vw, 40vh); max-font-size: 200px; }
       .under-construction { font-size: 8vw; max-font-size: 32px; }
     }
   </style>
