@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Under Creation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Placeholder-specific styles -->
+  <style>
+    /* Full-screen centered container */
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      text-align: center;
+    }
+
+    .placeholder-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* ⚠ Warning sign: menacing flashing */
+    .warning-sign {
+      font-family: 'Codystar', sans-serif;
+      font-size: 8rem;
+      color: #FFD662;
+      text-shadow:
+        0 0 6px #FFD662,
+        0 0 18px #FFD662,
+        0 0 36px rgba(255,214,98,0.8),
+        0 0 60px rgba(255,214,98,0.6);
+      animation: warningFlash 1.2s infinite;
+    }
+
+    @keyframes warningFlash {
+      0%, 30%, 60%, 100% { opacity: 1; }   /* fully visible */
+      15%, 45%, 75% { opacity: 0; }        /* off */
+    }
+
+    /* “UNDER CREATION” text: realistic neon pulse */
+    .under-construction {
+      font-family: 'Raleway Dots', sans-serif;
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow:
+        0 0 4px #fff,
+        0 0 10px #fff,
+        0 0 20px rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      animation: neonPulse 2s infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      0% { opacity: 0.7; text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 20px rgba(255,255,255,0.7); }
+      100% { opacity: 1; text-shadow: 0 0 8px #fff, 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.9); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .warning-sign { font-size: 6rem; }
+      .under-construction { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="placeholder-container">
+    <div class="warning-sign">⚠</div>
+    <div class="under-construction">UNDER CREATION</div>
+  </div>
+</body>
+</html>
