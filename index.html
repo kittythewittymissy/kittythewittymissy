@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -20,40 +20,47 @@
     </div>
 
     <!-- SIMPLE THIN GLOWING V ARROW -->
-    <div class="scroll-arrow">⌄</div>
+    <div class="scroll-arrow" onclick="document.getElementById('columns').scrollIntoView({ behavior: 'smooth' });">⌄</div>
   </div>
 
-<!-- COLUMNS SECTION -->
-<div class="section-columns" id="columns">
+  <!-- COLUMNS SECTION -->
+  <div class="section-columns" id="columns">
 
-  <!-- LANGUAGES COLUMN -->
-  <div class="column">
-    <h2 class="main-column-heading">Languages</h2>
+    <!-- LANGUAGES COLUMN -->
+    <div class="column">
+      <h2 class="main-column-heading">Languages</h2>
 
-    <h3>Thinking</h3>
-    <ul>
-      <li><a href="thinking/cainguoi.html">Cai Người</a></li>
-    </ul>
+      <h3>Thinking</h3>
+      <ul>
+        <li><a href="thinking/cainguoi.html">Cai Người</a></li>
+        <li><a href="under-creation-!.html">Future Writing</a></li>
+      </ul>
 
-    <h3>Teaching</h3>
-    <ul>
-      <li><a href="teaching/lesson.html">Lesson</a></li>
-    </ul>
+      <h3>Teaching</h3>
+      <ul>
+        <li><a href="under-creation-!.html">Lesson</a></li>
+        <li><a href="under-creation-!.html">Upcoming Lesson</a></li>
+      </ul>
+    </div>
+
+    <!-- IMAGES COLUMN -->
+    <div class="column">
+      <h2 class="main-column-heading">Images</h2>
+
+      <h3>Stills</h3>
+      <ul>
+        <li><a href="under-creation-!.html">Still</a></li>
+        <li><a href="under-creation-!.html">More Images</a></li>
+      </ul>
+
+      <h3>Movies</h3>
+      <ul>
+        <li><a href="under-creation-!.html">Video</a></li>
+        <li><a href="under-creation-!.html">Upcoming Video</a></li>
+      </ul>
+    </div>
+
   </div>
 
-  <!-- IMAGES COLUMN -->
-  <div class="column">
-    <h2 class="main-column-heading">Images</h2>
-
-    <h3>Stills</h3>
-    <ul>
-      <li><a href="images/still.jpg">Still</a></li>
-    </ul>
-
-    <h3>Movies</h3>
-    <ul>
-      <li><a href="videos/video.html">Video</a></li>
-    </ul>
-  </div>
-
-</div>
+</body>
+</html>
