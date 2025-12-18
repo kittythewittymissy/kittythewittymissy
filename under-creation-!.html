@@ -8,58 +8,62 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Main site CSS -->
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Placeholder-specific styles -->
+
   <style>
-    /* Full-screen centered container */
-    body, html {
-      height: 100%;
+    html, body {
       margin: 0;
+      height: 100%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       background: #000;
       text-align: center;
+      padding: 20px; /* safe spacing for mobile */
+      box-sizing: border-box;
     }
 
     .placeholder-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
+      max-width: 90vw; /* responsive width */
+      word-break: break-word;
     }
 
-    /* ⚠ Warning sign: menacing flashing */
+    /* ⚠ Warning sign: massive and deliberate flashing */
     .warning-sign {
       font-family: 'Codystar', sans-serif;
-      font-size: 8rem;
+      font-size: 12vw; /* relative to screen width */
+      max-font-size: 160px; /* cap on very wide screens */
       color: #FFD662;
       text-shadow:
         0 0 6px #FFD662,
         0 0 18px #FFD662,
         0 0 36px rgba(255,214,98,0.8),
         0 0 60px rgba(255,214,98,0.6);
-      animation: warningFlash 1.2s infinite;
+      animation: warningFlash 2s infinite; /* slower, deliberate */
     }
 
     @keyframes warningFlash {
-      0%, 30%, 60%, 100% { opacity: 1; }   /* fully visible */
-      15%, 45%, 75% { opacity: 0; }        /* off */
+      0%, 40%, 80%, 100% { opacity: 1; }
+      20%, 60% { opacity: 0; }
     }
 
-    /* “UNDER CREATION” text: realistic neon pulse */
+    /* “UNDER CREATION” text: slower neon pulse */
     .under-construction {
       font-family: 'Raleway Dots', sans-serif;
-      font-size: 2.5rem;
+      font-size: 4vw;
+      max-font-size: 36px;
       color: #fff;
       text-shadow:
         0 0 4px #fff,
         0 0 10px #fff,
         0 0 20px rgba(255,255,255,0.7);
       letter-spacing: 0.1em;
-      animation: neonPulse 2s infinite alternate;
+      animation: neonPulse 3s infinite alternate; /* slower and deliberate */
     }
 
     @keyframes neonPulse {
@@ -69,8 +73,8 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .warning-sign { font-size: 6rem; }
-      .under-construction { font-size: 2rem; }
+      .warning-sign { font-size: 20vw; max-font-size: 120px; }
+      .under-construction { font-size: 6vw; max-font-size: 28px; }
     }
   </style>
 </head>
