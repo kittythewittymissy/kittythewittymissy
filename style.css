@@ -180,8 +180,10 @@ h1 {
   text-align: center;
   padding: 20px;
   position: relative;
-  /* remove border-right, use pseudo-element for glow only */
-  box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
+
+  /* REMOVE hard border-right */
+  border-right: none;
+  box-shadow: none; /* remove old box shadow that created line */
 }
 
 /* Writing title glow */
@@ -198,7 +200,6 @@ h1 {
   margin: 0;
   line-height: 1.2;
 
-  /* Flicker animation */
   animation: neonFlicker 2.5s infinite alternate;
 }
 
@@ -235,18 +236,17 @@ h1 {
   .writing-title-column {
     width: 100%;
     border-right: none;
-    border-bottom: 2px solid #fff; /* glowing horizontal line */
-    box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
+    border-bottom: 2px solid #fff; /* glowing horizontal line on mobile */
   }
 }
 
-/* Glowing vertical line — FINAL FIX */
+/* Glowing vertical line (pseudo-element only) */
 .writing-title-column::after {
   content: '';
   position: absolute;
-  top: 0;          /* start at very top of column */
-  bottom: 0;       /* go to bottom */
-  right: 0;        /* stick to right side */
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 3px;
   background: #fff;
   border-radius: 2px;
@@ -258,7 +258,6 @@ h1 {
     0 0 6px rgba(255,255,255,0.5),
     0 0 14px rgba(255,255,255,0.35);
 
-  /* subtle pulse */
   animation: glowPulse 2.8s infinite alternate ease-in-out;
 }
 
