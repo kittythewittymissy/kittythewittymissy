@@ -49,18 +49,39 @@
 
       <h3>Stills</h3>
       <ul>
-        <li><a href="under-creation-!.html">Still</a></li>
+        <li><a href="images/still.jpg">Still</a></li>
         <li><a href="under-creation-!.html">More Images</a></li>
       </ul>
 
       <h3>Movies</h3>
       <ul>
-        <li><a href="under-creation-!.html">Video</a></li>
+        <li><a href="videos/video.html">Video</a></li>
         <li><a href="under-creation-!.html">Upcoming Video</a></li>
       </ul>
     </div>
 
   </div>
+
+  <!-- Automatic placeholder redirection -->
+  <script>
+    // List all real pages
+    const realPages = [
+      'thinking/cainguoi.html'
+    ];
+
+    // Intercept all link clicks
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+
+        // If the link is not a real page, redirect to placeholder
+        if (!realPages.includes(href)) {
+          e.preventDefault();
+          window.location.href = 'under-creation-!.html';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
