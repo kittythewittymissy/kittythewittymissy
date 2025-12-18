@@ -179,9 +179,10 @@ h1 {
   text-align: center;
   padding: 20px;
 
-  /* Glowing neon line */
-  border-right: 2px solid #fff; /* strong white */
-  box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
+  /* Remove static border-right to avoid double line */
+  /* border-right: 2px solid #fff; */
+  box-shadow: 0 0 4px rgba(255,255,255,0.2);
+  position: relative; /* needed for ::after positioning */
 }
 
 /* Writing title glow */
@@ -244,20 +245,20 @@ h1 {
 .writing-title-column::after {
   content: '';
   position: absolute;
-  top: 10%;
-  bottom: 10%;
+  top: 0;           /* full height */
+  bottom: 0;
   right: 0;
   width: 3px;
   background: #fff;
   border-radius: 2px;
 
-  /* Gentler glow that doesn’t overpower the black background */
+  /* Gentle glow */
   box-shadow:
     0 0 1px rgba(255,255,255,0.6),
     0 0 4px rgba(255,255,255,0.4),
     0 0 10px rgba(255,255,255,0.3);
 
-  /* Slow, subtle pulse */
+  /* Soft pulse */
   animation: glowPulse 2.8s infinite alternate ease-in-out;
 }
 
