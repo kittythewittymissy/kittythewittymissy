@@ -176,6 +176,24 @@
     .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
+    /* ===== TIMELINE FIXES FOR THIS PAGE ONLY ===== */
+
+    /* Remove underline on titles */
+
+    .timeline-title {
+      text-decoration: none !important;
+    }
+
+    /* Adjust dotted connector spacing (+8px drop) */
+    .timeline-item:not(:last-child)::after {
+      top: calc(22px / 2 + 8px); 
+    }
+
+    /* Move timeline toggle above audio button */
+    .timeline-toggle {
+      bottom: 8rem !important; 
+    }
+
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
