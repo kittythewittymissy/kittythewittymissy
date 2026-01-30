@@ -184,14 +184,22 @@
       text-decoration: none !important;
     }
 
-    /* Adjust dotted connector spacing */
-    .timeline-item:not(:last-child)::after {
-      top: 50%;   
-      transform: translateY(0); 
-      height: 64px;       
+    .timeline-item {
+      position: relative;   
+      overflow: visible;
+    }
+
+   .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;                     /* start at center of current dot */
+      transform: translateX(-50%);
+      height: calc(100% + 12px);    /* extend past bottom to reach next dot */
+      width: 2px;
       background-image: radial-gradient(circle, var(--gold-core) 1px, transparent 1.6px);
       background-size: 2px 10px;
-    }
+      }
 
     /* Move timeline toggle above audio button */
     .timeline-toggle {
