@@ -186,9 +186,11 @@
 
     /* Adjust dotted connector spacing */
     .timeline-item:not(:last-child)::after {
-      top: 50%; /* center relative to the dot */
-      transform: translateY(50%); /* shift down half of the line height */
-      height: calc(100% - 22px); 
+      top: 50%;   
+      transform: translateY(0); 
+      height: 64px;       
+      background-image: radial-gradient(circle, var(--gold-core) 1px, transparent 1.6px);
+      background-size: 2px 10px;
     }
 
     /* Move timeline toggle above audio button */
