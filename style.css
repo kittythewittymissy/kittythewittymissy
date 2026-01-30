@@ -199,7 +199,6 @@ h3 {
 
 /* ===================== TIMELINE STYLES ===================== */
 
-
 /* TIMELINE TOGGLE BUTTON — above audio button */
 .timeline-toggle {
   position: fixed;
@@ -216,28 +215,26 @@ h3 {
   cursor: pointer;
   animation: floatVertical 6s ease-in-out infinite alternate;
   z-index: 400;
-  }  
-
+}  
 
 /* TIMELINE OVERLAY */
 .timeline-overlay {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.92);
-display: flex;
-align-items: center;
-justify-content: flex-start;
-padding-left: 6rem;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.3s ease;
-z-index: 300;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 300;
 }
 .timeline-overlay.active {
-opacity: 1;
-pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
-
 
 /* CLOSE BUTTON */
 .timeline-close {
@@ -252,8 +249,7 @@ pointer-events: auto;
   color: #fff;
   font-size: 1.3rem;
   cursor: pointer;
-  }
-
+}
 
 /* LIST */
 .timeline-list {
@@ -261,8 +257,7 @@ pointer-events: auto;
   flex-direction: column;
   gap: 3.8rem;
   padding: 2rem 0;
-  }
-
+}
 
 /* ITEM */
 .timeline-item {
@@ -270,7 +265,7 @@ pointer-events: auto;
   align-items: center;
   gap: 2.4rem;
   position: relative;
-  }
+}
 
 /* BIG DOT */
 .timeline-dot {
@@ -279,64 +274,61 @@ pointer-events: auto;
   border-radius: 50%;
   background: var(--gold-core);
   box-shadow:
-  0 0 6px var(--gold-core),
-  0 0 16px var(--gold-core),
-  0 0 36px var(--gold-bloom);
+    0 0 6px var(--gold-core),
+    0 0 16px var(--gold-core),
+    0 0 36px var(--gold-bloom);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  }
+}
 
-/* CONNECTOR DOTTED LINE — +8px drop, glowing */
+/* CONNECTOR DOTTED LINE — +8px drop, glowing, centered between dots */
 .timeline-item:not(:last-child)::after {
   content: "";
   position: absolute;
   left: 10px;
-  top: 41px; 
+  top: 49px; /* moved down +8px for even spacing */
   width: 2px;
-  height: 56px;
+  height: 56px; 
   background-image: radial-gradient(
-  circle,
-  var(--gold-core) 1px,
-  transparent 1.6px
+    circle,
+    var(--gold-core) 1px,
+    transparent 1.6px
   );
   background-size: 2px 10px;
   filter:
-  drop-shadow(0 0 4px var(--gold-core))
-  drop-shadow(0 0 10px var(--gold-bloom));
-  }
-
+    drop-shadow(0 0 4px var(--gold-core))
+    drop-shadow(0 0 10px var(--gold-bloom));
+}
 
 /* TITLES — base glow */
 .timeline-title {
   font-size: var(--font-subhead); 
   color: #fff;
   white-space: nowrap;
+  text-decoration: none; /* remove underline */
   text-shadow:
-  0 0 6px #fff,
-  0 0 14px rgba(255,255,255,0.55),
-  0 0 22px rgba(255,255,255,0.25);
-  }
-
+    0 0 6px #fff,
+    0 0 14px rgba(255,255,255,0.55),
+    0 0 22px rgba(255,255,255,0.25);
+}
 
 /* Vietnamese titles */
 .timeline-title:lang(vi) {
   font-family: Raleway, sans-serif;
   font-weight: 100;
-  }
+}
 
-
-/* English titles — Raleway Dots, slightly bigger + stroke + ::after for glow */
+/* English titles — Raleway Dots, slightly bigger + stroke + glow layer */
 .timeline-title:lang(en) {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: calc(var(--font-subhead) * 1.1);
   position: relative;
   -webkit-text-stroke: 0.5px rgba(255,255,255,0.9);
-  }
+}
 
-
-/* duplicate layer for optical glow */
+/* duplicate layer for optical glow (English) */
 .timeline-title:lang(en)::after {
   content: attr(data-text);
   position: absolute;
@@ -346,12 +338,37 @@ pointer-events: auto;
   filter: blur(1.5px);
   pointer-events: none;
   z-index: -1;
-  }
+}
 
-/* Hover */
+/* Hover glow for all titles */
 .timeline-item:hover .timeline-title {
   color: var(--gold-core);
+  text-shadow:
+    0 0 6px var(--gold-core),
+    0 0 14px var(--gold-bloom),
+    0 0 22px rgba(255,214,98,0.45);
+}
+
+/* MOBILE OVERRIDES */
+@media(max-width:768px){
+  .timeline-overlay {
+    justify-content: center;
+    padding-left: 0;
+    overflow-y: auto;
   }
+  .timeline-toggle {
+    bottom: 5rem; /* above smaller mobile audio button */
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+  }
+  .timeline-item {
+    flex-direction: row; /* vertical scrolling handled by overlay */
+  }
+  .timeline-title {
+    font-size: 1.6em; /* mobile subtitle size */
+  }
+}
 
 /* ===== BACK-TO-KITTY BUTTON ===== */
 .back-button 
