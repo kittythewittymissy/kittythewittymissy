@@ -179,18 +179,28 @@
     /* ===== TIMELINE FIXES ===== */
 
     .timeline-title { text-decoration: none !important; }
-    .timeline-item { position: relative; }
-    .timeline-dot { position: relative; }
-    .timeline-dot::after {  
+    .timeline-item { position: relative; padding-left: 2rem; }
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1rem;
+      height: 1rem;
+      background: var(--gold-core);
+      border-radius: 50%;
+    }
+
+    .timeline-dot::after {
       content: '';
       position: absolute;
-      top: 100%;        /* start right below the dot */
+      top: 1.25rem;   
       left: 50%;
       transform: translateX(-50%);
       width: 2px;
-      height: 100%;     /* extend to next dot */
+      height: calc(100% - 1.25rem);
       background-image: radial-gradient(circle, var(--gold-core) 1px, transparent 1.6px);
-      background-size: 2px 10px; }
+      background-size: 2px 10px;
+    }
  
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
