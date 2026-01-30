@@ -176,36 +176,22 @@
     .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
-    /* ===== TIMELINE FIXES FOR THIS PAGE ONLY ===== */
+    /* ===== TIMELINE FIXES ===== */
 
-    /* Remove underline on titles */
-
-    .timeline-title {
-      text-decoration: none !important;
-    }
-
-    .timeline-item {
-      position: relative;   
-      overflow: visible;
-    }
-
-   .timeline-item:not(:last-child)::after {
+    .timeline-title { text-decoration: none !important; }
+    .timeline-item { position: relative; }
+    .timeline-dot { position: relative; }
+    .timeline-dot::after {  
       content: '';
       position: absolute;
+      top: 100%;        /* start right below the dot */
       left: 50%;
-      top: 50%;                     /* start at center of current dot */
       transform: translateX(-50%);
-      height: calc(100% + 12px);    /* extend past bottom to reach next dot */
       width: 2px;
+      height: 100%;     /* extend to next dot */
       background-image: radial-gradient(circle, var(--gold-core) 1px, transparent 1.6px);
-      background-size: 2px 10px;
-      }
-
-    /* Move timeline toggle above audio button */
-    .timeline-toggle {
-      bottom: 10rem !important; 
-    }
-
+      background-size: 2px 10px; }
+ 
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
