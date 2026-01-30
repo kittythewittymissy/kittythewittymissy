@@ -184,14 +184,16 @@
       text-decoration: none !important;
     }
 
-    /* Adjust dotted connector spacing (+8px drop) */
+    /* Adjust dotted connector spacing */
     .timeline-item:not(:last-child)::after {
-      top: calc(22px / 2 + 8px); 
+      top: 50%; /* center relative to the dot */
+      transform: translateY(50%); /* shift down half of the line height */
+      height: calc(100% - 22px); 
     }
 
     /* Move timeline toggle above audio button */
     .timeline-toggle {
-      bottom: 8rem !important; 
+      bottom: 10rem !important; 
     }
 
     /* MOBILE RESPONSIVE */
