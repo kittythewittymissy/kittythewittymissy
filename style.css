@@ -198,71 +198,22 @@ h3 {
 }
 
 /* ===================== TIMELINE STYLES ===================== */
-
-/* TIMELINE TOGGLE BUTTON — above audio button */
-.timeline-toggle {
-  position: fixed;
-  bottom: 7.25rem; 
-  right: 3.25rem;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px dotted var(--gold-core);
-  box-shadow:
-    0 0 10px var(--gold-core),
-    0 0 24px var(--gold-bloom);
-  cursor: pointer;
-  animation: floatVertical 6s ease-in-out infinite alternate;
-  z-index: 400;
-}  
-
-/* TIMELINE OVERLAY */
-.timeline-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.92);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 6rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 300;
-}
-.timeline-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* CLOSE BUTTON */
-.timeline-close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  border: none;
-  color: #fff;
-  font-size: 1.3rem;
-  cursor: pointer;
+:root {
+  --timeline-gap: 3.8rem;
 }
 
 /* LIST */
 .timeline-list {
   display: flex;
   flex-direction: column;
-  gap: 3.8rem;
+  gap: var(--timeline-gap);
   padding: 2rem 0;
 }
 
 /* ITEM */
 .timeline-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2.4rem;
   position: relative;
 }
@@ -277,19 +228,19 @@ h3 {
     0 0 6px var(--gold-core),
     0 0 16px var(--gold-core),
     0 0 36px var(--gold-bloom);
-  flex-shrink: 0;
   position: relative;
-  z-index: 2;
+  flex-shrink: 0;
 }
 
-/* CONNECTOR DOTTED LINE — +8px drop, glowing, centered between dots */
-.timeline-item:not(:last-child)::after {
+/* DOTTED CONNECTOR — PERFECTLY CENTERED */
+.timeline-dot::after {
   content: "";
   position: absolute;
-  left: 10px;
-  top: 49px; /* moved down +8px for even spacing */
+  left: 50%;
+  top: calc(100% + 6px);          /* small gap under dot */
+  transform: translateX(-50%);
   width: 2px;
-  height: 56px; 
+  height: calc(var(--timeline-gap) - 6px);
   background-image: radial-gradient(
     circle,
     var(--gold-core) 1px,
@@ -301,52 +252,9 @@ h3 {
     drop-shadow(0 0 10px var(--gold-bloom));
 }
 
-/* TITLES — base glow */
-.timeline-title {
-  font-size: var(--font-subhead); 
-  color: #fff;
-  white-space: nowrap;
-  text-decoration: none; /* remove underline */
-  text-shadow:
-    0 0 6px #fff,
-    0 0 14px rgba(255,255,255,0.55),
-    0 0 22px rgba(255,255,255,0.25);
-}
-
-/* Vietnamese titles */
-.timeline-title:lang(vi) {
-  font-family: Raleway, sans-serif;
-  font-weight: 100;
-}
-
-/* English titles — Raleway Dots, slightly bigger + stroke + glow layer */
-.timeline-title:lang(en) {
-  font-family: 'Raleway Dots', sans-serif;
-  font-weight: 400;
-  font-size: calc(var(--font-subhead) * 1.1);
-  position: relative;
-  -webkit-text-stroke: 0.5px rgba(255,255,255,0.9);
-}
-
-/* duplicate layer for optical glow (English) */
-.timeline-title:lang(en)::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  color: #fff;
-  opacity: 0.7;
-  filter: blur(1.5px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Hover glow for all titles */
-.timeline-item:hover .timeline-title {
-  color: var(--gold-core);
-  text-shadow:
-    0 0 6px var(--gold-core),
-    0 0 14px var(--gold-bloom),
-    0 0 22px rgba(255,214,98,0.45);
+/* NO LINE AFTER LAST DOT */
+.timeline-item:last-child .timeline-dot::after {
+  display: none;
 }
 
 /* MOBILE OVERRIDES */
