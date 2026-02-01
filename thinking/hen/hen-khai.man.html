@@ -19,195 +19,51 @@
       --gold-core: #FFD662;
     }
 
-    /* WORK TITLE */
-   .work-title { 
-      position: relative;
-      top: auto;
-      padding: 2rem 5rem;
-    }
-
-    .work-title h1 {
-      font-family: 'Raleway Dots', sans-serif;
-      font-size: 4rem;
-      letter-spacing: 0.16em;
-      font-weight: 400;
-      color: #222;
-      text-shadow:
-        0 0 1px var(--gold-core),
-        0 0 2px var(--gold-core),
-        0 0 4px var(--gold-core);
-      -webkit-text-stroke: .4px var(--gold-core);
-      opacity: 0;
-      animation: neonSign-Gold 1.2s ease forwards;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes neonSign-Gold {
-      0%   { opacity: 0; color: #222; text-shadow: none; }
-      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
-      16%  { opacity: 0; color: #222; text-shadow: none; }
-      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
-      33%  { opacity: 0.4; color: #222; text-shadow: none; }
-      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
-      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
-      83%  { opacity: 0.6; color: #222; text-shadow: none; }
-      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
-      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
-    }
-    
-    /* SUBHEADING */
-    .subtitle-container {
-      display: inline-flex;
-      margin-left: 5rem;
-      padding: 0 2rem;
-      position: sticky;
-      top: 4.5rem;         
-      z-index: 10;    
-    }
-    
-     .subtitle-container h2.column-subheading.animated-subtitle {
-      font-family: 'Raleway', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 100;
-      text-shadow:
-        0 0 2px #fff,
-        0 0 5px rgba(255,255,255,0.6),
-        0 0 9px rgba(255,255,255,0.4);
-      opacity: 0;
-      animation: neonSign-White 1.2s ease forwards;
-      animation-delay:1.2s;
-      max-width: 15.5ch;   
-      line-height: 1.4; 
-      word-wrap: break-word;
-      text-align: left;
-      margin: 0.3em 0 0 0;
-    }  
-
-    @keyframes neonSign-White {
-      0%   { opacity: 0; color: #222; text-shadow: none; }
-      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
-      16%  { opacity: 0; color: #222; text-shadow: none; }
-      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
-      33%  { opacity: 0.4; color: #222; text-shadow: none; }
-      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
-      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
-      83%  { opacity: 0.6; color: #222; text-shadow: none; }
-      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
-      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
-    }
-
-    /* BODY PARAGRAPHS */
-    .floating-paragraph {
-      opacity: 0;
-      max-width: 40%;
-      margin: 0 auto 1.5rem;
-      font-size: 1.5rem;
-      font-family: 'Raleway', sans-serif;
-      font-weight: 200;
-      line-height: 1.6;
-      text-align: left;
-      animation: bodyFade var(--anim-speed-body) ease forwards;
-    }
-
-    @keyframes bodyFade {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
-    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
-
-    /* SERIES BACKGROUND */
-    .series-background {
-      display: block;
+    .timeline-overlay {
       position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Raleway Dots', cursive;
-      font-size: 25rem;
-      color: var(--gold-core);
-      opacity: .09;
-      pointer-events: none;
-      z-index: 1;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* NEXT PART ICON */
-    .next-part {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Codystar', sans-serif;
-      font-size: 4rem;
-      color: inherit;
-      text-align: center;
+    .timeline-overlay.active {
+      display: flex;
+    }
+
+    .timeline-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
       cursor: pointer;
+    }
+
+    .timeline-toggle {
+      position: fixed;
+      bottom: 7.5rem;
+      right: 3.25rem;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      text-shadow: var(--glow-white);
       z-index: 350;
     }
 
-    .work-content { padding-top: 5rem; }
-
-    /* SPOTIFY POPUP */
-    .spotify-popup 
-    { display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      padding: 1.2rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255,214,98,0.22);
-      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
-
-    .spotify-popup iframe 
-    { border-radius: 10px;
-      width: 100%;
-      height: 352px;
-      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
-
-
-
-    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
-                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
-
-    /* ===== TIMELINE FIXES ===== */
-
-    .timeline-title { text-decoration: none !important; }
- 
-    /* MOBILE RESPONSIVE */
-    @media(max-width:768px) {
-      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
-      .series-background { font-size: 12rem; display: block; }
-      .audio-button { right: 1rem; }
-      .work-title { position: static; 
-                   padding: 4rem 1.5rem 2rem 1.5rem; 
-                   font-size: 2.8rem; 
-                   line-height: 1.2; 
-                  }
-      .subtitle-container { position: static; margin: 0 auto; 
-                             padding: 0 6.25rem; width: 100%; 
-                             text-align: center; }
-      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
-                                                            max-width: 90%; 
-                                                            position: static; }
-      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
-                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
-      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
-      .next-part { position: relative; display: block; left: auto; 
-                    top: auto; bottom: auto; margin: 2rem auto 0; 
-                    transform: none; font-size: 2.5rem; z-index: 10; }
-      .next-part:hover { transform: translateY(2px); }
-      .work-content { padding-top: 3rem; }
+    .timeline-dot::after {
+      height: 100%;
     }
-
-      html, body { overflow-x: hidden; touch-action: pan-y; }
-
   </style>
 </head>
 
@@ -221,6 +77,9 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
+  <!-- TIMELINE TOGGLE -->
+  <button class="timeline-toggle">☰</button>
+
   <div class="main-row">
     <div class="work-title">
       <h1>Hèn</h1>
@@ -230,7 +89,7 @@
       <h2 class="column-subheading animated-subtitle">
         Khai màn
       </h2>
-  </div>
+    </div>
 
     <div class="work-content">
       <div class="text-section">
@@ -264,65 +123,62 @@
     </iframe>
   </div>
 
-  <!-- TIMELINE TOGGLE BUTTON -->
+  <!-- TIMELINE OVERLAY -->
   <div class="timeline-overlay" id="timeline">
-  <button class="timeline-close">✕</button>
+    <button class="timeline-close">✕</button>
 
-  <div class="timeline-list">
+    <div class="timeline-list">
+      <div class="timeline-item">
+        <span class="timeline-dot"></span>
+        <a href="hen-khai.man.html" class="timeline-title" lang="vi">Khai màn</a>
+      </div>
 
-    <div class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div class="timeline-line"></div>
-      <a href="hen-khai.man.html" class="timeline-title" lang="vi">Khai màn</a>
+      <div class="timeline-item">
+        <span class="timeline-dot"></span>
+        <a href="hen-va.chan.html" class="timeline-title" lang="vi">và, Chán...</a>
+      </div>
     </div>
-
-    <div class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div class="timeline-line"></div>
-      <a href="hen-va.chan.html" class="timeline-title" lang="vi">và, Chán...</a>
-    </div>
-    
-  </div>
   </div>
 
-  <!-- UI INTERACTION (modal + transition) -->
   <script>
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
 
-      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
-      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
-      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
     const arrows = document.querySelectorAll('.next-part');
-      arrows.forEach(arrow => {
+    arrows.forEach(arrow => {
       arrow.addEventListener('click', () => {
-      document.body.style.transition = 'opacity 1s';
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = arrow.dataset.target;
-      }, 1000);
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = arrow.dataset.target;
+        }, 1000);
+      });
     });
-  });
-    
+
     const timelineToggle = document.querySelector('.timeline-toggle');
     const timelineOverlay = document.getElementById('timeline');
     const timelineClose = document.querySelector('.timeline-close');
-    timelineToggle.addEventListener('click', () => {
-      timelineOverlay.classList.add('active'); 
-    });
-    timelineClose.addEventListener('click', () => {
-      timelineOverlay.classList.remove('active');
-    });
-    
-    // clicking a timeline link closes the overlay
-    const timelineLinks = document.querySelectorAll('.timeline-title');
-    timelineLinks.forEach(link => {
-      link.addEventListener('click', () => {
+
+    if (timelineToggle && timelineOverlay && timelineClose) {
+      timelineToggle.addEventListener('click', () => {
+        timelineOverlay.classList.add('active'); 
+      });
+
+      timelineClose.addEventListener('click', () => {
         timelineOverlay.classList.remove('active');
       });
-    });
+
+      document.querySelectorAll('.timeline-title').forEach(link => {
+        link.addEventListener('click', () => {
+          timelineOverlay.classList.remove('active');
+        });
+      });
+    }
   </script>
 </body>
 </html>
