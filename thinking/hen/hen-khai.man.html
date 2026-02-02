@@ -135,18 +135,11 @@
       z-index: 1;
     }
 
-    /* NEXT PART ICON */
-    .next-part {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Codystar', sans-serif;
-      font-size: 4rem;
-      color: inherit;
-      text-align: center;
-      cursor: pointer;
-      z-index: 350;
-    }
+    /* UP AND DOWN ARROWS */
+    .next-part { display: block; font-family: 'Codystar', sans-serif; font-size: 4rem; color: inherit;
+                text-align: center; cursor: pointer; margin: 2rem auto; text-decoration: none; }
+    .next-part.down { margin-top: 2rem; }
+    .next-part:hover { transform: translateY(2px); }
 
     .work-content { padding-top: 5rem; }
 
@@ -209,7 +202,7 @@
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
-      <span class="next-part" data-target="hen-va.chan.html">﹀</span>
+      <span class="next-part.down" data-target="hen-va.chan.html">﹀</span>
     </div>
   </div>
 
