@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cai Người: ...Bảo trợ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots:wght@400&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* WORK TITLE */
+    .work-title { 
+      position: sticky;
+      top: 0;
+      padding: 2rem 5rem;
+      z-index: 2;
+    }
+
+    .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes neonSign {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
+      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* NEON DIVIDEER */
+    .neon-div {
+      width: 40%;
+      margin: 3rem auto;
+      height: 1.5px;
+      background: var(--gold-core);
+      opacity: 0;
+      box-shadow: 0 0 0 var(--gold-core);
+      animation: neonSign 1.2s ease forwards; /* very fast flash */
+      animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger));
+    }
+
+    /* BODY PARAGRAPHS */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+
+    @keyframes bodyFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7) { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8) { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9) { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+
+
+    /* SERIES BACKGROUND */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway Dots', sans-serif;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .work-content { position: relative; z-index: 2; }
+
+    /* NEXT PART ICON */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .next-part {
+      display: block;
+      font-family: 'Codystar', sans-serif;
+      font-size: 4rem;
+      color: inherit;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    .next-part:hover {
+      transform: translateY(2px); 
+    }
+
+    /* SPOTIFY POPUP */
+    .spotify-popup 
+    { display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,214,98,0.22);
+      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
+
+    .spotify-popup iframe 
+    { border-radius: 10px;
+      width: 100%;
+      height: 352px;
+      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
+
+
+
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
+    
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 12.5rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                   padding: 4rem 1.5rem 2rem 1.5rem; 
+                   font-size: 2.8rem; 
+                   line-height: 1.2; 
+                  }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { font-size: 2.5rem; margin-top: 1rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="series-background">Cai</div>
+
+  <!-- BACK TO KITTY BUTTON -->
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <div class="main-row">
+    <div class="work-title">
+      <h1>Cai Người</h1>
+    </div>
+
+    <div class="work-content" style="padding-top:5rem;">
+      <div class="text-section">
+        <p class="floating-paragraph">Tôi cười vãi cả lồn, nhưng tôi vẫn hiểu. Và không, tôi thật lòng yêu quý hai người anh em này của mình, bất kể lời gì tôi châm chọc về họ. Này! Cái đéo gì cũng buồn cười được, nếu nhìn đúng góc độ.</p>
+        <p class="floating-paragraph">Nhưng tôi vẫn hiểu. Hiểu rất rõ là đằng khác. Bởi tôi cũng chẳng thiếu gì những giây phút điên loạn như vậy khi lên cơn vã tình yêu.</p>
+        
+        <div class="neon-div"></div>
+
+        <p class="floating-paragraph">Thằng bóng giàu bủn xỉn bạn tôi lỡ mẻ miệng khoanh vùng vị trí nhà của một cậu trai điển hình yêu môn thể thao vua tôi thương thầm trộm nhớ tới gần một năm nọ. Tôi chỉ biết khi tôi tỉnh ra thì đã có một bó hoa nát bét tung toé trong nhà cậu ấy.</p>
+        <p class="floating-paragraph">Năm nọ, tôi đã léng phéng với một cậu ca sĩ nghiệp dư đã có người yêu. Cái vấn đề nữa là TÔI cũng vậy luôn — ý là có người yêu ấy. Không, không phải giây phút cao cả trong đời tôi, tôi biết, nhưng cứ để tôi kể nốt nào. Tôi đã thích cậu ta, bất luận luân lý đạo thần gì sất. Yêu ghét là chuyện của con tim, tôi tự huyễn vậy, để mà đang tâm đeo bám người ta. Hồi đấy, tôi nghĩ thế là theo đuổi đam mê chính đáng lắm, tôi không có như vậy đâu. Cảm giác liêm chính hơn người mà. Đôi co sự chuyện với chú ca sĩ thế nào còn chưa nói, nhưng cô người yêu kia nhắn tin hỏi chuyện là tôi biết đích thị mình cực ngu rồi. Trong đúng cái chốc lửa cháy, cái gã “trung bình con trai”, lúc giở ấy tôi chưa chắc còn quên hay đã nhớ, đùng đùng lao ra từ đất rừng của quá khứ để nói lên tiếng lòng của mình với cô bé người yêu tội nghiệp nọ. Tình cờ thay, họ lại quen biết nhau đấy. Nó là như vậy đấy. Và vào chính xác giây phút đấy, 17 tuổi tôi bỗng xa xăm ngờ ngợ ra khái niệm của nhân quả, khi chú ấy mở miệng kể lại cơ sự. Ôi bạn ơi, mấy lần bạn thấy thót tim khi người ta nghe kể về bạn. “Điều không thể chỉ là điều không dám nghĩ nổi” mà thôi, và để tôi bảo với bạn là người ta nghĩ bạn khác nhiều so với những gì bạn tự nghĩ về chính mình đấy. Về chú này, ấy biết tôi là ai đấy, rõ mồn một là đằng khác. Ấy biết về bó hoa, về tin nhắn ẩn danh, về quà cáp dưới hộc bàn, biết bằng hết. Trong vòng tròn của gã đó, tôi được biết đến như là con lăng loàn loạn thần. Tôi đã quấy rối tình cảm gã đó, như cách tôi quấy rối tình cảm một loạt người khác tôi còn không buồn kể, mà tôi nào có biết.</p>
+        
+        <div class="neon-div"></div>
+        
+        <p class="floating-paragraph">Hôm nọ cách hôm nay mấy tháng, anh văn sĩ ở quán cà phê tôi hay lui tới có bàn về tính luân hồi của nhân quả.</p>
+        <p class="floating-paragraph">Năm tới sau của một vụ lở loét tình cảm, tôi tình cờ gặp một gã quý nhân. Tuổi đời ngang tôi, nhưng hắn trông như sống nửa đời người này rồi không bằng. Mẩm trông gã này chắc có họ với Sở Khanh, ấy thế nào gã lại ngay thẳng thế không biết. Gã nói cũng ôn tồn, nhưng đại ý là bảo tôi hãm hĩm, chuốc cái ấy cũng là xứng đáng. Đời gã cũng khổ, và hắn cứ sống lặng lẽ như vậy. Đời thuở ai không, hỏi thì gã quả quyết rằng từ giờ trở mãi về sau, gã nguyện mãi đưa ra những lựa chọn sáng suốt. “Bạn chọn đời bạn”, châm ngôn của gã từa tựa gì đó là thế. Tôi… không tin! Làm đéo gì có ai lúc nào cũng chọn lựa sáng suốt, đời vô thường thế cơ mà. Gắng gượng và trông cũng mệt mỏi rồi, nhưng gã cũng bỏ công ra giải trình cho tôi thế này: Sự đời nó cứ thế mà ập đến thôi, đừng làm nó tệ hơn bằng những quyết định cảm tính phù phiếm nữa. Tự thừa nhận, gã lấp liếm mấy cái “ừ thì” này kia, mỗi khi tôi nóng nảy bật lại về sự bất hảo của loài người, nhưng tôi hiểu là khổ nhiều thì cũng phải khôn ra. Sai gì sai mãi. Chắc trong duy chỉ cái hoàn cảnh này thì tôi công nhận cho cái mô típ lời khuyên xanh rờn ấy: Sai hả? Đừng sai nữa. Ô, đúng. Quả đúng. Sống cố chấp mãi như vậy thì có khá lên được đâu.</p>
+        <p class="floating-paragraph">Tiên sư cái gã này. Cả đời gã đi cãi nhau rồi thì phải.</p>
+      
+      <a href="cai.nguoi-thua.nhan.html">
+      <span class="next-part">﹀</span>
+      </a>
+      
+    </div>
+  </div>
+
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrow = document.querySelector('.next-part');
+    arrow.addEventListener('click', () => {
+      document.body.style.transition = 'opacity 1s';
+      document.body.style.opacity = 0;
+      setTimeout(() => { window.location.href = 'cai.nguoi-thua.nhan.html'; }, 1000);
+    });
+  </script>
+
+</body>
+</html>
