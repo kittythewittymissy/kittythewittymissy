@@ -186,7 +186,7 @@
 
 
 
-    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+    .spotify-popup .close-btn { position: absolute; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
     
     /* MOBILE RESPONSIVE */
@@ -287,11 +287,15 @@
     closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
     window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
-    const arrow = document.querySelector('.next-part');
+    document.querySelectorAll('.next-part').forEach(arrow => {
     arrow.addEventListener('click', () => {
+    const target = arrow.dataset.target;
+    if (!target) return;
+
       document.body.style.transition = 'opacity 1s';
       document.body.style.opacity = 0;
-      setTimeout(() => { window.location.href = 'cai.nguoi-thua.nhan.html'; }, 1000);
+
+      setTimeout(() => { window.location.href = target; }, 1000); });
     });
   </script>
 
