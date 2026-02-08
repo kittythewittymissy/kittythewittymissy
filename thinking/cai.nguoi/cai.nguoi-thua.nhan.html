@@ -126,6 +126,43 @@
     .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
 
+    /* --- GLOW QUOTE LINE (INLINE WITH PARAGRAPHS) --- */
+    .glow-quote-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .glow-quote-text {
+      font-style: italic;
+      font-weight: 200;
+      color: #fff;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 6px rgba(255,214,98,0.5),
+        0 0 12px rgba(255,214,98,0.35);
+    }
+
+    /* Big gold quote marks */
+    .gold-quote {
+      font-family: 'Codystar', sans-serif;
+      font-size: 3.6rem;
+      line-height: 1;
+      color: var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core),
+        0 0 10px rgba(255,214,98,0.7),
+        0 0 16px rgba(255,214,98,0.5);
+      transform: translateY(-0.12em);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger) + var(--anim-speed-body));
+    }
+
     /* --- SERIES BACKGROUND --- */
     .series-background {
       position: fixed;
@@ -235,6 +272,13 @@
     <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
     <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
     <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
+    
+    <p class="floating-paragraph glow-quote-line">
+      <span class="gold-quote open">“</span>
+        <em class="glow-quote-text">Kém vãi lồn. Nghiện thì cai mẹ đi!</em>
+      <span class="gold-quote close">”</span>
+    </p>
+    
     <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
     <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
 
