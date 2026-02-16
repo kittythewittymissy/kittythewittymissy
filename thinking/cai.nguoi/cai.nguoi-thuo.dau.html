@@ -238,6 +238,45 @@
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2 class="timeline-title column-subheading animated-subtitle">
+              Thuở đầu
+            </h2>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+  
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2 class="timeline-title column-subheading animated-subtitle">
+              Thừa nhận
+            </h2>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+  
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2 class="timeline-title column-subheading animated-subtitle">
+              Buông
+            </h2>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
   <script>
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
@@ -253,6 +292,19 @@
       document.body.style.opacity = 0;
       setTimeout(() => { window.location.href = 'cai.nguoi-thua.nhan.html'; }, 1000);
     });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+  timelineToggle.addEventListener('click', () => {
+  timelineOverlay.classList.toggle('is-open');
+    });
+
+  timelineOverlay.addEventListener('click', (e) => {
+  if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+
   </script>
 
 </body>
