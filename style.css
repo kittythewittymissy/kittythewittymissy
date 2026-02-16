@@ -206,9 +206,8 @@ h3 {
 
 .timeline-toggle {
   position: fixed;
-  bottom: 15%;
+  bottom: 20%;
   right: 3.5rem;
-  transform: translateY(-50%);
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -256,14 +255,19 @@ h3 {
 }
 
 .timeline-item {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-width: var(--timeline-text-width);
   scroll-snap-align: center;
 }
 
 .timeline-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -272,13 +276,12 @@ h3 {
     0 0 6px var(--gold-core),
     0 0 16px var(--gold-core),
     0 0 36px var(--gold-bloom);
-  margin: 0.4rem 0;
 }
 
 .timeline-content {
+  position: absolute;
   width: var(--timeline-text-width);
   text-align: center;
-  opacity: 0.95;
 }
 
 .timeline-title {
@@ -291,14 +294,14 @@ h3 {
   letter-spacing: 0.12em;
 }
 
+/* odd = text ABOVE dot */
 .timeline-item:nth-child(odd) .timeline-content {
-  transform: translateY(calc(-1 * var(--timeline-offset)));
-  margin-bottom: 1.8rem;
+  bottom: calc(50% + var(--timeline-offset));
 }
 
+/* even = text BELOW dot */
 .timeline-item:nth-child(even) .timeline-content {
-  transform: translateY(var(--timeline-offset));
-  margin-top: 1.8rem;
+  top: calc(50% + var(--timeline-offset));
 }
 
 @media (max-width: 768px) {
