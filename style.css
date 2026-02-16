@@ -261,12 +261,12 @@ h3 {
   justify-content: center;
   min-width: var(--timeline-text-width);
   scroll-snap-align: center;
+  padding: 4rem 0;
 }
 
 .timeline-dot {
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   width: 22px;
   height: 22px;
@@ -295,14 +295,10 @@ h3 {
 }
 
 /* odd = text ABOVE dot */
-.timeline-item:nth-child(odd) .timeline-content {
-  bottom: calc(50% + var(--timeline-offset));
-}
+.timeline-item:nth-child(odd) .timeline-content { margin-bottom: 3.5rem; }
 
 /* even = text BELOW dot */
-.timeline-item:nth-child(even) .timeline-content {
-  top: calc(50% + var(--timeline-offset));
-}
+.timeline-item:nth-child(even) .timeline-content { margin-top: 3.5rem; }
 
 @media (max-width: 768px) {
   .timeline-toggle {
