@@ -281,6 +281,19 @@ h3 {
   opacity: 0.95;
 }
 
+.timeline-title {
+  font-family: 'Raleway Dots', cursive;
+  font-size: 2rem;
+  color: var(--white-accent);
+  text-shadow: var(--glow-white);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.12em;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+}
+
 .timeline-item:nth-child(odd) .timeline-content {
   transform: translateY(calc(-1 * var(--timeline-offset)));
   margin-bottom: 1.8rem;
