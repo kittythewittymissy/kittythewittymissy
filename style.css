@@ -294,12 +294,12 @@ h3 {
 
 /* text ABOVE */
 .timeline-item:nth-child(odd) .timeline-content {
-  transform: translateY(-3rem);
+  transform: translateY(-5rem);
 }
 
 /* text BELOW */
 .timeline-item:nth-child(even) .timeline-content {
-  transform: translateY(3rem);
+  transform: translateY(4rem);
 }
 
 @media (max-width: 768px) {
