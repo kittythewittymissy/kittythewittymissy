@@ -256,15 +256,17 @@ h3 {
 
 .timeline-item {
   position: relative;
-  display: grid;
-  flex-direction: column;
-  align-items: center;
   min-width: var(--timeline-text-width);
-  min-height: 160px; /* adjust as needed */
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .timeline-dot {
-  grid-row: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -290,11 +292,15 @@ h3 {
   letter-spacing: 0.12em;
 }
 
-/* odd = text ABOVE dot */
-.timeline-item:nth-child(odd) .timeline-content { grid-row: 1; }
+/* text ABOVE */
+.timeline-item:nth-child(odd) .timeline-content {
+  transform: translateY(-3rem);
+}
 
-/* even = text BELOW dot */
-.timeline-item:nth-child(even) .timeline-content { grid-row: 3; }
+/* text BELOW */
+.timeline-item:nth-child(even) .timeline-content {
+  transform: translateY(3rem);
+}
 
 @media (max-width: 768px) {
   .timeline-toggle {
