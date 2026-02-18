@@ -38,9 +38,6 @@
   --timeline-gap: 5rem;
   --timeline-text-width: 220px;
   --timeline-offset: 1.6rem;
-  --dot-spacing: 4rem;
-}
-
 }
 
 /* ===== BASE ===== */
@@ -260,7 +257,7 @@ h3 {
 .timeline-item {
   position: relative;
   min-width: var(--timeline-text-width);
-  padding: 6rem 0;
+  padding: 5rem 0;
   display: flex;
   justify-content: center;
 }
