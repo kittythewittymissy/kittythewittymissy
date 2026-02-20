@@ -38,6 +38,7 @@
   --timeline-gap: 5rem;
   --timeline-text-width: 220px;
   --timeline-offset: 1.6rem;
+  --dot-gap: 3rem;
 }
 
 /* ===== BASE ===== */
@@ -285,14 +286,12 @@ h3 {
   transform: translateX(-50%);
 }
 
-/* text ABOVE */
 .timeline-item:nth-child(odd) .timeline-content {
-  bottom: calc(50% + 2rem);
+  bottom: calc(50% + var(--dot-gap));
 }
 
-/* text BELOW */
 .timeline-item:nth-child(even) .timeline-content {
-  top: calc(50% + 2rem);
+  top: calc(50% + var(--dot-gap));
 }
 
 .timeline-title {
