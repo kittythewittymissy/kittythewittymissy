@@ -405,6 +405,19 @@
                                                                         document.body.style.opacity = 0;
                                                                         setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
                                });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+     timelineOverlay.classList.toggle('is-open');
+});
+
+timelineOverlay.addEventListener('click', (e) => {
+  if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open');
+  }
+});
   </script>
 </body>
 </html>
