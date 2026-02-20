@@ -287,7 +287,7 @@ h3 {
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-  bottom: calc(50% + var(--dot-gap) + 0.5rem);
+  bottom: calc(50% + var(--dot-gap) + 0.9rem);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
