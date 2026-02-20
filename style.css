@@ -291,7 +291,7 @@ h3 {
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-  top: calc(50% + var(--dot-gap));
+  top: calc(50% + var(--dot-gap) - 1rem);
 }
 
 .timeline-title {
