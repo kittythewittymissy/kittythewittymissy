@@ -184,6 +184,48 @@ h3 {
   stroke-width: 1;
 }
 
+/* ===== SPOTIFY POPUP ===== */
+
+/* base state (hidden) */
+.spotify-popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+
+  transition: opacity 0.3s ease;
+}
+
+/* visible state */
+.spotify-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* iframe sizing */
+.spotify-popup iframe {
+  width: 80%;
+  max-width: 400px;
+  height: 152px; /* Spotify embed default */
+  border-radius: 12px;
+}
+
+/* close button fix (you had a bug before) */
+.spotify-popup .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 /* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
 .work-title h1 {
   font-family: 'Raleway Dots', Raleway, sans-serif;
