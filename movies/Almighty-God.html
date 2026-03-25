@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Almighty God</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="video-page">
+
+  <!-- BACK -->
+  <a href="index.html" class="back-button">
+    <span class="back-text">back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- VIDEO -->
+  <div class="video-wrapper">
+    <video id="mainVideo" preload="metadata">
+      <source src="movies/Almighty-God.mp4" type="video/mp4">
+    </video>
+
+    <div class="play-button"></div>
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>
+    </svg>
+  </div>
+
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe 
+      src="https://open.spotify.com/embed/track/YOUR_TRACK_ID"
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </div>
+
+<script>
+const vid = document.getElementById("mainVideo");
+const playBtn = document.querySelector(".play-button");
+
+// VIDEO CONTROL
+playBtn.onclick = () => {
+  vid.play();
+  playBtn.style.opacity = "0";
+};
+
+vid.onclick = () => {
+  if (vid.paused) {
+    vid.play();
+    playBtn.style.opacity = "0";
+  } else {
+    vid.pause();
+    playBtn.style.opacity = "1";
+  }
+};
+
+// SPOTIFY SYSTEM (same as your other page)
+const audioBtn = document.getElementById('audioBtn');
+const popup = document.getElementById('spotifyPopup');
+const closeBtn = document.getElementById('closePopup');
+
+audioBtn.addEventListener('click', () => {
+  popup.classList.add('show');
+});
+
+closeBtn.addEventListener('click', () => {
+  popup.classList.remove('show');
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === popup) popup.classList.remove('show');
+});
+</script>
+
+</body>
+</html>
