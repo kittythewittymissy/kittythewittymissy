@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cai Người: Thừa nhận...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* --- WORK TITLE --- */
+    .work-title { 
+      position: relative;
+      top: auto;
+      padding: 2rem 5rem;
+    }
+    
+   .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay:0.3s;
+    }
+    
+    @keyframes neonSign-Gold {
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- SUBTITLE --- */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
+    
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%; 
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* animation delays for paragraphs */
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6)  { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7)  { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+
+    /* --- GLOW QUOTE LINE (INLINE WITH PARAGRAPHS) --- */
+    .glow-quote-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .glow-quote-text {
+      font-style: italic;
+      font-weight: 300;
+      color: #fff;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger) + var(--anim-speed-body) + 1.2s)
+    }
+
+    /* Big gold quote marks */
+    .gold-quote {
+      font-family: 'Codystar', sans-serif;
+      font-size: 3.6rem;
+      line-height: 1;
+      color: var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core),
+        0 0 10px rgba(255,214,98,0.7),
+        0 0 16px rgba(255,214,98,0.5);
+      transform: translateY(-0.12em);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger) + var(--anim-speed-body));
+    }
+
+    /* --- SERIES BACKGROUND --- */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway Dots', sans-serif;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
+
+    .work-content { padding-top: 5rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 12.5rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
+                                                            max-width: 90%; 
+                                                            position: static; 
+                                                            text-align: center; }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+    html, body { touch-action: pan-y; }
+    .timeline-content a { text-decoration: none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="series-background">Cai</div>
+
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Cai Người</h1>
+  </div>
+
+  <!-- --- SUBTITLE --- -->
+ <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+      Bù đắp cho những sai lầm 
+      &
+      Học cách sống một cuộc sống mới bằng những nguyên tắc hành xử mới
+      </h2>
+  </div>
+
+  <!-- --- BODY SECTION --- -->
+ <div class="text-section">
+
+  <!-- UP ARROW -->
+  <span class="next-part up" data-target="cai.nguoi-bao.tro.html">︿</span>
+
+  <p class="floating-paragraph">Bạn có thể chạy trốn tiếp, khỏi mọi người, khỏi vấn nạn trong chính bạn. Nó hoàn toàn là một lựa chọn — và chúng ta không đánh giá! Nhưng nếu bạn chịu được bóng tối hay thậm chí yêu bóng tối thì cứ mà làm nhé. Cuộc sống này hay ở chỗ là bạn làm cái đéo gì cũng được nhé, bạn chỉ phải gánh hậu quả thôi.</p>
+
+  <p class="floating-paragraph center-bold">Hãy cứ ở dưới cái hố nhé…</p>
+  <p class="floating-paragraph center-bold">nếu bạn thật sự muốn.</p>
+
+  <p class="floating-paragraph">Thôi thì… tôi đã lỡ lê lết viết cái bài vị sự hoàn lương này đến tận đây rồi thì… thì để tôi nói lại cho đơn giản kiểu này này.</p>
+
+  <p class="floating-paragraph">
+    Đầu tiên: <span class="center-bold-inline">“Tôi kẹt dưới này rồi!”</span>
+  </p>
+  <p class="floating-paragraph">
+    Thứ tới: <span class="center-bold-inline">“Ô trên kia sáng thế!”</span>
+  </p>
+  <p class="floating-paragraph">
+    Sau đó: <span class="center-bold-inline">“Sáng thế thì cần lên!”</span>
+  </p>
+
+  <p class="floating-paragraph">Vào 1h sáng một ngày nào đó, sau khi tắm xong, tôi bỗng muốn xin lỗi hai người vô cùng. Trước nhất là cô bé người yêu cũ kia. Tuy nhiên, bất kể tôi hối lỗi như nào, chúng tôi vốn chưa bao giờ liên quan gì về nhau. Vả lại, tôi cũng chẳng muốn bóc lại nỗi đau của cô ấy bằng sự tồn tại của tôi nữa. Cô ấy không xứng đáng với điều đó còn tôi xứng đáng với hình phạt cắn rứt lương tâm này. Tuy nhiên, vẫn còn một người khác tôi hoàn toàn có thể xin lỗi đàng hoàng. Sau khi đã chia tay vài năm, tôi đã nhắn tin xin lỗi người yêu cũ.</p>
+
+  <p class="floating-paragraph">Ha. Hạt giống đó đã thành mầm cây non. Từng bước vỡ lòng thôi.</p>
+
+  <p class="floating-paragraph">Tôi nghĩ cũng đến lúc đấy rồi. Tôi đã sẵn sàng đối mặt với sai lầm của mình. Đã đến lúc tôi phải thừa nhận với bản thân mình rằng tôi không còn là trẻ con nữa và tôi không thể phá phách, để rồi bị mắng, rồi bĩu môi khóc lóc được. Không, tôi xin lỗi. Thừa nhận, không phải chỉ với họ, những người tôi đã hành xử quả là hãm, mà với chính bản thân mình. Rằng tôi đã làm sai. Kể cả là chỉ vì tôi đang lên cơn vã này vã kia, và tôi đang trong tình trạng thương tổn, thì tôi không thể tiếp tục giả vờ những lỗi lầm ấy chẳng gây tổn thương gì đến họ được nữa. Địt mẹ, đúng, đáy ấy là của mình rồi. Mà… như đã nói, đã ở dưới đáy thẳm rồi, còn gì tốt hơn ngoài hướng lên trên đâu? Và dù là 12 Bước, hay 35, hay 69, thì bạn cũng phải bước thì bạn mới thoát được cái mồ tự đào đấy.</p>
+
+  <p class="floating-paragraph">
+    Nhưng rồi: <span class="center-bold-inline">“Đéo mẹ, gì mà tối thế! Á, cái đ—“</span> <span class="italic-inline">*hụt chân*</span>
+  </p>
+
+  <p class="floating-paragraph">Mà bạn biết đấy, nghiện, rồi hết nghiện, thì cũng vẫn tái nghiện được. Bạn rơi thì nhanh lắm, nhưng tự mình thắng trọng lực có dễ không? Lỡ rồi thì sao, đúng không? Thì lại, và lại, lần nào thì cũng phải cố gắng mọi cách mà đừng, dẫu có khó. Một lời khuyên, nghe hay không tuỳ bạn, là tạo thật nhiều cảnh báo và rào cản tới những lối đi cũ đầy nguy hiểm. Cực kì hạn chế hẹn hay nhận lời hẹn của bạn bè đi đến quán rượu hay vũ trường nơi bán rất nhiều bóng cười. Tìm mua những loại thiết bị hay phần mềm có khả năng tự khoá khi bạn sử dụng quá lâu. Đừng đến quán rượu mà người cũ của bạn làm nữa. À mà có khi đừng đến quán rượu nữa, cũng tốt cho bạn luôn. Tôi ước tôi có thể nói khác, nhưng nếu bạn muốn ra khỏi cái hố bạn dù lỡ làng hay cố tình xảy chân rơi vào, thì bạn vẫn phải là người bỏ công sức ra ngoài thôi. Điều ấy chẳng dễ gì, có thể bạn sẽ lại ngã. Bạn cũng chẳng thể làm gì khác cả, nếu bạn muốn ra khỏi cái hố ấy. Chắc lời khuyên trước hết và sau cùng là mong bạn đi đứng cẩn thận hơn, đường đời nhiều hố lắm. Có phải ngã thì chịu khó ngã vào hố nào nông nông chút, nhé.</p>
+
+  <p class="floating-paragraph">Một con khỉ đầu chó trong một bộ phim hoạt hoạ về một con ngựa điện ảnh nào đó nổi từ hồi năm 90 đã từng nói:</p>
+
+  <p class="floating-paragraph center-bold">“Rồi sẽ dễ dàng hơn.</p>
+  <p class="floating-paragraph center-bold">Mỗi ngày qua, rồi cũng sẽ dễ dàng hơn chút.</p>
+  <p class="floating-paragraph center-bold">Nhưng bạn phải làm mỗi ngày.</p>
+  <p class="floating-paragraph center-bold">Đấy mới là cái khó.</p>
+  <p class="floating-paragraph center-bold">Nhưng rồi sẽ có dễ dàng hơn.”</p>
+
+  <!-- DOWN ARROW -->
+  <span class="next-part down" data-target="cai.nguoi-giup.do.html">﹀</span>
+
+</div>
+  
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+    <!-- THƯỞ ĐẦU -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="cai.nguoi-thuo.dau.html">
+          <h2 class="timeline-title">Thuở đầu</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+    <!-- THỪA NHẬN -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <a href="cai.nguoi-thua.nhan.html">
+          <h2 class="timeline-title">Thừa nhận</h2>
+        </a>
+      </div>
+    </div>
+  
+    <!-- TIN TƯỞNG -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="cai.nguoi-tin.tuong.html">
+          <h2 class="timeline-title">Tin tưởng</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+    <!-- SUY XÉT -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <a href="cai.nguoi-suy.xet.html">
+          <h2 class="timeline-title">Suy xét</h2>
+        </a>
+      </div>
+    </div>
+  
+    <!-- BẢO TRỢ -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="cai.nguoi-bao.tro.html">
+          <h2 class="timeline-title">Bảo trợ</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+    <!-- BÙ ĐẮP & THAY ĐỔI -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <a href="../../cai.nguoi-bu.dap+thay.doi.html">
+          <h2 class="timeline-title">Bù đắp & Thay đổi</h2>
+        </a>
+      </div>
+    </div>
+  
+    <!-- GIÚP ĐỠ -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="../../under-creation-!.html">
+          <h2 class="timeline-title">Giúp đỡ</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+    <!-- 12 BƯỚC -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <a href="../../under-creation-!.html">
+          <h2 class="timeline-title">12 Bước truyền thống</h2>
+        </a>
+      </div>
+    </div>
+
+  </div>
+      
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach (arrow => { arrow.addEventListener('click', () => { document.body.style.transition = 'opacity 1s';
+                                                                        document.body.style.opacity = 0;
+                                                                        setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
+                               });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+     timelineOverlay.classList.toggle('is-open');
+    });
+
+    timelineOverlay.addEventListener('click', (e) => {
+    if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+    
+  </script>
+</body>
+</html>
