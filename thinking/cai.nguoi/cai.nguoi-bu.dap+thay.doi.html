@@ -126,20 +126,18 @@
     .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
 
-    /* --- SPECIFIC FORMATTING --- */
-    .center-bold {
+     /* --- STRONGER BOLD --- */
+    .center-bold, .center-bold-inline {
+      font-weight: 900; /* heavier than before */
+      color: var(--gold-core);
+      text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8);
       text-align: center;
-      font-weight: bold;
     }
     
-    .center-bold-inline {
+    /* --- CENTER-ONLY (no bold) --- */
+    .center-inline {
       display: block;
       text-align: center;
-      font-weight: bold;
-    }
-    
-    .italic-inline {
-      font-style: italic;
     }
 
     /* --- SERIES BACKGROUND --- */
@@ -248,8 +246,8 @@
 
   <p class="floating-paragraph">Tôi nghĩ cũng đến lúc đấy rồi. Tôi đã sẵn sàng đối mặt với sai lầm của mình. Đã đến lúc tôi phải thừa nhận với bản thân mình rằng tôi không còn là trẻ con nữa và tôi không thể phá phách, để rồi bị mắng, rồi bĩu môi khóc lóc được. Không, tôi xin lỗi. Thừa nhận, không phải chỉ với họ, những người tôi đã hành xử quả là hãm, mà với chính bản thân mình. Rằng tôi đã làm sai. Kể cả là chỉ vì tôi đang lên cơn vã này vã kia, và tôi đang trong tình trạng thương tổn, thì tôi không thể tiếp tục giả vờ những lỗi lầm ấy chẳng gây tổn thương gì đến họ được nữa. Địt mẹ, đúng, đáy ấy là của mình rồi. Mà… như đã nói, đã ở dưới đáy thẳm rồi, còn gì tốt hơn ngoài hướng lên trên đâu? Và dù là 12 Bước, hay 35, hay 69, thì bạn cũng phải bước thì bạn mới thoát được cái mồ tự đào đấy.</p>
 
-  <p class="floating-paragraph">
-    Nhưng rồi: <span class="center-bold-inline">“Đéo mẹ, gì mà tối thế! Á, cái đ—“</span> <span class="italic-inline">*hụt chân*</span>
+  <p class="floating-paragraph">Nhưng rồi: <span class="center-bold-inline">“Đéo mẹ, gì mà tối thế! Á, cái đ—“</span> 
+      <span class="italic-inline" style="display: block; text-align: center;">*hụt chân*</span>
   </p>
 
   <p class="floating-paragraph">Mà bạn biết đấy, nghiện, rồi hết nghiện, thì cũng vẫn tái nghiện được. Bạn rơi thì nhanh lắm, nhưng tự mình thắng trọng lực có dễ không? Lỡ rồi thì sao, đúng không? Thì lại, và lại, lần nào thì cũng phải cố gắng mọi cách mà đừng, dẫu có khó. Một lời khuyên, nghe hay không tuỳ bạn, là tạo thật nhiều cảnh báo và rào cản tới những lối đi cũ đầy nguy hiểm. Cực kì hạn chế hẹn hay nhận lời hẹn của bạn bè đi đến quán rượu hay vũ trường nơi bán rất nhiều bóng cười. Tìm mua những loại thiết bị hay phần mềm có khả năng tự khoá khi bạn sử dụng quá lâu. Đừng đến quán rượu mà người cũ của bạn làm nữa. À mà có khi đừng đến quán rượu nữa, cũng tốt cho bạn luôn. Tôi ước tôi có thể nói khác, nhưng nếu bạn muốn ra khỏi cái hố bạn dù lỡ làng hay cố tình xảy chân rơi vào, thì bạn vẫn phải là người bỏ công sức ra ngoài thôi. Điều ấy chẳng dễ gì, có thể bạn sẽ lại ngã. Bạn cũng chẳng thể làm gì khác cả, nếu bạn muốn ra khỏi cái hố ấy. Chắc lời khuyên trước hết và sau cùng là mong bạn đi đứng cẩn thận hơn, đường đời nhiều hố lắm. Có phải ngã thì chịu khó ngã vào hố nào nông nông chút, nhé.</p>
