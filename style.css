@@ -217,9 +217,9 @@ h3 {
 
 .spotify-popup .close-btn {
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 1.5rem;
+  top: -2rem;
+  right: 2rem;
+  font-size: 2rem;
   color: #FFD662;
   cursor: pointer;
 }
