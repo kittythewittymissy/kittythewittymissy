@@ -45,12 +45,17 @@
       overflow: visible; 
     }
 
-    .gold-hero {
-      font-size: 5em;        /* slightly bigger than global hero font */
-      line-height: 1;         /* collapse extra vertical spacing */
-      text-shadow: 0 0 8px #fff, 0 0 18px #FFD662;
-      animation: neonBlaze var(--anim-speed-hero) forwards;
-      overflow: visible;
+      .gold-hero {
+      font-size: 5em;
+      line-height: 1;
+    
+      text-shadow:
+        0 0 6px rgba(255,255,255,0.9),
+        0 0 12px rgba(255,255,255,0.7),
+        0 0 18px rgba(255,214,98,0.7);
+    
+      -webkit-font-smoothing: antialiased;
+      transform: translateZ(0);
     }
 
     .next-part {
@@ -124,10 +129,10 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  /* Hero container */
+  /* HERO CONTAINER */
   .gold-hero-container {
     width: 90%;
-    max-width: 350px
+    max-width: 350px;
     padding: 4px 18px;       
     border: 1.5px solid rgba(255,255,255,0.85);
     box-shadow:
@@ -136,14 +141,16 @@
 
   }
 
-  /* Hero text */
+  /* HERO */
   .gold-hero {
-    font-size: 4.3em;         
+    font-size: 4.3em;
     line-height: 1;
+  
     text-shadow:
-      0 0 4px #fff,
-      0 0 8px #FFD662;         
-  }
+      0 0 6px #fff,
+      0 0 12px #fff,
+      0 0 16px #FFD662;
+  }  
   
   /* ONE COLUMN MODE */
   .section-columns {
