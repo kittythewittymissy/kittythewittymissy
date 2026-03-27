@@ -26,21 +26,23 @@
       padding: 2rem 5rem;
     }
 
-    .work-title h1 {
-      font-family: 'Raleway Dots', sans-serif;
-      font-size: 4rem;
-      letter-spacing: 0.16em;
-      font-weight: 400;
-      color: #222;
-      text-shadow:
-        0 0 1px var(--gold-core),
-        0 0 2px var(--gold-core),
-        0 0 4px var(--gold-core);
-      -webkit-text-stroke: .4px var(--gold-core);
-      opacity: 0;
-      animation: neonSign-Gold 1.2s ease forwards;
-      animation-delay: 0.3s;
+    @media (min-width: 769px) {
+    .work-title h1 
+      { font-family: 'Raleway Dots', sans-serif;
+        font-size: 4rem;
+        letter-spacing: 0.16em;
+        font-weight: 400;
+        color: #222;
+        text-shadow:
+          0 0 1px var(--gold-core),
+          0 0 2px var(--gold-core),
+          0 0 4px var(--gold-core);
+        -webkit-text-stroke: .4px var(--gold-core);
+        opacity: 0;
+        animation: neonSign-Gold 1.2s ease forwards;
+        animation-delay: 0.3s; }
     }
+      
 
     @keyframes neonSign-Gold {
       0%   { opacity: 0; color: #222; text-shadow: none; }
