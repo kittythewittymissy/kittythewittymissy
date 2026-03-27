@@ -170,13 +170,13 @@ h3 {
   width: 50px;
   height: 50px;
   filter: drop-shadow(0 0 3px #fff)
-          drop-shadow(0 0 6px var(--gold-core));
+          drop-shadow(0 0 6px #fff);
   transition: filter 0.25s, transform 0.25s;
 }
 
 .audio-button:hover svg {
   filter: drop-shadow(0 0 6px #fff)
-          drop-shadow(0 0 10px var(--gold-core));
+          drop-shadow(0 0 10px #fff);
   transform: scale(1.08);
 }
 
@@ -188,7 +188,7 @@ h3 {
 
 .audio-button:hover svg path {
   filter: drop-shadow(0 0 6px #fff)
-          drop-shadow(0 0 10px var(--gold-core));
+          drop-shadow(0 0 10px #fff);
 }
 
 /* ===== SPOTIFY POPUP ===== */
