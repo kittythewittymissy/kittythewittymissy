@@ -152,8 +152,8 @@ h3 {
 
 .audio-button {
   position: fixed;
-  bottom: 3.25rem;
-  right: 3.25rem;
+  bottom: 35%;
+  right: 5rem;
   width: 80px;
   height: 80px;
   cursor: pointer;
