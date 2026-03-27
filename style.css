@@ -143,7 +143,7 @@ h3 {
     0 0 20px rgba(255,214,98,0.5);
 }
 
-/* ===== AUDIO BUTTON ===== */
+/* ===== AUDIO BUTTON DESKTOP ===== */
 @keyframes floatVertical {
   0% { transform: translateY(-6px); }
   50% { transform: translateY(6px); }
@@ -152,8 +152,8 @@ h3 {
 
 .audio-button {
   position: fixed;
-  bottom: 35%;         
-  right: 5rem;   
+  bottom: 35%;
+  right: 5rem;
   width: 80px;
   height: 80px;
   cursor: pointer;
@@ -169,14 +169,14 @@ h3 {
 .audio-button svg {
   width: 50px;
   height: 50px;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.8))
-          drop-shadow(0 0 10px rgba(255,255,255,0.6));
+  filter: drop-shadow(0 0 3px #fff)
+          drop-shadow(0 0 6px var(--gold-core));
   transition: filter 0.25s, transform 0.25s;
 }
 
 .audio-button:hover svg {
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.8))
-          drop-shadow(0 0 10px rgba(255,214,98,0.6));
+  filter: drop-shadow(0 0 6px #fff)
+          drop-shadow(0 0 10px var(--gold-core));
   transform: scale(1.08);
 }
 
