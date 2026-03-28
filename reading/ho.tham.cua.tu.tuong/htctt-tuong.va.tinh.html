@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTCTT - Chương Hai: ...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* --- WORK TITLE --- */
+    .work-title { 
+      position: relative;
+      top: auto;
+      padding: 2rem 5rem;
+    }
+    
+   .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay:0.3s;
+    }
+    
+    @keyframes neonSign-Gold {
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- SUBTITLE --- */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
+    
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- AUTHOR NAME (SECONDARY SUBTITLE) --- */
+    .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 0.12em;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  
+    color: #fff;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px rgba(255,255,255,0.6),
+      0 0 9px rgba(255,255,255,0.4);
+  
+    opacity: 0;
+    animation: neonSign-White 1.2s ease forwards;
+    animation-delay: 0.8s;
+    }
+
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%; 
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* animation delays for paragraphs */
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6)  { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7)  { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(14) { animation-delay: calc(var(--anim-speed-title) + 1s + 13*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(15) { animation-delay: calc(var(--anim-speed-title) + 1s + 14*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(16) { animation-delay: calc(var(--anim-speed-title) + 1s + 15*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(17) { animation-delay: calc(var(--anim-speed-title) + 1s + 16*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(18) { animation-delay: calc(var(--anim-speed-title) + 1s + 17*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(19) { animation-delay: calc(var(--anim-speed-title) + 1s + 18*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(20) { animation-delay: calc(var(--anim-speed-title) + 1s + 19*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(21) { animation-delay: calc(var(--anim-speed-title) + 1s + 20*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(22) { animation-delay: calc(var(--anim-speed-title) + 1s + 21*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(23) { animation-delay: calc(var(--anim-speed-title) + 1s + 22*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(24) { animation-delay: calc(var(--anim-speed-title) + 1s + 23*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(25) { animation-delay: calc(var(--anim-speed-title) + 1s + 24*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(26) { animation-delay: calc(var(--anim-speed-title) + 1s + 25*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(27) { animation-delay: calc(var(--anim-speed-title) + 1s + 26*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(28) { animation-delay: calc(var(--anim-speed-title) + 1s + 27*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(29) { animation-delay: calc(var(--anim-speed-title) + 1s + 28*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(30) { animation-delay: calc(var(--anim-speed-title) + 1s + 29*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(31) { animation-delay: calc(var(--anim-speed-title) + 1s + 30*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(32) { animation-delay: calc(var(--anim-speed-title) + 1s + 31*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(33) { animation-delay: calc(var(--anim-speed-title) + 1s + 32*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(34) { animation-delay: calc(var(--anim-speed-title) + 1s + 33*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(35) { animation-delay: calc(var(--anim-speed-title) + 1s + 34*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(36) { animation-delay: calc(var(--anim-speed-title) + 1s + 35*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(37) { animation-delay: calc(var(--anim-speed-title) + 1s + 36*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(38) { animation-delay: calc(var(--anim-speed-title) + 1s + 37*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(39) { animation-delay: calc(var(--anim-speed-title) + 1s + 38*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(40) { animation-delay: calc(var(--anim-speed-title) + 1s + 39*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(41) { animation-delay: calc(var(--anim-speed-title) + 1s + 40*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(42) { animation-delay: calc(var(--anim-speed-title) + 1s + 41*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(43) { animation-delay: calc(var(--anim-speed-title) + 1s + 42*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(44) { animation-delay: calc(var(--anim-speed-title) + 1s + 43*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(45) { animation-delay: calc(var(--anim-speed-title) + 1s + 44*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(46) { animation-delay: calc(var(--anim-speed-title) + 1s + 45*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(47) { animation-delay: calc(var(--anim-speed-title) + 1s + 46*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(48) { animation-delay: calc(var(--anim-speed-title) + 1s + 47*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(49) { animation-delay: calc(var(--anim-speed-title) + 1s + 48*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(50) { animation-delay: calc(var(--anim-speed-title) + 1s + 49*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(51) { animation-delay: calc(var(--anim-speed-title) + 1s + 50*var(--anim-delay-stagger)); }
+      
+    /* --- TEXT STYLE: STRONGER BOLD --- */
+      .center-bold, .center-bold-inline {
+        font-weight: 600; 
+        color: #fff;
+        text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
+        text-align: center;
+    }
+
+    /* --- TEXT STYLE: ITALIC --- */
+    .italic-inline {font-style: italic;}
+
+    /* --- BULLET POINT --- */
+    .timeline-dot.inline-dot {
+      position: static;
+      transform: none;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    /* --- SERIES BACKGROUND --- */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
+
+    .work-content { padding-top: 5rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 8rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
+                                                            max-width: 90%; 
+                                                            position: static; 
+                                                            text-align: center; }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+    html, body { touch-action: pan-y; }
+    .timeline-content a { text-decoration: none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="series-background">Thẳm</div>
+
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Hố Thẳm Của Tư Tưởng</h1>
+    <h3 class="author-name animated-subtitle">Phạm Công Thiện</h3>
+  </div>
+
+  <!-- --- SUBTITLE --- -->
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+       Chương Hai: 
+       <br>Tượng và Tính
+      </h2>
+  </div>
+
+  <!-- --- BODY SECTION --- -->
+  <div class="text-section">
+    
+  <!-- UP ARROW -->
+  <span class="next-part up" data-target="htctt-triet.va.tinh.html">︿</span>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">2</p>
+    
+    <p class="floating-paragraph">Tính (hay tánh)?</p>
+    <p class="floating-paragraph">Đặt lên câu hỏi ấy là bắt đầu đi tìm mạch nước ngầm mà tư tưởng Trung Hoa đã được nuôi dưỡng xanh tươi trong những thời đại thơ mộng thuở xưa.</p>
+    <p class="floating-paragraph">Trong <span style="font-style: italic;">Trung dung</span>, Tính như thế nào? Thế nào là <span style="font-style: italic;">xuất tính?</span></p>
+    <p class="floating-paragraph">Tại sao Vương Dương Minh gọi Tính là bản thể của Tâm?</p>
+    <p class="floating-paragraph">Tại sao Lục tổ Huệ Năng gọi Tính là vua (tính thị vương) trong <span style="font-style: italic;">quyết nghi phẩm</span> của <span style="font-style: italic;">Pháp bảo Đàn kinh?</span></p>
+    <p class="floating-paragraph">Tại sao Bát nhã học trong Phật giáo gọi <span style="font-style: italic;">Không</span> là <span style="font-style: italic;">vô tự tính</span>?</p>
+    <p class="floating-paragraph"><span style="font-style: italic;">Vô tự tính</span> của Bát nhã học và <span style="font-style: italic;">tự tính</span> của Thiền học có khác nhau không?</p>
+    <p class="floating-paragraph"><span style="font-style: italic;">Huyền</span> (hay <span style="font-style: italic;">Thái huyền</span> của Dương Hùng là gì?).</p>
+    <p class="floating-paragraph">Những câu hỏi trên là những câu hỏi về tính (gọi là <span style="font-style: italic;">tính vấn</span>).</p>
+    <p class="floating-paragraph">Những câu hỏi trên sẽ là khởi điểm cho cuộc <span style="font-style: italic;">song thoại</span> giữa tư tưởng Á Đông và tư tưởng Âu châu và nước Việt Nam là mảnh đất hiện nay có đủ tính kiện để cho cuộc <span style="font-style: italic;">song thoại</span> trên được tựu thành. Tựu thành là gì?</p>
+  
+    <p class="floating-paragraph"><span class=center-bold style="font-style: italic !important;">Đối thoại </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> song thoại</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Song thoại </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> độc thoại</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Độc thoại </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> vô thoại</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Vô thoại </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> vô ngôn</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Vô ngôn </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> nguyên ngôn</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Nguyên ngôn </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> nguyên tính</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Nguyên tính </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> tính</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Tính </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> vô tính</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Vô tính </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> không</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Không </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> Huyền</span>.<br>
+                                  <span class=center-bold style="font-style: italic !important;">Huyền </span><span style="font-style: italic;">tựu thành</span><span class=center-bold style="font-style: italic !important;"> tự tính</span>.</p>
+    
+    <p class="floating-paragraph">Tôi đã đùa chữ; nhưng đùa chữ là hoạt dụng của tự tính, gọi là hoạt dụng của Thiền.</p>
+    <p class="floating-paragraph">Hãy để ý:</br>1. Thiền?<br>2. Thiền là gì?</p>
+    <p class="floating-paragraph">Câu hỏi thứ nhất là hoạt dụng của Thiền.</p>
+    <p class="floating-paragraph">Câu hỏi thứ hai là hoạt động của sơ Thiền.</p>
+    <p class="floating-paragraph">Hoạt dụng của Thiền là:?</p>
+    <p class="floating-paragraph">Sơ thiền là: <span style="font-style: italic;">là gì?</span></p>
+    <p class="floating-paragraph">? là <span style="font-style: italic;">dấu</span> hỏi.
+    <p class="floating-paragraph">Là gì là <span style="font-style: italic;">biểu tượng</span> cho dấu hỏi.</p>
+    <p class="floating-paragraph">Biểu tượng và dấu hiệu hoàn toàn khác nhau (tôi đã giải thích sự khác nhau ấy trong chương nhất).</p>
+    <p class="floating-paragraph">Huệ Năng là dấu hiệu.</p>
+    <p class="floating-paragraph">Thần Tú là biểu tượng.</p>
+    <p class="floating-paragraph">Dấu hiệu và biểu tượng khác nhau thế nào, sau đây tôi sẽ suy tưởng bằng cách lấy ánh sáng Thiền chiếu rọi vào thơ của Hölderlin.</p>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">4</p>
+
+    <p class="floating-paragraph style="font-style: italic;">Ein Zeichen sind wir, deutungslos<br>
+                                                              Schmerzlos sind wir und haben fast<br>
+                                                              Die Sprache in der Fremde verloren.</p>
+    <p class="floating-paragraph">nghĩa là:<br>
+                                  Chúng ta là một dấu hiệu không ý nghĩa<br>
+                                  Chúng ta không đau khổ<br>
+                                  Và chúng ta dường như đánh mất ngôn ngữ nơi cõi lạ.</p>
+    <p class="floating-paragraph">Heidegger đã giải thích ba câu thơ trên trong tính phận của tính thể; con người mất trí nhớ, quên tính (Vergessenheit des Seins); do đó, con người gần như đánh mất ngôn ngữ trong cõi lạ. Do đó mới có sự sụp đổ đau thương của nhân loại hiện nay. Muốn sống cho ra hồn, con người phải tìm lại tính.</p>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">9</p>
+
+    <p class="floating-paragraph" style="font-style: italic;">Schmerzlos sind wir…</p>
+    <p class="floating-paragraph">có nghĩa là:<br>
+                                  <span style="font-style: italic;">Chúng ta không đau khổ, vì chúng ta là một dấu hiệu không ý nghĩa, chúng ta không đau khổ.</span><br>
+  
+    <p class="floating-paragraph">Đau khổ chỉ xuất hiện với ý nghĩa. Con người sống trong ý nghĩa là con người sống trong đau khổ: mà sống trong đau khổ có nghĩa là sống trong sự tượng hình ý nghĩa (das Sinnbild), tức là sống trong biểu tượng.</p>
+    <p class="floating-paragraph">Mỗi con người đều sống trong hai thế giới:
+                                <br><span class="timeline-dot inline-dot"></span>
+                                  thế giới dấu hiệu;
+                                <br><span class="timeline-dot inline-dot"></span>
+                                  thế giới biểu tượng.
+    <p class="floating-paragraph">Sống với dấu hiệu là sống với hình vuông tính học (carré ontologique) gồm có bốn nghi (trời, đất, thần, người). Sống với dấu hiệu là sống hồn nhiên giữa tiết điệu thơ mộng của vũ trụ.</p>
+    <p class="floating-paragraph">Còn thế giới biểu tượng là một thế giới hình ảnh; sống với biểu tượng là sống với mộng mị ảo tưởng; sống với biểu tượng là xa lìa tự tính.</p>
+    <p class="floating-paragraph">Sự đau khổ chỉ xuất hiện với ý nghĩa mà khi chúng ta là dấu hiệu không có ý nghĩa (deutungslos) thì chúng ta không đau khổ:</p>
+    <p class="floating-paragraph style="font-style: italic;">Schmerzlos sind wir…</p>
+    <p class="floating-paragraph">Hölderlin lại viết tiếp:</p>
+    <p class="floating-paragraph" style="font-style: italic;">und haben fast<br>Die Sprache in der Fremde verloren.</p>
+    <p class="floating-paragraph">Trong câu thơ trên, chữ quan trọng nhất là trạng từ “fast”; trạng từ “fast” có nghĩa là “dường như, hầu như, gần như”.</p>
+    <p class="floating-paragraph">Chính do chữ fast này mà tất cả ý nghĩa của ba câu thơ đã đổi khác; bây giờ chúng ta đọc lại trọn ba câu thơ và nhất là đọc nhấn mạnh nơi chữ fast để lắng nghe ý nghĩa đổi khác như thế nào:</p>
+    <p class="floating-paragraph" style="font-style: italic;">Ein Zeichen sind wir, deutungslos<br>Schmerzlos sind wir und haben fast<br>Die Sprache in der Fremde verloren.</p>
+    <p class="floating-paragraph">Nghĩa là:<br><span style="font-style: italic;">Chúng là một dấu vết, vô nghĩa.<br>Chúng ta vô giác trì độn và gần như đã quên mất tiếng nói nơi lưu đày.</span></p>
+    <p class="floating-paragraph">Chính chữ <span style="font-style: italic;">fast</span> đã xoay hẳn ý nghĩa của bài thơ; chữ <span style="font-style: italic;">fast</span> làm “dấu hiệu” trở thành “dấu vết” làm “không ý nghĩa” trở thành “vô nghĩa”, “không đau khổ” trở thành “vô giác trơ trơ trì độn”, làm “đánh mất ngôn ngữ” thành “quên mất tiếng nói”, làm “nơi cõi lạ” thành ra “nơi lưu đày”. Và chúng ta hiểu tại sao Hölderlin đặt tên bài thơ là “Mnemosyne” (Trí nhớ, ký ức); chính câu thơ:
+    <p class="floating-paragraph">und haben fast<br>Die Sprache in der Fremde verloren. (gần như quên mất tiếng nói nơi cõi lưu đày).</p>
+    <p class="floating-paragraph">Chính câu thơ này giải thích nhau đề “Mnemosyne” vì “gần như quên mất tiếng nói” chính là “gần như quên mất trí nhớ”.</p>
+    <p class="floating-paragraph">Chính chữ <span style="font-style: italic;">fast</span> đã khiến mọi sự đảo lộn, thế giới dấu hiệu biến thành thế giới biểu tượng, thế rồi con người bị đi đày giữa cõi sa mạc lớn rộng này (die Wust wachst).</p>
+    <p class="floating-paragraph">“Gần như” (<span style="font-style: italic;">fast</span>) có nghĩa là “chưa trọn” mà “chưa trọn” chỉ có nghĩa là “ở giữa” (chữ Pháp gọi là “Entre”).</p>
+    <p class="floating-paragraph">Con người ở giữa thú vật và thần linh; con người ở giữa thời khì “thần linh đi mất” và thời kỳ “thần linh sắp hiện”.</p>
+    <p class="floating-paragraph">Ở GIỮA tức là không gian của biểu tượng.</p>
+    <p class="floating-paragraph">Dấu hiệu không phải Ở GIỮA mà là Ở NƠI.</p>
+    
+  <!-- DOWN ARROW -->
+  <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
+  
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0JiKSOKEyUe7LRHapjJOki?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+    <!-- MỞ ĐẦU -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-uyen.tu.html">
+          <h2 class="timeline-title">Mở Đầu</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG NHẤT -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-triet.va.tinh.html">
+          <h2 class="timeline-title">Chương Nhất</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG HAI -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-tuong.va.tinh.html">
+          <h2 class="timeline-title">Chương Hai</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+  </div>
+      
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach (arrow => { arrow.addEventListener('click', () => { document.body.style.transition = 'opacity 1s';
+                                                                        document.body.style.opacity = 0;
+                                                                        setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
+                               });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+     timelineOverlay.classList.toggle('is-open');
+    });
+
+    timelineOverlay.addEventListener('click', (e) => {
+    if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+    
+  </script>
+</body>
+</html>
