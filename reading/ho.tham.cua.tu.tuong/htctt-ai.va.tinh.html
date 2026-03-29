@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTCTT - Chương Ba: ...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* --- WORK TITLE --- */
+    .work-title { 
+      position: relative;
+      top: auto;
+      padding: 2rem 5rem;
+    }
+    
+   .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay:0.3s;
+    }
+    
+    @keyframes neonSign-Gold {
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- SUBTITLE --- */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
+    
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- AUTHOR NAME (SECONDARY SUBTITLE) --- */
+    .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 0.12em;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  
+    color: #fff;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px rgba(255,255,255,0.6),
+      0 0 9px rgba(255,255,255,0.4);
+  
+    opacity: 0;
+    animation: neonSign-White 1.2s ease forwards;
+    animation-delay: 0.8s;
+    }
+
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%; 
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* animation delays for paragraphs */
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6)  { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7)  { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(14) { animation-delay: calc(var(--anim-speed-title) + 1s + 13*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(15) { animation-delay: calc(var(--anim-speed-title) + 1s + 14*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(16) { animation-delay: calc(var(--anim-speed-title) + 1s + 15*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(17) { animation-delay: calc(var(--anim-speed-title) + 1s + 16*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(18) { animation-delay: calc(var(--anim-speed-title) + 1s + 17*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(19) { animation-delay: calc(var(--anim-speed-title) + 1s + 18*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(20) { animation-delay: calc(var(--anim-speed-title) + 1s + 19*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(21) { animation-delay: calc(var(--anim-speed-title) + 1s + 20*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(22) { animation-delay: calc(var(--anim-speed-title) + 1s + 21*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(23) { animation-delay: calc(var(--anim-speed-title) + 1s + 22*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(24) { animation-delay: calc(var(--anim-speed-title) + 1s + 23*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(25) { animation-delay: calc(var(--anim-speed-title) + 1s + 24*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(26) { animation-delay: calc(var(--anim-speed-title) + 1s + 25*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(27) { animation-delay: calc(var(--anim-speed-title) + 1s + 26*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(28) { animation-delay: calc(var(--anim-speed-title) + 1s + 27*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(29) { animation-delay: calc(var(--anim-speed-title) + 1s + 28*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(30) { animation-delay: calc(var(--anim-speed-title) + 1s + 29*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(31) { animation-delay: calc(var(--anim-speed-title) + 1s + 30*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(32) { animation-delay: calc(var(--anim-speed-title) + 1s + 31*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(33) { animation-delay: calc(var(--anim-speed-title) + 1s + 32*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(34) { animation-delay: calc(var(--anim-speed-title) + 1s + 33*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(35) { animation-delay: calc(var(--anim-speed-title) + 1s + 34*var(--anim-delay-stagger)); }
+    
+      /* --- TEXT STYLE: STRONGER BOLD --- */
+      .center-bold, .center-bold-inline {
+        font-weight: 600; 
+        color: #fff;
+        text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
+        text-align: center;
+    }
+
+    /* --- TEXT STYLE: ITALIC --- */
+    .italic-inline {font-style: italic;}
+
+    /* --- BULLET POINT --- */
+    .timeline-dot.inline-dot {
+      position: static;
+      transform: none;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    /* --- SERIES BACKGROUND --- */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
+
+    .work-content { padding-top: 5rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 8rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
+                                                            max-width: 90%; 
+                                                            position: static; 
+                                                            text-align: center; }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+    html, body { touch-action: pan-y; }
+    .timeline-content a { text-decoration: none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="series-background">Thẳm</div>
+
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Hố Thẳm Của Tư Tưởng</h1>
+    <h3 class="author-name animated-subtitle">Phạm Công Thiện</h3>
+  </div>
+
+  <!-- --- SUBTITLE --- -->
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+       Chương Ba: 
+       <br>Ái và Tính
+      </h2>
+  </div>
+
+  <!-- --- BODY SECTION --- -->
+  <div class="text-section">
+    
+  <!-- UP ARROW -->
+  <span class="next-part up" data-target="htctt-tuong.va.tinh.html">︿</span>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">1</p>
+   
+    <p class="floating-paragraph">Những lực lượng vô hình đã tàn phá nước Việt Nam. Đó là những lực lượng nào? Và tại sao gọi là <span style="font-style: italic;">vô hình</span>? Và thái độ của con người thời đại đối với vô hình như thế nào? Người ta thường bĩu môi chối bỏ vô hình vì cho rằng đó là một cái gì trừu tượng, không cụ thể, không thực tiễn. Vậy thì trừu tượng, không cụ thể, không thực tiễn có phải là <span style="font-style: italic;">xấu</span> không? Và <span style="font-style: italic;">xấu</span> là gì? Và khi đặt lên câu hỏi “<span style="font-style: italic;">xấu là gì<span style="font-style: italic;">” là tự nhiên chúng ta đã bị đưa vào thế giới trừu tượng, không cụ thể, không thực tiễn, nói tóm lại là thế giới vô hình. Tại sao con người thời đại đều quý trọng đến <span style="font-style: italic;">hữu hình</span>, <span style="font-style: italic;">xác thực</span>, <span style="font-style: italic;">thực tế</span>, <span style="font-style: italic;">cụ thể</span>? Tinh thần ấy là tinh thần gì? Ngay cả một số Phật tử đã vô tình hiểu sai dụng ý của đức Phật và cứ cố gắng trích mãi một câu chuyện ngụ ngôn của đức Phật về chuyện một người bị tên, vấn đề đặt ra không phải là cấp bách cứu người bị tên bắn. Đó là “<span style="font-style: italic;">bon sens</span>”. Vấn đề cấp bách là phải biết mũi tên đã được bắn từ đâu? Từ cõi nào, từ hướng nào mà không thấy hình tượng trong hiện cảnh; như vậy cõi ấy ở ngoài hình ảnh một người bị tên bắn hiện nay, mà trong danh từ triết học thì được gọi là <span style="font-style: italic;">cõi siêu hình</span>.</p>
+    <p class="floating-paragraph">Như thế muốn giải quyết trận chiến tranh hiện nay ở Việt Nam, không thể chỉ giải quyết bằng bom đạn, bằng vũ lực hoặc bằng cái đối nghịch lại… Phải đặt lại một nền tảng siêu hình và từ nền tảng ấy mới có thể thiết lập lại cõi hữu hình, tức là tình cảnh bi đát của nước Việt Nam hiện nay?</p>
+    <p class="floating-paragraph">Và nền tảng siêu hình ấy là nền tảng nào? Tôi xin nêu ra câu hỏi và chờ đợi song thoại tính ngôn. Tôi đã có dịp làm sáng tỏ vấn đề trên trong việc tố cáo sự thao túng của thể điệu tiền tượng – “<span style="font-style: italic;">représentation</span>” (mà Heidegger gọi là “<span style="font-style: italic;">das Vorstellen</span>”) trong một bài tôi viết bằng Anh ngữ cho tập Dialogue (nxb LB 1964) nhan đề là “<span style="font-style: italic;">The Ontological Background of the Present War in Vietnam</span>” và trong một bài khác cũng bằng Anh ngữ đăng trên tạp chí Tư tưởng xuất bản tại Paris, bài này nhan đề là “<span style="font-style: italic;">Meditation upon the Vietnamese War</span>”.</p>
+
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">3</p>
+
+    <p class="floating-paragraph">Tình yêu ban đầu có thể coi – phải được coi như là việc sáng tạo ý nghĩa (danh từ triết Đức gọi là <span style="font-style: italic;">Sinn</span>); lần đầu tiên, người con trai (hay con gái) yêu đương là lần đầu tiên họ bắt đầu bị đánh lạc vào <span style="font-style: italic;">thế giới ý nghĩa</span> (S.I. Hayakawa gọi thế giới này là “the verbal world”) một cách mãnh liệt và bi đát nhất. Hắn tự tạo ra một ý nghĩa và hắn đặt sự <span style="font-style: italic;">tương quan “thiên nhiên”</span> giữa <span style="font-style: italic;">ý nghĩa</span> (tức là lời) và người yêu (tức là thực thể hay thực tính; nói một cách khác, người <span style="font-style: italic;">yêu</span> ý nghĩa, chứ không phải yêu người yêu; nói một cách khác nữa, người con trai yêu <span style="font-style: italic;">thực tính thể</span> (yêu lời – nói theo Heidegger thì có nghĩa là bị rơi vào <span style="font-style: italic;">bavardage</span>, mà chữ Đức gọi là <span style="font-style: italic;">Gerede</span>).</p>
+    <p class="floating-paragraph">Hai người yêu đi đến với nhau không phải bằng “Tính ngôn” hay “Nguyên ngôn” (<span style="font-style: italic;">Ursprache</span>) mà bằng “hình ngôn” hay “thể ngôn” (<span style="font-style: italic;">Sprache</span>). Do đó sự tính cảm đã bị đánh mất. Đó cũng là lý do để cắt nghĩa tại sao tất cả những mối tình đầu đều đổ vỡ từ Tính nguyên – <span style="font-style: italic;">fondement</span> (<span style="font-style: italic;">Grund</span>), vì không có sự Nối liền (<span style="font-style: italic;">Fugen</span> giữa Ngôn ngữ và Tính – Mất <span style="font-style: italic;">fondement</span>, Heidegger gọi là <span style="font-style: italic;">Bodenlosigkeit</span>.</p>
+    <p class="floating-paragraph">Sự nối liền ấy, Heidegger gọi là <span style="font-style: italic;">Fugen</span> đứng trên bình diện <span style="font-style: italic;">Sein</span>; còn Jaspers gọi là <span style="font-style: italic;">Verbindlichkeit</span>, đó cũng là vai trò cốt yếu của Lý tính (<span style="font-style: italic;">Vernunft</span>) theo nghĩa của Jaspers (cf. K. Jaspers (<span style="font-style: italic;">Von der Wahrheit</span>, Piper 1947, pp. 113, 114, 115, 131) hay (cf. K. Jaspers, <span style="font-style: italic;">Philosophie</span> 2e ed. Springer, 1948, p. 275).</p>
+    <p class="floating-paragraph">Chất tính của Tình yêu là đợi. Tình yêu có hai loại: tình yêu <span style="font-style: italic;">mong đợi</span> và tình yêu <span style="font-style: italic;">chờ đợi</span>. Tình yêu chờ đợi là tình yêu nối liền, còn tình yêu mong đợi là tình yêu mất sự nối liền. Tình yêu chờ đợi là tình yêu về Tính (tức <span style="font-style: italic;">tính ái</span>); còn tình yêu mong đợi là tình yêu về thể (tức là <span style="font-style: italic;">thể ái</span>). Chờ đợi là không chờ đợi cái gì cả; còn mong đợi là mong đợi một cái gì rõ ràng hay mơ hồ; mong đợi có đối tượng; còn chờ đợi không có đối tượng, vì chính đối tượng của nó đã là sự chờ đợi rồi. Tình yêu mong đợi mất tính nguyên; còn tình yêu chờ đợi nằm trên tính nguyên (<span style="font-style: italic;">Grund</span>). Nhưng vượt lên trên cả hai thứ tình yêu này là tình yêu không chờ không mong; tình yêu này là tình yêu giải thoát hay giải thoát tình yêu: tình yêu này hủy diệt <span style="font-style: italic;">Éros</span> và <span style="font-style: italic;">Agapê</span>; tình yêu không mong không chờ là tình yêu vượt lên trên thể ái và tính ái.</p>
+    <p class="floating-paragraph">
+      <span class="timeline-dot inline-dot"></span>
+        thể ái: quên mất tính nguyên.<br>
+      <span class="timeline-dot inline-dot"></span>
+        tính ái: tìm lại tính nguyên (<span style="font-style: italic;">Grund</span>).
+    </p>
+    <p class="floating-paragraph">Còn tình yêu vượt lên trên <span style="font-style: italic;">thể ái</span> và <span style="font-style: italic;">tính ái</span> thì gọi là <span style="font-style: italic;">vô ái</span>.</p>
+      
+    <p class="floating-paragraph"><span style="font-style: italic;">Vô ái</span> phái hủy <span style="font-style: italic;">Tính nguyên</span> và nhảy vào <span style="font-style: italic;">Uyên nguyên</span>. Nói theo danh từ triết học Đức thì phá hủy <span style="font-style: italic;">Grund</span> để nhảy vào <span style="font-style: italic;">Abgrund</span>.</p> 
+    <p class="floating-paragraph">Triết lý của Heidegger đánh dấu sự tìm về <span style="font-style: italic;">Tính nguyên</span>; Heidegger tiêu diệt hai ngàn năm triết lý Tây phương để chuẩn bị cho ngày mai xuất hiện.</p>
+    <p class="floating-paragraph">NGÀY MAI ẤY SẼ KHÔNG BAO GIỜ XUẤT HIỆN.</p> 
+    <p class="floating-paragraph">Triết lý của Heidegger đánh dấu sự tìm về <span style="font-style: italic;">Tính nguyên</span>; Heidegger tiêu diệt hai ngàn năm triết lý Tây phương để chuẩn bị cho ngày mai xuất hiện.</p>
+    <p class="floating-paragraph">Hố thẳm tiêu diệt Tính và Thời.</p>
+    <p class="floating-paragraph">Hay nói khác đi thì Hố thẳm (<span style="font-style: italic;">Abgrund</span>) tiêu diệt <span style="font-style: italic;">Sein und Zeit</span> của Heidegger.</p>
+    <p class="floating-paragraph"><span style="font-style: italic;">Vô ái</span> sẽ xuất hiện cùng lúc với <span style="font-style: italic;">Vô ưu</span> và <span style="font-style: italic;">Vô ưu</span> cùng lúc với <span style="font-style: italic;">Vô tâm</span> cùng lúc với Vô trước; đồng loạt, <span style="font-style: italic;">Vô trước</span> cũng có nghĩa là <span style="font-style: italic;">Vô ngôn</span>.</p>
+    <p class="floating-paragraph">Và bởi vì <span style="font-style: italic;">Vô ngôn</span> cho nên những tư tưởng siêu hình học chấm dứt nơi chương này, và phương trời của Vô ngôn sẽ chỉ còn là Thơ và Hoạ.</p>
+   
+  <!-- DOWN ARROW -->
+  <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
+  
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0JiKSOKEyUe7LRHapjJOki?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+    <!-- MỞ ĐẦU -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-uyen.tu.html">
+          <h2 class="timeline-title">Mở<br>Đầu</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG NHẤT -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-triet.va.tinh.html">
+          <h2 class="timeline-title">Chương Nhất</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG HAI -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-tuong.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Hai</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG BA -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-ai.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Ba</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+  </div>
+      
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach (arrow => { arrow.addEventListener('click', () => { document.body.style.transition = 'opacity 1s';
+                                                                        document.body.style.opacity = 0;
+                                                                        setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
+                               });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+     timelineOverlay.classList.toggle('is-open');
+    });
+
+    timelineOverlay.addEventListener('click', (e) => {
+    if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+    
+  </script>
+</body>
+</html>
