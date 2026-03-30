@@ -152,49 +152,23 @@
 
 /* ===== TOPIC LIST ===== */
 
-.timeline-wrap {
-  position: fixed;
-  right: 3.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  height: auto;
-  padding: 0;
-  overflow: visible;
-}
-
-/* vertical stack */
 .timeline-list {
-  flex-direction: column;
-  gap: 0.8rem;
+  display: flex;
+  flex-direction: column; 
 }
 
-/* simplify item layout */
 .timeline-item {
-  min-width: auto;
-  display: grid;
-  grid-template-columns: 20px auto;
-  align-items: center;
-  justify-content: flex-start;
+  display: flex;      
+  align-items: center;         
 }
 
-/* move dot to left of text */
 .timeline-dot {
-  position: relative;
-  margin-right: 0.8rem;
-  left: auto;
-  top: auto;
-  transform: none;
   width: 14px;
   height: 14px;
+  margin-right: 0.6rem;   
 }
 
-/* flatten content positioning */
 .timeline-content {
-  position: relative;
-  left: auto;
-  transform: none;
-  width: auto;
   text-align: left;
 }
 
