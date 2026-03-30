@@ -7,14 +7,13 @@
 <!-- GLOBAL CSS -->
 <link rel="stylesheet" href="../../style.css">
 
-<!-- Google Fonts (keep only if not globally loaded) -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;600&family=Raleway+Dots&display=swap" rel="stylesheet">
 
 <style>
 
 /* ===== PAGE-SPECIFIC ONLY ===== */
 
-/* Stage layout */
 .stage {
   position: fixed;
   inset: 0;
@@ -23,67 +22,54 @@
   justify-content: center;
 }
 
-/* Circle uses your global orbit animation */
 .circle {
   position: absolute;
   width: 440px;
   height: 440px;
   border-radius: 50%;
   border: 1px dashed rgba(255,255,255,0.25);
-
   box-shadow:
     0 0 12px rgba(255,255,255,0.08),
     0 0 24px rgba(255,255,255,0.04);
-
-  animation: orbit 90s linear infinite; /* reuse global */
+  animation: orbit 90s linear infinite;
 }
 
-/* Paragraph → extend global body-text */
 .paragraph {
   max-width: 520px;
   text-align: center;
-
   opacity: 0;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
 }
 
-/* Question emphasis */
 .center-bold {
   display: block;
   margin-top: 1.5rem;
-
   font-weight: 600;
   letter-spacing: 0.05em;
-
   text-shadow: var(--glow-white);
-
   opacity: 0;
   animation: bodyFade 1s ease forwards;
   animation-delay: 1.8s;
 }
 
-/* Input */
+/* INPUT */
 .input {
   position: fixed;
   bottom: 12%;
   left: 50%;
   transform: translateX(-50%);
-
   width: 280px;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255,214,98,0.4);
-
   color: var(--white-accent);
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
   font-size: 1rem;
   text-align: center;
-
   padding: 6px;
   outline: none;
-
   opacity: 0;
   animation: bodyFade 1s ease forwards;
   animation-delay: 2.4s;
@@ -98,7 +84,7 @@
   box-shadow: 0 0 8px var(--gold-bloom);
 }
 
-/* Orbit system */
+/* ORBIT */
 .orbit {
   position: absolute;
   width: 520px;
@@ -106,20 +92,22 @@
   animation: orbit 30s linear infinite;
 }
 
-/* Response nodes (aligned with timeline dot style) */
 .response {
   position: absolute;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-
   border: 1px dashed var(--gold-core);
-
   box-shadow:
     0 0 6px var(--gold-core),
     0 0 14px var(--gold-bloom);
-
   cursor: pointer;
+}
+
+/* Make toggle bigger */
+.timeline-toggle {
+  width: 100px;
+  height: 100px;
 }
 
 /* Fade */
@@ -155,12 +143,24 @@
 
 <input id="input" class="input" placeholder="Bạn nghĩ sao?" />
 
+<!-- REUSED OVERLAY SYSTEM -->
+<div class="timeline-overlay" id="overlay">
+  <div class="timeline-wrap">
+    <div class="timeline-list" id="responseDisplay"></div>
+  </div>
+</div>
+
+<div class="timeline-toggle" id="toggle"></div>
+
 <script>
 
 const input = document.getElementById("input");
 const orbit = document.getElementById("orbit");
+const overlay = document.getElementById("overlay");
+const toggle = document.getElementById("toggle");
+const display = document.getElementById("responseDisplay");
 
-// LOAD SAVED RESPONSES
+// LOAD
 let responses = JSON.parse(localStorage.getItem("ban_responses")) || [];
 
 // CREATE NODE
@@ -177,16 +177,37 @@ function createNode(text) {
   node.style.top = y + "px";
 
   node.onclick = () => {
-    input.value = text; // cleaner interaction
+    overlay.classList.add("is-open");
+    renderOverlay();
   };
 
   orbit.appendChild(node);
 }
 
-// RENDER EXISTING
-responses.forEach(createNode);
+// RENDER OVERLAY
+function renderOverlay() {
+  display.innerHTML = "";
 
-// INPUT HANDLER
+  responses.forEach(text => {
+    const item = document.createElement("div");
+    item.className = "timeline-item";
+
+    item.innerHTML = `
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title">${text}</div>
+      </div>
+    `;
+
+    display.appendChild(item);
+  });
+}
+
+// INITIAL LOAD
+responses.forEach(createNode);
+renderOverlay();
+
+// INPUT
 input.addEventListener("keydown", function(e) {
   if (e.key === "Enter" && input.value.trim() !== "") {
     const text = input.value.trim();
@@ -195,12 +216,26 @@ input.addEventListener("keydown", function(e) {
     localStorage.setItem("ban_responses", JSON.stringify(responses));
 
     createNode(text);
+    renderOverlay();
 
     input.value = "";
+  }
+});
+
+// TOGGLE OVERLAY
+toggle.onclick = () => {
+  overlay.classList.toggle("is-open");
+};
+
+// ADMIN DELETE (hidden)
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && e.key === "x") {
+    localStorage.removeItem("ban_responses");
+    location.reload();
   }
 });
 
 </script>
 
 </body>
-</html
+</html>
