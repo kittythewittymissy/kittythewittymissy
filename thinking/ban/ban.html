@@ -150,6 +150,81 @@
   to { opacity: 1; }
 }
 
+/* ===== TOPIC LIST ===== */
+
+.timeline-wrap {
+  position: fixed;
+  right: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: auto;
+  padding: 0;
+  overflow: visible;
+}
+
+/* vertical stack */
+.timeline-list {
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* simplify item layout */
+.timeline-item {
+  padding: 0;
+  min-width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* move dot to left of text */
+.timeline-dot {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  margin-right: 1rem;
+
+  width: 14px;
+  height: 14px;
+}
+
+/* flatten content positioning */
+.timeline-content {
+  position: relative;
+  left: auto;
+  transform: none;
+  width: auto;
+  text-align: left;
+}
+
+/* remove alternating top/bottom logic */
+.timeline-item:nth-child(odd) .timeline-content,
+.timeline-item:nth-child(even) .timeline-content {
+  top: auto;
+  bottom: auto;
+}
+
+/* clickable */
+.timeline-item {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(-6px);
+}
+
+/* subtle hover emphasis */
+.timeline-item:hover .timeline-title {
+  color: var(--gold-core);
+  text-shadow:
+    0 0 6px var(--gold-core),
+    0 0 16px var(--gold-bloom);
+}
+
 </style>
 </head>
 
@@ -175,6 +250,35 @@
   </div>
 
   <div class="orbit" id="orbit"></div>
+
+  <div class="timeline-wrap">
+
+  <div class="timeline-list">
+
+    <a href="topic-1.html" class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title">Ý thức</div>
+      </div>
+    </a>
+
+    <a href="topic-2.html" class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title">Tự do</div>
+      </div>
+    </a>
+
+    <a href="topic-3.html" class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title">Cái đẹp</div>
+      </div>
+    </a>
+
+  </div>
+
+</div>
 
 </div>
 
