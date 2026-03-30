@@ -46,8 +46,9 @@
     }
 
     .main-video {
-      width: 60%;
-      max-width: 900px;
+      width: 28%;
+      max-width: 420px;
+      min-width: 300px; 
       border-radius: 12px;
       box-shadow:
         0 0 12px rgba(255,255,255,0.15),
@@ -56,6 +57,35 @@
       animation: bodyFade var(--anim-speed-body) ease forwards;
       animation-delay: calc(var(--anim-speed-title) + 1s);
       position: relative;
+    }
+
+    .main-video::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      z-index: -1;
+    
+      background: radial-gradient(circle at center,
+                                  rgba(255,214,98,0.25) 0%,
+                                  rgba(255,214,98,0.12) 30%,
+                                  rgba(255,214,98,0.05) 55%,
+                                  transparent 75% );
+    
+      filter: blur(40px);
+      opacity: 0;
+      animation: glowFade var(--anim-speed-body) ease forwards;
+      animation-delay: calc(var(--anim-speed-title) + 1.2s);
+    }
+
+    @keyframes glowFade {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .ig-fake-video {
@@ -93,6 +123,8 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    
 
     @media(max-width:768px) {
       .main-video { width: 90%; }
