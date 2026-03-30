@@ -104,12 +104,6 @@
   cursor: pointer;
 }
 
-/* Make toggle bigger */
-.timeline-toggle {
-  width: 100px;
-  height: 100px;
-}
-
 /* Fade */
 @keyframes bodyFade {
   from { opacity: 0; }
@@ -143,22 +137,17 @@
 
 <input id="input" class="input" placeholder="Bạn nghĩ sao?" />
 
-<!-- REUSED OVERLAY SYSTEM -->
+<!-- SINGLE RESPONSE OVERLAY -->
 <div class="timeline-overlay" id="overlay">
-  <div class="timeline-wrap">
-    <div class="timeline-list" id="responseDisplay"></div>
-  </div>
+  <div id="singleResponse" class="body-text" style="text-align:center; max-width:600px; margin:auto;"></div>
 </div>
-
-<div class="timeline-toggle" id="toggle"></div>
 
 <script>
 
 const input = document.getElementById("input");
 const orbit = document.getElementById("orbit");
 const overlay = document.getElementById("overlay");
-const toggle = document.getElementById("toggle");
-const display = document.getElementById("responseDisplay");
+const display = document.getElementById("singleResponse");
 
 // LOAD
 let responses = JSON.parse(localStorage.getItem("ban_responses")) || [];
@@ -176,36 +165,30 @@ function createNode(text) {
   node.style.left = x + "px";
   node.style.top = y + "px";
 
+  // CLICK → SHOW SINGLE RESPONSE
   node.onclick = () => {
     overlay.classList.add("is-open");
-    renderOverlay();
+    display.innerText = text;
   };
+
+  // SHIFT + RIGHT CLICK → DELETE (ADMIN ONLY)
+  node.addEventListener("contextmenu", function(e) {
+    if (!e.shiftKey) return; // only works with Shift
+    e.preventDefault();
+
+    const index = responses.indexOf(text);
+    if (index > -1) {
+      responses.splice(index, 1);
+      localStorage.setItem("ban_responses", JSON.stringify(responses));
+      node.remove();
+    }
+  });
 
   orbit.appendChild(node);
 }
 
-// RENDER OVERLAY
-function renderOverlay() {
-  display.innerHTML = "";
-
-  responses.forEach(text => {
-    const item = document.createElement("div");
-    item.className = "timeline-item";
-
-    item.innerHTML = `
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title">${text}</div>
-      </div>
-    `;
-
-    display.appendChild(item);
-  });
-}
-
 // INITIAL LOAD
 responses.forEach(createNode);
-renderOverlay();
 
 // INPUT
 input.addEventListener("keydown", function(e) {
@@ -216,24 +199,15 @@ input.addEventListener("keydown", function(e) {
     localStorage.setItem("ban_responses", JSON.stringify(responses));
 
     createNode(text);
-    renderOverlay();
 
     input.value = "";
   }
 });
 
-// TOGGLE OVERLAY
-toggle.onclick = () => {
-  overlay.classList.toggle("is-open");
+// CLICK OVERLAY TO CLOSE
+overlay.onclick = () => {
+  overlay.classList.remove("is-open");
 };
-
-// ADMIN DELETE (hidden)
-document.addEventListener("keydown", function(e) {
-  if (e.ctrlKey && e.key === "x") {
-    localStorage.removeItem("ban_responses");
-    location.reload();
-  }
-});
 
 </script>
 
