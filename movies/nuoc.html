@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>nước.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --gold-core: #FFD662;
+    }
+
+    .work-title { padding: 2rem 5rem; }
+
+    .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 400;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes neonSign-Gold {
+      0% { opacity: 0; color: #222; text-shadow: none; }
+      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+    }
+
+    .video-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+      position: relative;
+    }
+
+    .main-video {
+      width: 60%;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.15),
+        0 0 24px rgba(255,214,98,0.2);
+      opacity: 0;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+      animation-delay: calc(var(--anim-speed-title) + 1s);
+      position: relative;
+    }
+
+    .ig-fake-video {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .instagram-media {
+      width: 100% !important;
+      max-width: 900px !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      background: transparent !important;
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.15),
+        0 0 24px rgba(255,214,98,0.2) !important;
+    }
+
+    .instagram-media > div {
+      padding: 0 !important;
+    }
+
+    /* OVERLAY */
+    .video-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    @keyframes bodyFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media(max-width:768px) {
+      .main-video { width: 90%; }
+      .work-title { padding: 4rem 1.5rem 2rem; }
+      .work-title h1 { font-size: 2.8rem; }
+      .spotify-popup {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        max-width: 420px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <div class="main-row">
+    <div class="work-title">
+      <h1>nước.</h1>
+    </div>
+
+    <div class="work-content">
+      <div class="video-section">
+        <div class="main-video ig-fake-video">
+
+          <!-- Overlay -->
+          <div class="video-overlay" id="videoOverlay"></div>
+
+          <!-- Instagram -->
+          <blockquote 
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/C8MZuwovZx4/"
+            data-instgrm-version="14">
+          </blockquote>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+
+  <!-- SPOTIFY -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+
+    <iframe 
+      style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/38RJQhSN5gQFiOyPUUwlKc?utm_source=generator"
+      width="100%"
+      height="352"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+  </div>
+
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+    const overlay = document.getElementById('videoOverlay');
+
+    audioBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+
+    // Overlay click → reveal Instagram player
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  </script>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+
+</body>
+</html>
