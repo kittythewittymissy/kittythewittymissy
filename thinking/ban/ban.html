@@ -152,23 +152,50 @@
 
 /* ===== TOPIC LIST ===== */
 
+.timeline-wrap {
+  position: fixed;
+  right: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: auto;
+  padding: 0;
+  overflow: visible;
+}
+
+/* vertical stack */
 .timeline-list {
-  display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
+/* simplify item layout */
 .timeline-item {
-  display: flex;      
-  align-items: center;         
+  padding: 0;
+  min-width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+/* move dot to left of text */
 .timeline-dot {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  margin-right: 1rem;
+
   width: 14px;
   height: 14px;
-  margin-right: 0.6rem;   
 }
 
+/* flatten content positioning */
 .timeline-content {
+  position: relative;
+  left: auto;
+  transform: none;
+  width: auto;
   text-align: left;
 }
 
@@ -228,24 +255,24 @@
 
   <div class="timeline-list">
 
-    <a href="../../under-creation-!.html" class="timeline-item">
-      <div class="timeline-dot"></div>
+    <a href="topic-1.html" class="timeline-item">
       <div class="timeline-content">
-        <div class="timeline-title">Chủ đề 1</div>
+        <div class="timeline-title">Ý thức</div>
+        <div class="timeline-dot"></div>
       </div>
     </a>
 
-    <a href="../../under-creation-!.html" class="timeline-item">
-      <div class="timeline-dot"></div>
+    <a href="topic-2.html" class="timeline-item">
       <div class="timeline-content">
-        <div class="timeline-title">Chủ đề 2</div>
+        <div class="timeline-title">Tự do</div>
+        <div class="timeline-dot"></div>
       </div>
     </a>
 
-    <a href="../../under-creation-!.html" class="timeline-item">
-      <div class="timeline-dot"></div>
+    <a href="topic-3.html" class="timeline-item">
       <div class="timeline-content">
-        <div class="timeline-title">Chủ đề 3</div>
+        <div class="timeline-title">Cái đẹp</div>
+        <div class="timeline-dot"></div>
       </div>
     </a>
 
