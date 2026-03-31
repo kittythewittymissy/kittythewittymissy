@@ -169,28 +169,20 @@
   gap: 2.5rem;
 }
 
-/* simplify item layout */
 .timeline-item {
-  padding: 0;
-  min-width: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 1rem;
 }
 
-/* move dot to left of text */
 .timeline-dot {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  margin-right: 1rem;
-
   width: 14px;
   height: 14px;
+  margin: 0;     
+  flex-shrink: 0; 
+  transform: none;
 }
 
-/* flatten content positioning */
 .timeline-content {
   position: relative;
   left: auto;
