@@ -170,7 +170,6 @@
   gap: 2.5rem;
 }
 
-/* simplify item layout */
 .timeline-item {
   padding: 0;
   min-width: auto;
@@ -179,20 +178,18 @@
   justify-content: flex-start;
 }
 
-/* move dot to left of text */
 .timeline-dot {
   position: relative;
   left: auto;
   top: auto;
   transform: none;
-  margin-right: 1rem;
-  align-items: left;
-
+  margin-left: 1rem;
+  align-self: center; 
+  z-index: 1;
   width: 14px;
   height: 14px;
 }
 
-/* flatten content positioning */
 .timeline-content {
   position: relative;
   left: auto;
