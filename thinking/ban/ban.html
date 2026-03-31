@@ -174,8 +174,8 @@
   padding: 0;
   min-width: auto;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .timeline-dot {
@@ -185,18 +185,19 @@
   top: auto;
   transform: none;
   margin-left: 1rem;
-  align-self: center; 
+  align-self: flex-start; 
   z-index: 1;
   width: 14px;
   height: 14px;
 }
 
 .timeline-content {
+  order: 0;
   position: relative;
   left: auto;
   transform: none;
   width: auto;
-  text-align: left;
+  text-align: right;
 }
 
 /* remove alternating top/bottom logic */
