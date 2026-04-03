@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTCTT - Chương Tư: ...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../../favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* --- WORK TITLE --- */
+    .work-title { 
+      position: relative;
+      top: auto;
+      padding: 2rem 5rem;
+    }
+    
+   .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay:0.3s;
+    }
+    
+    @keyframes neonSign-Gold {
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- SUBTITLE --- */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
+    
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- AUTHOR NAME (SECONDARY SUBTITLE) --- */
+    .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 0.12em;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  
+    color: #fff;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px rgba(255,255,255,0.6),
+      0 0 9px rgba(255,255,255,0.4);
+  
+    opacity: 0;
+    animation: neonSign-White 1.2s ease forwards;
+    animation-delay: 0.8s;
+    }
+
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%; 
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* animation delays for paragraphs */
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6)  { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7)  { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(14) { animation-delay: calc(var(--anim-speed-title) + 1s + 13*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(15) { animation-delay: calc(var(--anim-speed-title) + 1s + 14*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(16) { animation-delay: calc(var(--anim-speed-title) + 1s + 15*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(17) { animation-delay: calc(var(--anim-speed-title) + 1s + 16*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(18) { animation-delay: calc(var(--anim-speed-title) + 1s + 17*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(19) { animation-delay: calc(var(--anim-speed-title) + 1s + 18*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(20) { animation-delay: calc(var(--anim-speed-title) + 1s + 19*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(21) { animation-delay: calc(var(--anim-speed-title) + 1s + 20*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(22) { animation-delay: calc(var(--anim-speed-title) + 1s + 21*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(23) { animation-delay: calc(var(--anim-speed-title) + 1s + 22*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(24) { animation-delay: calc(var(--anim-speed-title) + 1s + 23*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(25) { animation-delay: calc(var(--anim-speed-title) + 1s + 24*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(26) { animation-delay: calc(var(--anim-speed-title) + 1s + 25*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(27) { animation-delay: calc(var(--anim-speed-title) + 1s + 26*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(28) { animation-delay: calc(var(--anim-speed-title) + 1s + 27*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(29) { animation-delay: calc(var(--anim-speed-title) + 1s + 28*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(30) { animation-delay: calc(var(--anim-speed-title) + 1s + 29*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(31) { animation-delay: calc(var(--anim-speed-title) + 1s + 30*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(32) { animation-delay: calc(var(--anim-speed-title) + 1s + 31*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(33) { animation-delay: calc(var(--anim-speed-title) + 1s + 32*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(34) { animation-delay: calc(var(--anim-speed-title) + 1s + 33*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(35) { animation-delay: calc(var(--anim-speed-title) + 1s + 34*var(--anim-delay-stagger)); }
+    
+      /* --- TEXT STYLE: STRONGER BOLD --- */
+      .center-bold, .center-bold-inline {
+        font-weight: 600; 
+        color: #fff;
+        text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
+        text-align: center;
+    }
+
+    /* --- TEXT STYLE: ITALIC --- */
+    .italic-inline {font-style: italic;}
+
+    /* --- BULLET POINT --- */
+    .timeline-dot.inline-dot {
+      position: static;
+      transform: none;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    /* --- SERIES BACKGROUND --- */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
+
+    .work-content { padding-top: 5rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 8rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
+                                                            max-width: 90%; 
+                                                            position: static; 
+                                                            text-align: center; }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+    html, body { touch-action: pan-y; }
+    .timeline-content a { text-decoration: none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="series-background">Thẳm</div>
+
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Hố Thẳm Của Tư Tưởng</h1>
+    <h3 class="author-name animated-subtitle">Phạm Công Thiện</h3>
+  </div>
+
+  <!-- --- SUBTITLE --- -->
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+       Chương Tư: 
+       <br>Thơ và Tính
+      </h2>
+  </div>
+
+  <!-- --- BODY SECTION --- -->
+  <div class="text-section">
+    
+  <!-- UP ARROW -->
+  <span class="next-part up" data-target="htctt-ai.va.tinh.html">︿</span>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 1.4em; font-style: italic;">Nhìn lại tính thể của thi ca và tư tưởng</p>
+    
+    <p class="floating-paragraph">Hôm nay, khi anh muốn hỏi tôi: “Ai là thi sĩ vĩ đại nhất của Việt Nam hiện giờ?”. Tôi trả lời: “Quách Tấn là thi sĩ vĩ đại nhất của Việt Nam hiện giờ; Quách Tấn là người đã đánh dấu thi ca tiền chiến và thành tựu thi ca hậu chiến qua hai tập thơ Đọng bóng chiều và Mộng ngân sơn”. Nói như thế hãy còn chưa nói được gì hết, tôi muốn nói thêm xem anh có phản ứng thế nào: “Quách Tấn là một thi sĩ duy nhất của Việt Nam, đã thành tựu tất cả những gì mà Nguyễn Du còn để dở dang; còn tất cả những thi sĩ khác, kể cả Hàn Mặc Tử, kể cả Xuân Diệu, Huy Cận, v.v. đều là những thi sĩ thiên tài, nhưng không có đủ tất cả tính kiện hay kiện tính trong thơ họ để tính dưỡng và thành tựu thi cuộc mà Nguyễn Du đã mở đầu cho thi ca Việt Nam”.</p>
+    <p class="floating-paragraph">Anh hiểu tôi muốn nói gì không, hỡi người thơ trẻ tuổi của nước Việt Nam hiện nay?</p>    
+    <p class="floating-paragraph">Anh khoảng từ 16 đến 20 hay 30 tuổi, anh nuôi trong tim anh hào khí nhân loại, anh làm thơ vì anh là thi sĩ hay nói ngược lại cũng được. Tôi đã đọc thơ các anh làm trong những tạp chí văn nghệ ở Sài Gòn như Bách Khoa, Văn, Sáng Tạo Văn Nghệ, v.v. Anh có thể khiêm nhường, anh có thể kiêu ngạo vênh váo: điều ấy không quan trọng đối với tôi. Chỉ có một điều vô cùng quan trọng đối với tôi là đọc những bài thơ của anh làm và đăng trong những tạp chí ấy, tôi thấy ngay sự nghèo nàn của tâm hồn anh, sự quờ quạng lúng túng, sự lặp đi lặp lại vô ý thức hay có ý thức, lòng sợ hãi rụt rè, một đám tình cảm sướt mướt lải nhải, niềm mơn trớn vuốt ve đau khổ chung hay riêng, trí thức mười lăm xu, ái quốc nhân đạo ba mươi lăm xu, triết lý tôn giáo bốn mươi lăm xu.</p>
+    <p class="floating-paragraph">Văn nghệ đã chết.</p>
+    <p class="floating-paragraph">Ngay cả Rimbaud, người đã giết văn nghệ, ngay cả Rimbaud cũng đã chết. Anh hay tôi phải yêu Rimbaud, phải đọc Rimbaud, hãy đồng hoá với Rimbaud, phượng thờ Rimbaud và hãy chôn vùi Rimbaud xuống năm chục tấc đất.</p>
+    <p class="floating-paragraph">Rimbaud đã chết từ lâu; mỗi ngày, mỗi giờ, mỗi phút, mỗi giây, tôi phải giết Rimbaud, Dostoievsky, Nietzsche trong mỗi một lời mỗi một cử chỉ, mỗi một cái nhìn, mỗi một hơi thở, mỗi một bước đi, mỗi một cái búng tay.</p> 
+    <p class="floating-paragraph">Tôi biết rằng anh đã sợ hãi, anh sợ hãi vì anh chỉ muốn bắt chước thiên tài, chứ không muốn làm thiên tài; anh sợ hãi vì anh làm thiên tài, chứ không là thiên tài: anh sợ hãi vì anh tầm thường, chứ không chịu sâu sắc: anh sợ hãi vì anh chịu sâu sắc, chứ không chịu im lặng; anh sợ hãi vì anh chịu im lặng, chứ không dám ồn ào; anh sợ hãi vì anh chỉ dám ồn ào; chứ không dám làm thơ; anh sợ hãi vì anh làm thơ, chứ không để thơ làm anh; anh sợ hãi vì anh để lời làm anh, chứ anh không làm lời. Lời đi từ Ngôn; Ngôn đi từ Vô ngôn; Vô ngôn đi từ Huyền, mà Huyền thì “huyền chi hựu huyền”.</p>
+    <p class="floating-paragraph">Thi ca đã chết.</p> 
+    <p class="floating-paragraph">Giở ra những tập thơ của Lưu Trọng Lưu, Xuân Diệu, Huy Cận, Nguyễn Bính, Chế Lan Viên, v.v. tôi có cảm giác là phải bị đem nhốt trong một xà lim để chờ ngày tử hình và những thi sĩ ấy là những ông cố đạo, họ bước vào xà lim tôi, họ ba hoa rủ tôi vào đạo, rủ rê tôi phải chịu rửa tội. Tôi muốn mửa máu độc vào người họ.</p>  
+    <p class="floating-paragraph">Đó là chưa nói đến những nhà thơ cách mạng, tôi muốn để họ yên, vì họ cũng bị nhốt trong xà lim, họ khác tôi là họ bị nhốt, mà không phản đối hay đã phản đối, họ khác tôi là họ bị nhốt mà không biết bị nhốt, họ là Tố Hữu, Nguyễn Đình Thi, Pablo Neruda, Paul Eluard, Aragon, v.v.</p>
+    <p class="floating-paragraph">Hỡi các anh làm cách mạng, anh phá một xã hội định thể để rồi bị nhốt vào một xã hội định thể khác. Tôi đã bị nhốt trong xà lim, tôi không phá, tôi không hy vọng, tôi không chịu rửa tội vì tôi hoàn toàn vô tội; tôi đã bị nhốt trong xà lim, nhưng tôi có thể nhốt xà lim lại, xà lim sẽ bị tôi nhốt tù.</p>
+    <p class="floating-paragraph">Như một ông thánh vô tội, tôi quì xuống trong xà lim và ca một bài ca mới; bài ca mới ấy là bài ca không lời, bài ca ấy là số 1, số 2, số 3, số 4. Số một là Thái cực hay Đạo, số hai là Lưỡng nghi, số ba là Tam tính và số bốn là Tứ tượng. Cứ thế rồi tôi lại tiếp tục ca hát lại từ số 1 cho đến số 4; cái khoảng Chuyển thời từ số 4 đến số 1 là Phi thời, gọi là Vô cực.</p>
+    <p class="floating-paragraph">Tôi quì xuống trong nhà ngục xà lim đen tối, tôi để cho số 1 đi vào lỗ mũi, cho số 2 đi ra hai lỗ mũi, cho số 3 đi vào hai lỗ mũi, cho số 4 đi ra hai lỗ mũi. Tôi cứ để cho bốn số ấy đi vòng vũ trụ cho đến khi nào tiếng đập tim tôi đi thành 1, thành 2, thành 3, thành 4 và bốn số ấy là 4 tiếng đập tim của tôi.</p>   
+    <p class="floating-paragraph">Tôi quì xuống xà lim đen tối và tịch nhiên bất động: Tôi bình thản chờ đợi 4 số chuyển động theo đồng loạt với 4 tiếng đập tim. Một tiếng sét sẽ đánh mạnh vào đầu tôi, đi xuống tim tôi và sẽ nổ tung lên và sẽ phá tan cả ba trăm ba chục ngàn vũ trụ. Vô cực xuất hiện!</p>  
+    <p class="floating-paragraph">Lúc bấy giờ, các anh là những thi sĩ ở Việt Nam, các anh sẽ chạy tìm thi sĩ Quách Tấn, các anh muốn quì lạy trước thiên tài Quách Tấn, thi tài bị bỏ quên của Việt Nam, nhưng một tấn bi kịch Hy Lạp lại tái diễn; lúc ấy, Quách Tấn đã chết rồi, vì lúc ấy có lẽ là 2.000 năm sau Thiên Chúa giáng sinh.</p>    
+    <p class="floating-paragraph">Còn tôi, các anh không thể tìm ra tôi nữa, vì tôi đã xuất tính rồi: tôi biến thành lửa của những vũ trụ mới.</p>   
+    <p class="floating-paragraph">Thơ đã chết.</p>
+    <p class="floating-paragraph">Ngày 10 tháng 8 năm 1966, tôi đã gặp Henry Miller tại California ở Mỹ quốc. Tôi có hai người bạn vong niên trong đời: một người tên là Quách Tấn, người Việt Nam; còn người kia là Henry Miller, người Mỹ. Quách Tấn gần 60 tuổi. Henry Miller gần 80 tuổi. Tôi đã quen hai người gần 10 năm rồi; năm nay tôi gần đúng 25 tuổi; tôi đã quen họ từ lúc khoảng 15 tuổi. Hồi còn ở Việt Nam, tôi thường gặp Quách Tấn, nhưng đối với Henry Miller, mãi đến lúc tôi xuất ngoại, tôi mới gặp lại. Tôi đã chuẩn bị 10 năm trời để gặp Henry Miller và tôi đã gặp Henry Miller tại Pacific Palisades ở California.</p>
+    <p class="floating-paragraph">Giấc mộng đã thành tựu, tôi liền lang thang ở Greenwich Village tại New York để gặp một thi sĩ rất trẻ, một người em kiếp trước của tôi, tên là Eduardo Zalamea, quê ở xứ Colombie thuộc Mỹ châu La Tinh, người mà Henry Miller cho rằng “đã nếm Vô cực”; gặp xong Eduardo Zalamea rồi; hai đứa tôi rủ rê nhau lang thang qua Hà Lan để rồi trở về Paris vào mùa xuân; thế rồi lúc đó, tôi thấy mỗi đứa nên tìm cách đi riêng, một người bạn Do Thái ở Los Angeles cho tiền máy bay và ngày hôm sau tôi ngồi uống cà phê đen tại quán Flore và Les Deux Magots ở Saint Germain des Prés để ngửi cho tận cùng những thứ triết lý ba chục xu của Jean Paul Sartre và Simone de Beauvoir; khi ngồi uống cà phê ở Flore và nhìn mưa rơi trên đường phố Saint Germain des Prés, tôi đã thấy hết mọi lý luận rẻ tiền của triết lý hiện sinh, tôi muốn mửa máu đen trên những người làm văn nghệ ở Paris như Jean Paul Sartre, André Malraux, Simone de Beauvoir, François Mauriac, Michel Butor, Samuel Beckett, Ionesco, Nathalie Sarraute, André Breton, Jacques Prévert, Paul Eluard, Henry Michaux, René Char, Jean Genet, Roger Caillois.</p>
+    <p class="floating-paragraph">Ngồi tại quán cà phê ở Flore ở Paris vào lúc mùa thu, ngày cuối thu mưa rơi, ngày 16 tháng 11 năm 1966, ngồi đó như một người hành khách ngồi trong nhà đợi tại một ga hẻo lánh nào trong miền thôn quê của cõi chết, tôi sực nghĩ ngợi tìm thử coi có một con người nào ở nước Pháp này mà tôi muốn gặp không; khi tự hỏi như vậy, tôi mới biết rằng chỉ có hai người: Blaise Cendrars và Simone Weil: nhưng vui sướng biết bao là Blaise Cendrars và Simone Weil đã chết rồi, như thế thì chẳng còn ai để đáng được gặp. Còn về Jean Paul Sartre và Simone de Beauvoir, nếu họ muốn xin gặp tôi, tôi sẽ không cho gặp mà có lẽ sẽ chửi vào mặt họ.</p>
+    <p class="floating-paragraph">Tư tưởng đã chết.</p>
+    <p class="floating-paragraph">[...]</p>
+    
+  <!-- DOWN ARROW -->
+  <span class="next-part down" data-target="under-creation-!.html">﹀</span>
+  
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/39hFoLW86B63ot3YDvS65G?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+  </div>
+
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+    <!-- MỞ ĐẦU -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-uyen.tu.html">
+          <h2 class="timeline-title">Mở<br>Đầu</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG NHẤT -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-triet.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Nhất</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG HAI -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-tuong.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Hai</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG BA -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-ai.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Ba</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+  </div>
+      
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach (arrow => { arrow.addEventListener('click', () => { document.body.style.transition = 'opacity 1s';
+                                                                        document.body.style.opacity = 0;
+                                                                        setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
+                               });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+     timelineOverlay.classList.toggle('is-open');
+    });
+
+    timelineOverlay.addEventListener('click', (e) => {
+    if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+    
+  </script>
+</body>
+</html>
