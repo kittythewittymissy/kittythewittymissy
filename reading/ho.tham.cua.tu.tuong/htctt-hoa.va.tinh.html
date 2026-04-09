@@ -201,16 +201,14 @@
         0 0 5px rgba(255,255,255,0.6),
         0 0 9px rgba(255,255,255,0.4);
       opacity: 0;
-      animation: neonSign-White 1.2s ease forwards;
-      animation-delay: calc(var(--anim-speed-body) + 0.3s);
     }
     
-    /* Big gold quote marks */
     .gold-quote {
       font-family: 'Codystar', sans-serif;
       font-size: 3.6rem;
       line-height: 1;
       color: var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
       text-shadow:
         0 0 1px var(--gold-core),
         0 0 2px var(--gold-core),
@@ -219,8 +217,15 @@
         0 0 16px rgba(255,214,98,0.5);
       transform: translateY(-0.12em);
       opacity: 0;
+    }
+
+    .quote-start .gold-quote {
       animation: neonSign-Gold 1.2s ease forwards;
-      animation-delay: var(--anim-speed-body);
+    }
+    
+    .quote-start .glow-quote-text {
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay: 0.4s;
     }
 
     /* --- TEXT STYLE: STRONGER BOLD --- */
@@ -505,12 +510,18 @@
     const timelineOverlay = document.getElementById('timelineOverlay');
 
     timelineToggle.addEventListener('click', () => {
-     timelineOverlay.classList.toggle('is-open');
+    timelineOverlay.classList.toggle('is-open');
     });
-
     timelineOverlay.addEventListener('click', (e) => {
     if (e.target === timelineOverlay) {
     timelineOverlay.classList.remove('is-open'); }
+    });
+
+    const quoteLine = document.querySelector('.glow-quote-line');
+    const prevParagraph = quoteLine.previousElementSibling;
+  
+    prevParagraph.addEventListener('animationend', () => {
+    quoteLine.classList.add('quote-start');
     });
     
   </script>
