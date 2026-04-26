@@ -428,13 +428,10 @@
     });
 
     const quotes = document.querySelectorAll('.glow-quote-line');
-    const paragraphs = document.querySelectorAll('.floating-paragraph');
-  
-    if (paragraphs[2] && quotes[0]) {
-    paragraphs[2].addEventListener('animationend', () => {
+
+    quotes[0].addEventListener('animationend', () => {
     quotes[0].classList.add('quote-start');
     }, { once: true });
-    }
     
   </script>
 </body>
