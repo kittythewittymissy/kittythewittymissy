@@ -427,10 +427,11 @@
     timelineOverlay.classList.remove('is-open'); }
     });
 
-    const quotes = document.querySelectorAll('.glow-quote-line');
-
-    quotes[0].addEventListener('animationend', () => {
-    quotes[0].classList.add('quote-start');
+    const paragraphs = document.querySelectorAll('.floating-paragraph');
+    const quote = document.querySelector('.glow-quote-line');
+    
+    paragraphs[1].addEventListener('animationend', () => {
+      quote.classList.add('quote-start');
     }, { once: true });
     
   </script>
