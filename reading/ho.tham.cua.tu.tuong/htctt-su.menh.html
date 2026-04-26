@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hố Thẳm Của Tư Tưởng - Kết luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../../favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* --- WORK TITLE --- */
+    .work-title { 
+      position: relative;
+      top: auto;
+      padding: 2rem 5rem;
+    }
+    
+   .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1.2s ease forwards;
+      animation-delay:0.3s;
+    }
+    
+    @keyframes neonSign-Gold {
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- SUBTITLE --- */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
+    
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* --- AUTHOR NAME (SECONDARY SUBTITLE) --- */
+    .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 0.12em;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  
+    color: #fff;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px rgba(255,255,255,0.6),
+      0 0 9px rgba(255,255,255,0.4);
+  
+    opacity: 0;
+    animation: neonSign-White 1.2s ease forwards;
+    animation-delay: 0.8s;
+    }
+
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%; 
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* animation delays for paragraphs */
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6)  { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7)  { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    
+    /* --- GLOW QUOTE LINE (INLINE WITH PARAGRAPHS) --- */
+    .glow-quote-text {
+      font-style: italic;
+      font-weight: 300;
+      color: #fff;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+    }
+    
+    .gold-quote {
+      display: inline-block;
+      font-family: 'Codystar', sans-serif;
+      font-size: 3.6rem;
+      line-height: 0;
+      color: var(--gold-core);
+      vertical-align: -0.3em;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core),
+        0 0 10px rgba(255,214,98,0.7),
+        0 0 16px rgba(255,214,98,0.5);
+      transform: translateY(-0.12em);
+      opacity: 0;
+    }
+
+    .quote-start .gold-quote {
+      animation: neonSign-Gold 1.2s ease forwards;
+    }
+    
+    .quote-start .glow-quote-text {
+      animation: neonSign-White 1.2s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    /* --- TEXT STYLE: STRONGER BOLD --- */
+    .center-bold, .center-bold-inline {
+      font-weight: 600; 
+      color: #fff;
+      text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
+      text-align: center;
+    }
+
+    /* --- BULLET POINT --- */
+    .timeline-dot.inline-dot {
+      position: static;
+      transform: none;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    /* --- SERIES BACKGROUND --- */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
+
+    .work-content { padding-top: 5rem; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 8rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
+                                                            max-width: 90%; 
+                                                            position: static; 
+                                                            text-align: center; }
+      .spotify-popup { top: 50%; left: calc(50% - 3.5px); transform: translate(-50%, -50%); 
+                       width: 70%; max-width: 420px; min-width: 300px; bottom: auto; }
+      .spotify-popup iframe { width: 100%; height: 352px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+    html, body { touch-action: pan-y; }
+    .timeline-content a { text-decoration: none; }
+
+  </style>
+</head>
+<body>
+
+  <div class="series-background">Thẳm</div>
+
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Hố Thẳm Của Tư Tưởng</h1>
+    <h3 class="author-name animated-subtitle">Phạm Công Thiện</h3>
+  </div>
+
+  <!-- --- SUBTITLE --- -->
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+       Kết Luận: 
+       <br>Mở ra sứ mệnh của Hố thẳm
+      </h2>
+  </div>
+
+  <!-- --- BODY SECTION --- -->
+  <div class="text-section">
+    
+  <!-- UP ARROW -->
+  <span class="next-part up" data-target="htctt-hoa.va.tinh.html">︿</span>
+    
+    <p class="floating-paragraph center-bold" style="font-size: 1.7em; font-style: italic;">Tìm lại Hàn Mặc Tử và thế giới vô hình</p>
+  
+    <p class="floating-paragraph">Không thể gọi Hàn Mặc Tử là thi sĩ vĩ đại nhất trong thi ca Việt Nam, Hàn Mặc Tử bay ra ngoài tất cả mọi chân trời, Hàn Mặc Tử là thi sĩ viết hoa bằng máu: THI SĨ.</p> 
+    <p class="floating-paragraph">Leopardi, Keats, Rimbaud, Hölderlin, Hàn Mặc Tử là những THI SĨ của Hố Thẳm Vô Hình:</p> 
+        
+    <p class="floating-paragraph glow-quote-line">
+      <span class="gold-quote open">“</span>
+        <em class="glow-quote-text">Hoa kim tước thơm ngát an phận với sa mạc</em>
+      <span class="gold-quote close">”</span>
+    </p>
+    <p class="floating-paragraph">(Leopardi, La Ginestra)</p>
+   
+    <p class="floating-paragraph">Sau Hàn Mặc Tử ngôn ngữ Việt Nam vỗ cánh run rẩy sương mai trong rừng đông bàng bạc.</p>
+    <p class="floating-paragraph">Trong thế giới vô hình, Rimbaud, Leopardi, Keats và Hoelderlin đều gặp nhau; khi bốn thi sĩ gặp nhau, họ đều thì thầm bàn tán nhau về con chim phượng hoàng ở trời Đâu Suất. Bỗng nhiên từ cõi vô hình một hoả diệm sơn của Thiên Thanh vụt nổ bùng lên, chấn động cả từng tượng thanh khí: Rimbaud, Leopardi, Keats và Hoelderlin hốt hoảng kinh hồn: bốn thi sĩ run lẩy bẩy, “run như hơi thở chạm tơ vàng” vì Hàn Mặc Tử vụt hiện trên ngọn núi lửa và mỉm cười đưa tay rắc máu xuống Hố Thẳm của Việt Nam; lúc bây giờ Leopardi, Rimbaud, Keats và Hoelderlin liền quì xuống cúi lạy những giọt máu cô liêu của thi ca Á Đông.</p> 
+    <p class="floating-paragraph">Hàn Mặc Tử vỗ cánh phượng hoàng và bay xuống đậu giữa Thiên Thanh, Rimbaud và Hoelderlin đứng dậy chắp tay, đứng về phía trái; Keats và Leopardi đứng dậy chắp tay, đứng về phía mặt; Hàn Mặc Tử bay xà xuống đậu ngay chính giữa; ngay lúc ấy, lập tức hai Thi Sĩ bên trái và hai Thi Sĩ bên mặt quì xuống lạy ba triệu lạy; khi bốn Thi Sĩ lạy xong và ngước mặt lên thì Hàn Mặc Tử đã vụt biến mất và hoả diệm sơn biến thành một quả trứng phượng hoàng khổng lồ: quả trứng phượng hoàng cô liêu xoay tròn năm vòng và thu hình nhỏ lại thành trái đất; từ ấy, trái đất liên tục xoay tròn giữa vũ trụ vô biên và con người không còn làm thơ nữa.</p>     
+
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/39hFoLW86B63ot3YDvS65G?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+  </div>
+
+  <!-- TIMELINE TOGGLE -->
+  <div class="timeline-toggle" id="timelineToggle"></div>
+
+  <!-- TIMELINE OVERLAY -->
+  <div class="timeline-overlay" id="timelineOverlay">
+    <div class="timeline-wrap">
+      <div class="timeline-list">
+  
+    <!-- MỞ ĐẦU -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-uyen.tu.html">
+          <h2 class="timeline-title">Mở<br>Đầu</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG NHẤT -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-triet.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Nhất</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG HAI -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-tuong.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Hai</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG BA -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-ai.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Ba</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+      
+    <!-- CHƯƠNG TƯ -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-tho.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Tư</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- CHƯƠNG NĂM -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-hoa.va.tinh.html">
+          <h2 class="timeline-title">Chương<br>Năm</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+
+    <!-- KẾT LUẬN -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <a href="htctt-su.menh.html">
+          <h2 class="timeline-title">Kết<br>Luận</h2>
+        </a>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  
+  </div>
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach (arrow => { arrow.addEventListener('click', () => { document.body.style.transition = 'opacity 1s';
+                                                                        document.body.style.opacity = 0;
+                                                                        setTimeout(() => { window.location.href = arrow.dataset.target; }, 1000); }); 
+                               });
+
+    const timelineToggle = document.getElementById('timelineToggle');
+    const timelineOverlay = document.getElementById('timelineOverlay');
+
+    timelineToggle.addEventListener('click', () => {
+    timelineOverlay.classList.toggle('is-open');
+    });
+    timelineOverlay.addEventListener('click', (e) => {
+    if (e.target === timelineOverlay) {
+    timelineOverlay.classList.remove('is-open'); }
+    });
+    
+  </script>
+</body>
+</html>
