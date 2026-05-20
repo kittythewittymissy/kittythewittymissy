@@ -19,14 +19,17 @@
 
 <style>
 
-/* Aphorism size override (you increased it locally) */
-.aphorism {
-  font-size: 2rem;
+/* WORK TITLE */
+.work-title {
+  position: fixed;
+  left: 3rem;
+  top: 2rem;
+  z-index: 200;
 }
 
-/* Expansion layout override (your custom reading column) */
+/* EXPANSION (your custom reading layout) */
 .expansion {
-  position: absolute;         
+  position: absolute;
   max-width: 40%;
   padding-top: 5rem;
 
@@ -39,6 +42,22 @@
   line-height: 1.8;
   color: rgba(255,255,255,0.85);
   pointer-events: none;
+}
+
+/* APHORISM (only size override) */
+.aphorism {
+  font-size: 2rem;
+}
+
+/* OPEN STATE (unchanged behavior) */
+.stage.open .expansion {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stage.open .aphorism {
+  transform: translateY(145px) scale(0.95);
+  opacity: 0.55;
 }
 
 </style>
