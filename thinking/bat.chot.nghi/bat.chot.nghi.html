@@ -54,13 +54,11 @@
     100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
 }
 
-/* EXPANSION (your custom reading layout) */
+/* EXPANSION */
 .expansion {
-  position: absolute;
+  position: absolute;         
   max-width: 40%;
   padding-top: 5rem;
-  z-index: 2;
-
   opacity: 0;
   transform: translateY(25px);
   transition: opacity 1.6s ease, transform 1.6s ease;
@@ -72,12 +70,19 @@
   pointer-events: none;
 }
 
-/* APHORISM (only size override) */
+/* APHORISM */
 .aphorism {
+  position: absolute;
+  max-width: 600px;
+  text-align: center;
   font-size: 2rem;
+  text-shadow: var(--glow-white);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 1.4s cubic-bezier(.2,.8,.2,1), opacity 1.2s ease;
 }
 
-/* OPEN STATE (unchanged behavior) */
+/* OPEN STATE */
 .stage.open .expansion {
   opacity: 1;
   transform: translateY(0);
