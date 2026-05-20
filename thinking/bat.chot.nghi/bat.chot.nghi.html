@@ -98,72 +98,76 @@
   opacity: 0.55;
 }
 
-/* MOBILE RESPONSIVE */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
 
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 
-  /* convert stage into flow layout */
+  /* TURN STAGE INTO NORMAL PAGE */
   .stage {
-    position: relative;
+    position: relative !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 6rem 1.5rem;
+    justify-content: flex-start;
+    padding: 4rem 1.2rem 6rem;
   }
 
-  /* kill absolute centering completely */
-  .aphorism,
-  .expansion {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    max-width: 100%;
-  }
-
+  /* FORCE TEXT TO BE BIG + READABLE */
   .aphorism {
-    font-size: 1.4rem;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    max-width: 100% !important;
+    font-size: 1.6rem;
+    line-height: 1.5;
     margin-bottom: 2rem;
   }
 
   .expansion {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    max-width: 100% !important;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    opacity: 1 !important;
   }
 
-  /* override open state fully */
-  .stage.open .aphorism {
-    transform: none;
-    opacity: 0.55;
-  }
-
+  /* DISABLE DESKTOP OPEN ANIMATION ON MOBILE */
+  .stage.open .aphorism,
   .stage.open .expansion {
-    opacity: 1;
-    transform: none;
+    transform: none !important;
   }
 
+  /* TITLE SCALE FIX */
   .work-title {
-    padding: 4rem 1.5rem 2rem;
+    padding: 3rem 1.2rem 1rem;
   }
 
   .work-title h1 {
-    font-size: 2.8rem;
-    letter-spacing: 0.08em;
-  }
-}
-
-/* small phones */
-@media (max-width: 420px) {
-
-  .aphorism {
-    font-size: 1.2rem;
+    font-size: 2.4rem;
+    letter-spacing: 0.06em;
   }
 
-  .expansion {
-    font-size: 1rem;
+  /* BACK BUTTON */
+  .back-button {
+    transform: scale(0.9);
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* SPOTLIGHT DOES NOT CONTROL LAYOUT */
+  .spotlight-cone,
+  .spotlight-pool,
+  .spotlight-vignette {
+    pointer-events: none;
   }
 }
 
