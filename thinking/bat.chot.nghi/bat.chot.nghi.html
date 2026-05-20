@@ -98,6 +98,58 @@
   opacity: 0.55;
 }
 
+@media (max-width: 768px) {
+
+  /* GLOBAL SCALE DOWN */
+  .work-title h1 {
+    font-size: 2.2rem;
+  }
+
+  .aphorism {
+    font-size: 1.2rem;
+    max-width: 85%;
+  }
+
+  .expansion {
+    max-width: 85%;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* KEEP CENTERING CONSISTENT */
+  .aphorism,
+  .expansion {
+    width: 85%;
+  }
+
+  /* REDUCE MOTION DISTANCE (important) */
+  .stage.open .aphorism {
+    transform: translate(-50%, calc(-50% + 90px)) scale(0.95);
+  }
+
+  /* SPOTLIGHT SCALING */
+  .spotlight-cone {
+    width: 120vw;
+    height: 90vh;
+    transform: translateX(-50%) scaleY(0.7);
+  }
+
+  .spotlight-pool {
+    width: 90vw;
+    height: 160px;
+    top: 70%;
+  }
+
+  /* BACK BUTTON */
+  .back-button .kitty-text {
+    font-size: 1.4rem;
+  }
+
+  .back-button .back-text {
+    font-size: 1rem;
+  }
+}
+
 </style>
 </head>
 
