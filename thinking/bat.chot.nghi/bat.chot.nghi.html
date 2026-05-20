@@ -100,38 +100,27 @@
 
 @media (max-width: 768px) {
 
-  /* GLOBAL SCALE DOWN */
+  /* global scale-down behavior */
+  html {
+    font-size: 14px;
+  }
+
+  /* WORK TITLE behaves like reference page */
+  .work-title {
+    position: static;
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
   .work-title h1 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
   }
 
-  .aphorism {
-    font-size: 1.2rem;
-    max-width: 85%;
-  }
-
-  .expansion {
-    max-width: 85%;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* KEEP CENTERING CONSISTENT */
-  .aphorism,
-  .expansion {
-    width: 85%;
-  }
-
-  /* REDUCE MOTION DISTANCE (important) */
-  .stage.open .aphorism {
-    transform: translate(-50%, calc(-50% + 90px)) scale(0.95);
-  }
-
-  /* SPOTLIGHT SCALING */
+  /* SPOTLIGHT scales proportionally */
   .spotlight-cone {
     width: 120vw;
     height: 90vh;
-    transform: translateX(-50%) scaleY(0.7);
+    transform: translateX(-50%) scaleY(0.8);
   }
 
   .spotlight-pool {
@@ -140,13 +129,49 @@
     top: 70%;
   }
 
-  /* BACK BUTTON */
-  .back-button .kitty-text {
+  /* CENTERED SYSTEM stays centered but shrinks */
+  .aphorism,
+  .expansion {
+    max-width: 85%;
+  }
+
+  .aphorism {
     font-size: 1.4rem;
   }
 
-  .back-button .back-text {
+  .expansion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-top: 2rem;
+  }
+
+  /* back button stays usable */
+  .back-button {
+    top: 1rem;
+    right: 1rem;
+    transform: scale(0.9);
+  }
+
+  /* reduce gold title scale */
+  .work-title h1 {
+    letter-spacing: 0.08em;
+  }
+}
+
+/* very small screens */
+@media (max-width: 420px) {
+
+  .aphorism {
+    font-size: 1.2rem;
+  }
+
+  .expansion {
     font-size: 1rem;
+    max-width: 92%;
+  }
+
+  .spotlight-pool {
+    height: 120px;
   }
 }
 
