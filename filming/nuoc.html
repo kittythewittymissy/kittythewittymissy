@@ -22,6 +22,9 @@
       --gold-core: #FFD662;
     }
 
+    /* CONTENT WRAPPING */
+    .page-content { position: relative; }
+
     .work-title { padding: 2rem 5rem; }
 
     .work-title h1 {
@@ -138,8 +141,6 @@
       to { opacity: 1; }
     }
 
-    
-
     @media(max-width:768px) {
       .main-video { width: 90%; }
       .work-title { padding: 4rem 1.5rem 2rem; }
@@ -156,6 +157,20 @@
 </head>
 
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+<!-- PAGE -->
+<div class="page-content spotlight-delayed">
 
   <a href="../index.html" class="back-button">
     <span class="back-text">Back to</span>
@@ -206,6 +221,7 @@
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy">
     </iframe>
+  </div>
 
   </div>
 
