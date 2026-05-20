@@ -411,6 +411,261 @@ h3 {
   animation: arrowFadeIn 2s ease forwards 5.7s, arrowFloat 2.5s infinite ease-in-out;
 }
 
+/* ===================== SPOTLIGHT SYSTEM ===================== */
+
+:root {
+
+  /* Spotlight Timing */
+  --spotlight-ignite-speed: 1.25s;
+  --spotlight-content-delay: 1s;
+}
+
+/* ===== SPOTLIGHT STAGE ===== */
+
+.spotlight-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ===== MAIN CONE ===== */
+
+.spotlight-cone {
+
+  position: absolute;
+
+  top: -8vh;
+  left: 50%;
+
+  transform: translateX(-50%) scaleY(0.02);
+
+  width: 1100px;
+  height: 125vh;
+
+  clip-path: polygon(
+    40% 0%,
+    60% 0%,
+    100% 100%,
+    0% 100%
+  );
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,240,0.22) 0%,
+      rgba(255,255,240,0.12) 14%,
+      rgba(255,255,240,0.055) 34%,
+      rgba(255,255,240,0.022) 58%,
+      rgba(255,255,240,0.010) 74%,
+      transparent 88%
+    );
+
+  filter: blur(2px);
+
+  opacity: 0;
+
+  transform-origin: top center;
+
+  animation:
+    spotlightIgnite var(--spotlight-ignite-speed)
+    cubic-bezier(.18,.8,.25,1)
+    forwards;
+}
+
+/* ===== ATMOSPHERIC STRIATIONS ===== */
+
+.spotlight-cone::after {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 2px,
+      transparent 5px,
+      transparent 10px
+    );
+
+  opacity: 0.5;
+
+  mix-blend-mode: screen;
+}
+
+/* ===== BRIGHTER CENTER CORE ===== */
+
+.spotlight-cone::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  width: 38%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,245,0.20) 0%,
+      rgba(255,255,245,0.09) 20%,
+      rgba(255,255,245,0.035) 45%,
+      transparent 78%
+    );
+
+  filter: blur(12px);
+
+  opacity: 0.9;
+}
+
+/* ===== LIGHT POOL ===== */
+
+.spotlight-pool {
+
+  position: absolute;
+
+  left: 50%;
+  top: 72%;
+
+  transform: translate(-50%, -50%) scale(0.2);
+
+  width: 900px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,240,0.18) 0%,
+      rgba(255,255,240,0.085) 24%,
+      rgba(255,255,240,0.03) 48%,
+      rgba(255,255,240,0.012) 66%,
+      transparent 82%
+    );
+
+  filter: blur(14px);
+
+  opacity: 0;
+
+  animation:
+    poolIgnite 1.05s
+    cubic-bezier(.18,.8,.25,1)
+    forwards;
+}
+
+/* ===== ROOM VIGNETTE ===== */
+
+.spotlight-vignette {
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.14) 52%,
+      rgba(0,0,0,0.7) 100%
+    );
+}
+
+/* ===== CONTENT LAYER ===== */
+
+.page-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== DELAYED CONTENT APPEAR ===== */
+
+.spotlight-delayed {
+  opacity: 0;
+  animation:
+    spotlightContentReveal 1.2s ease forwards;
+  animation-delay: var(--spotlight-content-delay);
+}
+
+/* ===== SPOTLIGHT ANIMATIONS ===== */
+
+@keyframes spotlightIgnite {
+
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0.01);
+    filter: blur(20px) brightness(0.2);
+  }
+
+  18% {
+    opacity: 0.12;
+    transform: translateX(-50%) scaleY(0.55);
+    filter: blur(8px) brightness(0.55);
+  }
+
+  42% {
+    opacity: 0.42;
+    transform: translateX(-50%) scaleY(1.02);
+    filter: blur(3px) brightness(1);
+  }
+
+  58% {
+    opacity: 0.34;
+    transform: translateX(-50%) scaleY(0.98);
+    filter: blur(2px) brightness(0.82);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+    filter: blur(2px) brightness(1);
+  }
+}
+
+@keyframes poolIgnite {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.08);
+    filter: blur(42px);
+  }
+
+  35% {
+    opacity: 0.22;
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+
+  58% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(14px);
+  }
+}
+
+@keyframes spotlightContentReveal {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width: 768px) {
   .work-title,
@@ -428,7 +683,6 @@ h3 {
           
         -webkit-text-stroke: 0;
       }
-    }
 
   h2.main-column-heading { font-size: 1.5em; }
   h2.column-subheading, h3 { font-size: 1.6em; }
@@ -450,4 +704,17 @@ h3 {
   .back-button .kitty-text { font-size: 2rem; }
   .next-part { font-size: 2rem; }
 
+  .spotlight-cone {
+    width: 145vw;
+    height: 105vh;
+    top: -2vh;
+    filter: blur(1.5px);
   }
+
+  .spotlight-pool {
+    width: 115vw;
+    height: 160px;
+    top: 68%;
+    filter: blur(10px);
+  }
+}
