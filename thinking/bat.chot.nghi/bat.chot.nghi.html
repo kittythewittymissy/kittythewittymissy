@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Thoughts</title>
+
+<!-- FAVICON -->
+<link rel="icon" href="../../favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../../favicon/site.webmanifest">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+<!-- GLOBAL CSS -->
+<link rel="stylesheet" href="../../style.css">
+
+<style>
+
+/* Aphorism size override (you increased it locally) */
+.aphorism {
+  font-size: 2rem;
+}
+
+/* Expansion layout override (your custom reading column) */
+.expansion {
+  position: absolute;         
+  max-width: 40%;
+  padding-top: 5rem;
+
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+  pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="back-button" href="../index.html">
+  <span class="back-text">Back to</span>
+  <span class="kitty-text">KITTY</span>
+</a>
+
+<div class="work-title">
+  <h1>Bất chợt nghĩ</h1>
+</div>
+
+<div class="stage" id="stage">
+
+  <div class="spotlight-cone"></div>
+  <div class="spotlight-pool"></div>
+  <div class="spotlight-vignette"></div>
+
+  <div class="aphorism" onclick="toggleStage()">
+    [SUY NGHĨ]
+  </div>
+
+  <div class="expansion">
+    <p>
+     [SUY NGHĨ]
+    </p>
+
+    <p>
+      [SUY NGHĨ]
+    </p>
+
+    <p>
+      [SUY NGHĨ]
+    </p>
+  </div>
+
+</div>
+
+<script>
+function toggleStage() {
+  document.getElementById("stage").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
