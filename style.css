@@ -477,24 +477,30 @@ h3 {
 
   position: absolute;
 
-  top: 0;
-  left: 50%;
+  inset: 0;
 
-  transform: translateX(-50%);
-
-  width: 34%;
-  height: 100%;
+  clip-path: polygon(
+    47% 0%,
+    53% 0%,
+    68% 100%,
+    32% 100%
+  );
 
   background:
     linear-gradient(
       to bottom,
-      rgba(255,255,245,0.13) 0%,
-      rgba(255,255,245,0.06) 25%,
-      rgba(255,255,245,0.02) 48%,
-      transparent 80%
+      rgba(255,255,245,0.17) 0%,
+      rgba(255,255,245,0.10) 18%,
+      rgba(255,255,245,0.05) 42%,
+      rgba(255,255,245,0.018) 68%,
+      transparent 85%
     );
 
-  opacity: 0.9;
+  filter: blur(10px);
+
+  opacity: 0.82;
+
+  transform: translateZ(0);
 }
 
 /* ===== LIGHT POOL ===== */
