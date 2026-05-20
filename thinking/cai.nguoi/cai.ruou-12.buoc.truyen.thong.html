@@ -145,15 +145,16 @@
       z-index: 0;
     }
 
-    /* --- NEXT PART ICON --- */
+    /* NEXT PART ICON */
     .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
     .next-part.up { margin-bottom:2rem; }
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
     .work-content { padding-top: 5rem; }
+    .page-content { position: relative; }
 
-    /* RESPONSIVE */
+    /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
       .series-background { font-size: 12.5rem; }
@@ -184,8 +185,24 @@
     .timeline-content a { text-decoration: none; }
 
   </style>
+
 </head>
+
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+ <!-- PAGE -->
+  <div class="page-content spotlight-delayed"> 
 
   <div class="series-background">Cai</div>
 

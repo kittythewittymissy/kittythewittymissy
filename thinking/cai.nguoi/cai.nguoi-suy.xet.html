@@ -179,6 +179,7 @@
     .next-part:hover { transform:translateY(2px); }
 
     .work-content { padding-top: 5rem; }
+    .page-content { position: relative; }
 
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
@@ -212,9 +213,21 @@
     
   </style>
 </head>
-
-<!-- PAGE ELEMENTS -->
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+ <!-- PAGE -->
+  <div class="page-content spotlight-delayed">
   <div class="series-background">Cai</div>
 
   <!-- BACK TO KITTY BUTTON -->
@@ -355,6 +368,10 @@
       </div>
     </div>
 
+  </div>
+
+  </div>
+  
   </div>
       
   <!-- UI INTERACTION (modal + transition) -->

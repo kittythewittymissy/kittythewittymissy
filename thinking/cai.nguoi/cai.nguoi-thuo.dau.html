@@ -139,6 +139,7 @@
     }
 
     .work-content { position: relative; z-index: 2; }
+    .page-content { position: relative; }
 
     /* NEXT PART ICON */
     a {
@@ -183,6 +184,20 @@
 </head>
 
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+ <!-- PAGE -->
+  <div class="page-content spotlight-delayed">
 
   <div class="series-background">Cai</div>
 
@@ -325,6 +340,9 @@
   
   </div>
 
+  </div>
+
+  <!-- UI INTERACTION (modal + transition) -->
   <script>
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
@@ -356,4 +374,5 @@
   </script>
 
 </body>
+
 </html>

@@ -149,6 +149,9 @@
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
+    .work-content { padding-top: 5rem; }
+    .page-content { position: relative; }
+
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
@@ -179,10 +182,25 @@
 
     html, body { touch-action: pan-y; }
     .timeline-content a { text-decoration: none; }
+
   </style>
 </head>
   
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+ <!-- PAGE -->
+  <div class="page-content spotlight-delayed">
 
   <div class="series-background">Cai</div>
 
@@ -231,7 +249,7 @@
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/76BwjwlI4KIi6fBENykBMe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
   
-<!-- TIMELINE TOGGLE -->
+  <!-- TIMELINE TOGGLE -->
   <div class="timeline-toggle" id="timelineToggle"></div>
 
   <!-- TIMELINE OVERLAY -->
@@ -320,6 +338,10 @@
     </div>
 
   </div>
+
+  </div>
+
+  </div>
       
   <!-- UI INTERACTION (modal + transition) -->
   <script>
@@ -351,4 +373,5 @@
   </script>
 
 </body>
+
 </html>
