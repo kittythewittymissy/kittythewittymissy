@@ -19,7 +19,7 @@
 
 <style>
 
-/* --- WORK TITLE --- */
+/* WORK TITLE */
  .work-title { 
     position: relative;
     top: auto;
@@ -98,67 +98,64 @@
   opacity: 0.55;
 }
 
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
-  /* global scale-down behavior */
   html {
     font-size: 14px;
   }
 
-  /* WORK TITLE behaves like reference page */
-  .work-title {
-    position: static;
-    padding: 4rem 1.5rem 2rem 1.5rem;
+  /* convert stage into flow layout */
+  .stage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 1.5rem;
   }
 
-  .work-title h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-  }
-
-  /* SPOTLIGHT scales proportionally */
-  .spotlight-cone {
-    width: 120vw;
-    height: 90vh;
-    transform: translateX(-50%) scaleY(0.8);
-  }
-
-  .spotlight-pool {
-    width: 90vw;
-    height: 160px;
-    top: 70%;
-  }
-
-  /* CENTERED SYSTEM stays centered but shrinks */
+  /* kill absolute centering completely */
   .aphorism,
   .expansion {
-    max-width: 85%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
   }
 
   .aphorism {
     font-size: 1.4rem;
+    margin-bottom: 2rem;
   }
 
   .expansion {
     font-size: 1.1rem;
     line-height: 1.6;
-    padding-top: 2rem;
   }
 
-  /* back button stays usable */
-  .back-button {
-    top: 1rem;
-    right: 1rem;
-    transform: scale(0.9);
+  /* override open state fully */
+  .stage.open .aphorism {
+    transform: none;
+    opacity: 0.55;
   }
 
-  /* reduce gold title scale */
+  .stage.open .expansion {
+    opacity: 1;
+    transform: none;
+  }
+
+  .work-title {
+    padding: 4rem 1.5rem 2rem;
+  }
+
   .work-title h1 {
+    font-size: 2.8rem;
     letter-spacing: 0.08em;
   }
 }
 
-/* very small screens */
+/* small phones */
 @media (max-width: 420px) {
 
   .aphorism {
@@ -167,11 +164,6 @@
 
   .expansion {
     font-size: 1rem;
-    max-width: 92%;
-  }
-
-  .spotlight-pool {
-    height: 120px;
   }
 }
 
