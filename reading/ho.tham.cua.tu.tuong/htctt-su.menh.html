@@ -226,9 +226,11 @@
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
+    /* CONTENT WRAPPING */
     .work-content { padding-top: 5rem; }
+    .page-content { position: relative; }
 
-    /* RESPONSIVE */
+    /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
       .series-background { font-size: 8rem; }
@@ -260,8 +262,24 @@
     .timeline-content a { text-decoration: none; }
 
   </style>
+
 </head>
+
 <body>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight-stage">
+
+  <div class="spotlight-cone"></div>
+
+  <div class="spotlight-pool"></div>
+
+  <div class="spotlight-vignette"></div>
+
+</div>
+
+<!-- PAGE -->
+<div class="page-content spotlight-delayed">
 
   <div class="series-background">Thẳm</div>
 
@@ -399,7 +417,12 @@
       <div class="timeline-dot"></div>
     </div>
   
+    </div>
+   </div>
   </div>
+
+  </div>
+
   <!-- UI INTERACTION (modal + transition) -->
   <script>
     const audioBtn = document.getElementById('audioBtn');
@@ -435,5 +458,7 @@
     }, { once: true });
     
   </script>
+
 </body>
+
 </html>
