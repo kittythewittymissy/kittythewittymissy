@@ -182,7 +182,7 @@
       color: var(--gold-core);
       opacity: 0.15;
       pointer-events: none;
-      z-index: 0;
+      z-index: -2;
     }
 
     /* --- NEXT PART ICON --- */
@@ -192,6 +192,7 @@
     .next-part:hover { transform:translateY(2px); }
 
     .work-content { padding-top: 5rem; }
+    .page-content { position: relative; z-index: 1; }
 
     /* RESPONSIVE */
     @media(max-width:768px) {
