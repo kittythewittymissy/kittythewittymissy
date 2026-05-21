@@ -20,155 +20,314 @@
 <style>
 
 /* WORK TITLE */
- .work-title { 
+.work-title { 
     position: relative;
+    z-index: 30;
     top: auto;
     padding: 2rem 5rem;
 }
     
- .work-title h1 {
+.work-title h1 {
+    position: relative;
+    z-index: 30;
+
     font-family: 'Raleway', sans-serif;
-    z-index: 1;
     font-size: 4rem;
     letter-spacing: 0.16em;
     font-weight: 100;
     color: #222;
+
     text-shadow:
         0 0 1px var(--gold-core),
         0 0 2px var(--gold-core),
         0 0 4px var(--gold-core);
+
     opacity: 0;
+
     animation: neonSign-Gold 1.2s ease forwards;
-    animation-delay:0.3s;
+    animation-delay: 0.3s;
 }
     
- @keyframes neonSign-Gold {
-    0% { opacity:0; color:#222; text-shadow:none; }
-    8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
-    16% { opacity:0; color:#222; text-shadow:none; }
-    25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
-    50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
-    66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
-    83% { opacity:0.6; color:#222; text-shadow:none; }
-    92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
-    100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+@keyframes neonSign-Gold {
+
+    0% {
+        opacity:0;
+        color:#222;
+        text-shadow:none;
+    }
+
+    8% {
+        opacity:1;
+        color:var(--gold-core);
+        text-shadow:0 0 3px var(--gold-core);
+    }
+
+    16% {
+        opacity:0;
+        color:#222;
+        text-shadow:none;
+    }
+
+    25% {
+        opacity:1;
+        color:var(--gold-core);
+        text-shadow:
+            0 0 6px var(--gold-core),
+            0 0 10px rgba(255,214,98,0.7);
+    }
+
+    50% {
+        opacity:1;
+        color:#fff;
+        text-shadow:
+            0 0 10px #fff,
+            0 0 18px var(--gold-core);
+    }
+
+    66% {
+        opacity:1;
+        color:var(--gold-core);
+        text-shadow:
+            0 0 6px var(--gold-core),
+            0 0 12px rgba(255,214,98,0.8);
+    }
+
+    83% {
+        opacity:0.6;
+        color:#222;
+        text-shadow:none;
+    }
+
+    92% {
+        opacity:1;
+        color:var(--gold-core);
+        text-shadow:
+            0 0 4px var(--gold-core),
+            0 0 12px rgba(255,214,98,0.7);
+    }
+
+    100% {
+        opacity:1;
+        color:var(--gold-core);
+
+        text-shadow:
+            0 0 2px var(--gold-core),
+            0 0 6px var(--gold-core),
+            0 0 12px rgba(255,214,98,0.8),
+            0 0 16px rgba(255,214,98,0.6);
+    }
+}
+
+/* SPOTLIGHT LAYERS */
+.spotlight-cone,
+.spotlight-pool,
+.spotlight-vignette {
+    z-index: 1;
 }
 
 /* EXPANSION */
 .expansion {
-  position: absolute;         
-  max-width: 40%;
-  padding-top: 5rem;
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 1.6s ease, transform 1.6s ease;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: left;
-  font-size: 1.5rem;
-  line-height: 1.8;
-  color: #fff;
-  pointer-events: none;
+    position: absolute;
+
+    top: 58%;
+    left: 50%;
+
+    max-width: 40%;
+    padding-top: 5rem;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        opacity 1.6s ease,
+        transform 1.6s ease;
+
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #fff;
+
+    pointer-events: none;
+
+    z-index: 15;
 }
 
 /* APHORISM */
 .aphorism {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 40%;
-  text-align: center;
-  font-size: 2rem;
-  text-shadow: var(--glow-white);
-  cursor: pointer;
-  z-index: 2;
-  transition: transform 1.4s cubic-bezier(.2,.8,.2,1), opacity 1.2s ease;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    max-width: 40%;
+
+    text-align: center;
+    font-size: 2rem;
+
+    color: rgba(255,255,255,0);
+
+    text-shadow:
+        0 0 2px rgba(255,255,255,0),
+        0 0 12px rgba(255,255,255,0);
+
+    filter: blur(8px);
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    animation:
+        aphorismReveal 2.2s ease forwards;
+
+    animation-delay: 1.6s;
+
+    transition:
+        transform 1.4s cubic-bezier(.2,.8,.2,1),
+        opacity 1.2s ease;
+}
+
+@keyframes aphorismReveal {
+
+    0% {
+        opacity: 0;
+        filter: blur(12px);
+
+        transform:
+            translate(-50%, calc(-50% + 25px));
+
+        color: rgba(255,255,255,0);
+
+        text-shadow: none;
+    }
+
+    45% {
+        opacity: 0.5;
+        filter: blur(4px);
+
+        color: rgba(255,255,255,0.7);
+    }
+
+    75% {
+        opacity: 1;
+        filter: blur(1px);
+
+        transform:
+            translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+
+        color: rgba(255,255,255,0.95);
+
+        text-shadow:
+            0 0 2px rgba(255,255,255,0.9),
+            0 0 8px rgba(255,255,255,0.45);
+    }
 }
 
 /* OPEN STATE */
 .stage.open .expansion {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transform: translate(-50%, -42%) scale(1);
 }
 
 .stage.open .aphorism {
-  transform: translate(-50%, calc(-50% + 145px)) scale(0.95);
-  opacity: 0.55;
+    transform:
+        translate(-50%, calc(-50% + 145px))
+        scale(0.95);
+
+    opacity: 0.55;
 }
 
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
 
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 
-  /* TURN STAGE INTO NORMAL PAGE */
-  .stage {
-    position: relative !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 4rem 1.2rem 6rem;
-  }
+    /* TURN STAGE INTO NORMAL PAGE */
+    .stage {
+        position: relative !important;
 
-  /* FORCE TEXT TO BE BIG + READABLE */
-  .aphorism {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
 
-    max-width: 100% !important;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-  }
+        padding: 4rem 1.2rem 6rem;
+    }
 
-  .expansion {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+    /* FORCE TEXT TO BE BIG + READABLE */
+    .aphorism {
+        position: relative !important;
 
-    max-width: 100% !important;
-    font-size: 1.2rem;
-    line-height: 1.7;
-    opacity: 1 !important;
-  }
+        top: auto !important;
+        left: auto !important;
 
-  /* DISABLE DESKTOP OPEN ANIMATION ON MOBILE */
-  .stage.open .aphorism,
-  .stage.open .expansion {
-    transform: none !important;
-  }
+        transform: none !important;
 
-  /* TITLE SCALE FIX */
-  .work-title {
-    padding: 3rem 1.2rem 1rem;
-  }
+        max-width: 100% !important;
 
-  .work-title h1 {
-    font-size: 2.4rem;
-    letter-spacing: 0.06em;
-  }
+        font-size: 1.6rem;
+        line-height: 1.5;
 
-  /* BACK BUTTON */
-  .back-button {
-    transform: scale(0.9);
-    top: 1rem;
-    right: 1rem;
-  }
+        margin-bottom: 2rem;
+    }
 
-  /* SPOTLIGHT DOES NOT CONTROL LAYOUT */
-  .spotlight-cone,
-  .spotlight-pool,
-  .spotlight-vignette {
-    pointer-events: none;
-  }
+    .expansion {
+        position: relative !important;
+
+        top: auto !important;
+        left: auto !important;
+
+        transform: none !important;
+
+        max-width: 100% !important;
+
+        font-size: 1.2rem;
+        line-height: 1.7;
+
+        opacity: 1 !important;
+    }
+
+    /* DISABLE DESKTOP OPEN ANIMATION ON MOBILE */
+    .stage.open .aphorism,
+    .stage.open .expansion {
+        transform: none !important;
+    }
+
+    /* TITLE SCALE FIX */
+    .work-title {
+        padding: 3rem 1.2rem 1rem;
+    }
+
+    .work-title h1 {
+        font-size: 2.4rem;
+        letter-spacing: 0.06em;
+    }
+
+    /* BACK BUTTON */
+    .back-button {
+        transform: scale(0.9);
+
+        top: 1rem;
+        right: 1rem;
+    }
+
+    /* SPOTLIGHT DOES NOT CONTROL LAYOUT */
+    .spotlight-cone,
+    .spotlight-pool,
+    .spotlight-vignette {
+        pointer-events: none;
+    }
 }
 
 </style>
@@ -177,57 +336,67 @@
 <body>
 
 <a class="back-button" href="../../index.html">
-  <span class="back-text">Back to</span>
-  <span class="kitty-text">KITTY</span>
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">KITTY</span>
 </a>
 
 <div class="work-title">
-  <h1>Bất chợt nghĩ</h1>
+    <h1>Bất chợt nghĩ</h1>
 </div>
 
 <div class="stage" id="stage">
 
-  <div class="spotlight-cone"></div>
-  <div class="spotlight-pool"></div>
-  <div class="spotlight-vignette"></div>
+    <div class="spotlight-cone"></div>
+    <div class="spotlight-pool"></div>
+    <div class="spotlight-vignette"></div>
 
-  <div class="aphorism" onclick="toggleStage()">
-    Well, laugh at me. Let us both laugh at myself.
-  </div>
+    <div class="aphorism" onclick="toggleStage()">
+        Well, laugh at me. Let us both laugh at myself.
+    </div>
 
-  <div class="expansion">
-    <p>
-     Tỷ lệ cao là bạn biết mình không thật sự tuyệt đến vậy, và bởi vậy, bạn cũng không muốn bất cứ ai biết điều đó.<br>
-     Kể cả chính bạn.
-    </p>
+    <div class="expansion">
 
-    <p>
-    Bởi vậy, bạn có thể sẵn sàng dối trá với tất cả mọi người về những gì bạn là bằng việc vẽ ra cho mình một loạt những nguyên do cho những nỗi đau của mình.
-    </p>
+        <p>
+            Tỷ lệ cao là bạn biết mình không thật sự tuyệt đến vậy, và bởi vậy,
+            bạn cũng không muốn bất cứ ai biết điều đó.<br>
+            Kể cả chính bạn.
+        </p>
 
-    <p>
-    Một ngày nọ, tôi nhận ra mình đã phát mệt với việc từ chối chấp nhận với những sự khuyết sót của mình. Bỗng dưng, sự giận dữ trở nên... vô nghĩa. Không, nó nực cười đến điên khùng rằng bạn bảo tuần sau bạn sẽ làm điều mà bạn đã đặt ra này và rồi bạn lại đi ngược lại nó bởi sức nặng của thói quen đã chiến thắng.
-    </p>
+        <p>
+            Bởi vậy, bạn có thể sẵn sàng dối trá với tất cả mọi người về những gì
+            bạn là bằng việc vẽ ra cho mình một loạt những nguyên do cho những nỗi đau của mình.
+        </p>
 
-    <p>
-    Nó thật sự nực cười thay rằng bạn là một con động vật xương thịt và máu và một bộ não liên tục tìm cách gậy vào cái chỗ sướng nhanh nhất, dẫu hậu quả có ra sao.
-    </p>
-  
-    <p>
-    Bạn muốn tôi chỉ ra thêm cho bạn những chỗ nào khác để bạn cười không? Tôi còn nhiều lắm. 
-    </p>
+        <p>
+            Một ngày nọ, tôi nhận ra mình đã phát mệt với việc từ chối chấp nhận
+            với những sự khuyết sót của mình. Bỗng dưng, sự giận dữ trở nên...
+            vô nghĩa. Không, nó nực cười đến điên khùng rằng bạn bảo tuần sau bạn
+            sẽ làm điều mà bạn đã đặt ra này và rồi bạn lại đi ngược lại nó bởi
+            sức nặng của thói quen đã chiến thắng.
+        </p>
 
-    <p>
-    Tôi không thiếu.
-    </p>
+        <p>
+            Nó thật sự nực cười thay rằng bạn là một con động vật xương thịt và máu
+            và một bộ não liên tục tìm cách gậy vào cái chỗ sướng nhanh nhất,
+            dẫu hậu quả có ra sao.
+        </p>
 
-  </div>
+        <p>
+            Bạn muốn tôi chỉ ra thêm cho bạn những chỗ nào khác để bạn cười không?
+            Tôi còn nhiều lắm.
+        </p>
+
+        <p>
+            Tôi không thiếu.
+        </p>
+
+    </div>
 
 </div>
 
 <script>
 function toggleStage() {
-  document.getElementById("stage").classList.toggle("open");
+    document.getElementById("stage").classList.toggle("open");
 }
 </script>
 
