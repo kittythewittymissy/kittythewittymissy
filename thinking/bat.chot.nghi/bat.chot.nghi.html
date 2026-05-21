@@ -133,15 +133,17 @@
     left: 50%;
 
     max-width: 40%;
-    padding-top: 5rem;
+    padding-top: 7rem;
 
     opacity: 0;
 
     transform: translate(-50%, -50%);
 
     transition:
-        opacity 1.6s ease,
-        transform 1.6s ease;
+      transform 1.8s cubic-bezier(.16,.84,.24,1),
+      opacity 1.4s ease,
+      filter 1.6s ease,
+      text-shadow 1.2s ease;
 
     text-align: left;
     font-size: 1.5rem;
@@ -206,18 +208,19 @@
     opacity: 1;
     transform: translate(-50%, -42%) scale(1);
 }
+
 .stage.open .aphorism {
     transform:
         translate(-50%, calc(-50% + 145px))
-        scale(0.95);
+        scale(0.8);
 
     opacity: 0.55;
 
-    filter: blur(0px);
+    filter: blur(3px);
 
     text-shadow:
-        0 0 2px rgba(255,255,255,0.5),
-        0 0 6px rgba(255,255,255,0.2);
+        0 0 2px rgba(255,255,255,0.35),
+        0 0 5px rgba(255,255,255,0.12);
 }
 
 /* === MOBILE RESPONSIVE === */
