@@ -237,13 +237,18 @@
     opacity: 1;
     transform: translate(-50%, -42%) scale(1);
 }
-
 .stage.open .aphorism {
     transform:
         translate(-50%, calc(-50% + 145px))
         scale(0.95);
 
     opacity: 0.55;
+
+    filter: blur(0px);
+
+    text-shadow:
+        0 0 2px rgba(255,255,255,0.5),
+        0 0 6px rgba(255,255,255,0.2);
 }
 
 /* === MOBILE RESPONSIVE === */
@@ -296,12 +301,6 @@
         line-height: 1.7;
 
         opacity: 1 !important;
-    }
-
-    /* DISABLE DESKTOP OPEN ANIMATION ON MOBILE */
-    .stage.open .aphorism,
-    .stage.open .expansion {
-        transform: none !important;
     }
 
     /* TITLE SCALE FIX */
@@ -372,7 +371,7 @@
             với những sự khuyết sót của mình. Bỗng dưng, sự giận dữ trở nên...
             vô nghĩa. Không, nó nực cười đến điên khùng rằng bạn bảo tuần sau bạn
             sẽ làm điều mà bạn đã đặt ra này và rồi bạn lại đi ngược lại nó bởi
-            sức nặng của thói quen đã chiến thắng.
+            sức nặng của thói quen đã chiến thắng..
         </p>
 
         <p>
