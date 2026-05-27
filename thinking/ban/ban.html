@@ -26,14 +26,15 @@
 .stage {
   position: fixed;
   inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .circle {
   position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   width: 440px;
   height: 440px;
@@ -49,15 +50,101 @@
   animation: orbit 90s linear infinite;
 }
 
-.work-title { 
-  position: relative;
-  top: auto;
-  left: auto;
+/* ===== TITLE ===== */
+
+.work-title {
+  position: fixed;
+
+  top: 0;
+  left: 0;
 
   padding: 2rem 5rem;
+
+  z-index: 20;
 }
 
+.work-title h1 {
+  font-family: 'Raleway', sans-serif;
+
+  font-size: 4rem;
+  font-weight: 100;
+
+  letter-spacing: 0.22em;
+
+  color: var(--gold-core);
+
+  text-shadow:
+    0 0 2px var(--gold-core),
+    0 0 6px var(--gold-core),
+    0 0 14px rgba(255,214,98,0.7);
+
+  opacity: 0;
+
+  animation: neonSign-Gold 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes neonSign-Gold {
+
+  0% {
+    opacity: 0;
+    color: #222;
+    text-shadow: none;
+  }
+
+  8% {
+    opacity: 1;
+    color: var(--gold-core);
+    text-shadow: 0 0 3px var(--gold-core);
+  }
+
+  16% {
+    opacity: 0;
+    color: #222;
+    text-shadow: none;
+  }
+
+  25% {
+    opacity: 1;
+
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 10px rgba(255,214,98,0.7);
+  }
+
+  50% {
+    opacity: 1;
+
+    color: #fff;
+
+    text-shadow:
+      0 0 10px #fff,
+      0 0 18px var(--gold-core);
+  }
+
+  100% {
+    opacity: 1;
+
+    color: var(--gold-core);
+
+    text-shadow:
+      0 0 2px var(--gold-core),
+      0 0 6px var(--gold-core),
+      0 0 12px rgba(255,214,98,0.8),
+      0 0 16px rgba(255,214,98,0.6);
+  }
+}
+
+/* ===== CENTER TEXT ===== */
+
 .paragraph {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   max-width: 520px;
 
   margin: 0 auto;
@@ -76,6 +163,11 @@
 
 .orbit {
   position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   width: 520px;
   height: 520px;
@@ -164,13 +256,15 @@
     0 0 16px var(--gold-bloom);
 }
 
+/* ===== TOGGLE ===== */
+
+.timeline-toggle {
+  z-index: 700;
+}
+
 /* ===== MOBILE ===== */
 
 @media(max-width:768px) {
-
-  .stage {
-    padding: 2rem;
-  }
 
   .circle {
     width: 300px;
