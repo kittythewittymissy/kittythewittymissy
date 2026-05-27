@@ -18,20 +18,20 @@
 
 <style>
 
-/* ===== PAGE-SPECIFIC ONLY ===== */
+/* ===== STAGE ===== */
 
 .stage {
   position: fixed;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ===== CIRCLE (BRIGHTER TABLE) ===== */
+/* ===== CIRCLE (TRUE DEAD CENTER) ===== */
 
 .circle {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 440px;
   height: 440px;
   border-radius: 50%;
@@ -44,14 +44,23 @@
   z-index: 1;
 }
 
-/* ===== TITLE (MATCH MODEL: TOP LEFT DESKTOP, CENTER MOBILE) ===== */
+/* ===== ORBIT (LOCKED TO CENTER STACK) ===== */
+
+.orbit {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  animation: orbit 30s linear infinite;
+  z-index: 0;
+}
+
+/* ===== TITLE (RESTORED VISIBILITY + MODEL PLACEMENT) ===== */
 
 .work-title {
   position: fixed;
   top: 2rem;
   left: 3rem;
-  transform: none;
-  z-index: 20;
+  z-index: 50;
   text-align: left;
 }
 
@@ -61,11 +70,11 @@
   font-weight: 100;
   letter-spacing: 0.18em;
   color: var(--gold-core);
+  opacity: 1;
   text-shadow:
     0 0 4px var(--gold-core),
     0 0 10px rgba(255,214,98,0.75),
     0 0 18px rgba(255,214,98,0.5);
-  opacity: 0;
   animation: neonSign-Gold 1.2s ease forwards;
   animation-delay: 0.3s;
 }
@@ -74,29 +83,20 @@
 
 .paragraph {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   max-width: 520px;
   text-align: center;
   font-size: 1.25rem;
+  z-index: 5;
   opacity: 0;
-  z-index: 10;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
 }
 
-/* ===== ORBIT ===== */
-
-.orbit {
-  position: absolute;
+/* center via stage stacking, not transform conflicts */
+.stage .paragraph {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
-  animation: orbit 30s linear infinite;
-  z-index: 0;
 }
 
 /* ===== FADE ===== */
@@ -106,12 +106,7 @@
   to { opacity: 1; }
 }
 
-/* ===== TIMELINE MENU ===== */
-
-.vertical-menu {
-  justify-content: center;
-  padding: 0 4rem;
-}
+/* ===== TIMELINE MENU (UNCHANGED LOGIC) ===== */
 
 .vertical-menu .timeline-list {
   flex-direction: row;
@@ -124,32 +119,9 @@
   padding: 6rem 0;
   display: flex;
   justify-content: center;
-  text-decoration: none;
-  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.vertical-menu .timeline-item:hover {
-  transform: translateY(-6px);
-}
-
-.vertical-menu .timeline-dot {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 18px;
-  height: 18px;
-}
-
-.vertical-menu .timeline-content {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  text-align: center;
-}
-
-/* ===== MOBILE FIX: DOT BEFORE TEXT ===== */
+/* ===== MOBILE FIX (DOT BEFORE TEXT) ===== */
 
 @media(max-width:768px) {
 
@@ -168,7 +140,6 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    width: 100%;
   }
 
   .work-title h1 {
@@ -176,59 +147,24 @@
     text-align: center;
   }
 
-  .paragraph {
-    max-width: 88%;
-    font-size: 1.05rem;
-    line-height: 1.8;
-  }
-
   .vertical-menu .timeline-list {
     flex-direction: column;
-    gap: 2.6rem;
   }
 
   .vertical-menu .timeline-item {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
   }
 
-  /* FIX ORDER: DOT BEFORE TEXT */
   .vertical-menu .timeline-dot {
     position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    margin-right: 1.3rem;
     order: 0;
+    margin-right: 1rem;
   }
 
   .vertical-menu .timeline-content {
     position: relative;
-    transform: none;
-    width: auto;
-    text-align: left;
     order: 1;
-  }
-
-  .timeline-toggle {
-    width: 56px;
-    height: 56px;
-    right: 1rem;
-    bottom: 5rem;
-  }
-
-  .back-button {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .back-button .kitty-text {
-    font-size: 2rem;
-  }
-
-  .back-button .back-text {
-    font-size: 1rem;
   }
 }
 
@@ -244,6 +180,7 @@
 
 <div class="stage">
 
+  <div class="orbit"></div>
   <div class="circle"></div>
 
   <div class="work-title">
@@ -254,8 +191,6 @@
     Ta vào bàn, để bàn.
   </div>
 
-  <div class="orbit"></div>
-
 </div>
 
 <div class="timeline-overlay" id="timelineOverlay">
@@ -265,23 +200,17 @@
     <div class="timeline-list">
 
       <a href="topic-1.html" class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-title">Ý thức</div>
-        </div>
+        <div class="timeline-content"><div class="timeline-title">Ý thức</div></div>
         <div class="timeline-dot"></div>
       </a>
 
       <a href="topic-2.html" class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-title">Tự do</div>
-        </div>
+        <div class="timeline-content"><div class="timeline-title">Tự do</div></div>
         <div class="timeline-dot"></div>
       </a>
 
       <a href="topic-3.html" class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-title">Cái đẹp</div>
-        </div>
+        <div class="timeline-content"><div class="timeline-title">Cái đẹp</div></div>
         <div class="timeline-dot"></div>
       </a>
 
