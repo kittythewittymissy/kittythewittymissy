@@ -54,12 +54,14 @@
   z-index: 0;
 }
 
-/* ===== TITLE (RESTORED VISIBILITY + MODEL PLACEMENT) ===== */
+/* ===== TITLE ===== */
 
 .work-title {
-  position: fixed;
+  position: absolute;
   top: 2rem;
-  left: 3rem;
+  left: 0;
+  width: 100%;
+  padding-left: 5rem;
   z-index: 50;
   text-align: left;
 }
@@ -70,13 +72,11 @@
   font-weight: 100;
   letter-spacing: 0.18em;
   color: var(--gold-core);
-  opacity: 1;
   text-shadow:
     0 0 4px var(--gold-core),
     0 0 10px rgba(255,214,98,0.75),
     0 0 18px rgba(255,214,98,0.5);
-  animation: neonSign-Gold 1.2s ease forwards;
-  animation-delay: 0.3s;
+  opacity: 1;
 }
 
 /* ===== CENTER TEXT ===== */
