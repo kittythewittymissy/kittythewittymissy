@@ -28,6 +28,8 @@
   inset: 0;
 }
 
+/* ===== CIRCLE ===== */
+
 .circle {
   position: absolute;
 
@@ -53,30 +55,34 @@
 /* ===== TITLE ===== */
 
 .work-title {
-  position: fixed;
+  position: absolute;
 
-  top: 0;
-  left: 0;
+  top: 14%;
+  left: 50%;
 
-  padding: 2rem 5rem;
+  transform: translateX(-50%);
 
   z-index: 20;
+
+  text-align: center;
 }
 
 .work-title h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway Dots', sans-serif;
 
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 100;
 
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
 
   color: var(--gold-core);
 
   text-shadow:
-    0 0 2px var(--gold-core),
+    0 0 3px var(--gold-core),
     0 0 6px var(--gold-core),
-    0 0 14px rgba(255,214,98,0.7);
+    0 0 9px var(--gold-core),
+    0 0 14px rgba(255,214,98,0.8),
+    0 0 20px rgba(255,214,98,0.55);
 
   opacity: 0;
 
@@ -128,10 +134,10 @@
     color: var(--gold-core);
 
     text-shadow:
-      0 0 2px var(--gold-core),
+      0 0 3px var(--gold-core),
       0 0 6px var(--gold-core),
-      0 0 12px rgba(255,214,98,0.8),
-      0 0 16px rgba(255,214,98,0.6);
+      0 0 10px rgba(255,214,98,0.9),
+      0 0 18px rgba(255,214,98,0.65);
   }
 }
 
@@ -147,13 +153,13 @@
 
   max-width: 520px;
 
-  margin: 0 auto;
-
   text-align: center;
 
   font-size: 1.25rem;
 
   opacity: 0;
+
+  z-index: 5;
 
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
@@ -183,26 +189,30 @@
 }
 
 /* =========================
-   TIMELINE OVERLAY MENU
+   TIMELINE MENU
 ========================= */
+
+/* DESKTOP = HORIZONTAL */
 
 .vertical-menu {
   justify-content: center;
-  padding: 0;
+  padding: 0 4rem;
 }
 
 .vertical-menu .timeline-list {
-  flex-direction: column;
-  gap: 2.8rem;
+  flex-direction: row;
+  gap: 5rem;
 }
 
 .vertical-menu .timeline-item {
-  min-width: auto;
-  padding: 0;
+  position: relative;
+
+  min-width: 220px;
+
+  padding: 6rem 0;
 
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   text-decoration: none;
 
@@ -212,35 +222,39 @@
 }
 
 .vertical-menu .timeline-item:hover {
-  transform: translateX(-6px);
+  transform: translateY(-6px);
 }
 
 .vertical-menu .timeline-dot {
-  position: relative;
+  position: absolute;
 
-  left: auto;
-  top: auto;
+  left: 50%;
+  top: 50%;
 
-  transform: none;
+  transform: translate(-50%, -50%);
 
-  margin-right: 1.2rem;
-
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .vertical-menu .timeline-content {
-  position: relative;
+  position: absolute;
 
-  left: auto;
-  top: auto;
-  bottom: auto;
+  left: 50%;
 
-  transform: none;
+  transform: translateX(-50%);
 
-  width: auto;
+  width: 220px;
 
-  text-align: left;
+  text-align: center;
+}
+
+.vertical-menu .timeline-item:nth-child(odd) .timeline-content {
+  bottom: calc(50% + 4rem);
+}
+
+.vertical-menu .timeline-item:nth-child(even) .timeline-content {
+  top: calc(50% + 4rem);
 }
 
 .vertical-menu .timeline-title {
@@ -259,7 +273,14 @@
 /* ===== TOGGLE ===== */
 
 .timeline-toggle {
-  z-index: 700;
+  z-index: 1200;
+}
+
+/* make button visible over overlay */
+
+.timeline-overlay.is-open + .timeline-toggle,
+.timeline-toggle {
+  opacity: 1 !important;
 }
 
 /* ===== MOBILE ===== */
@@ -277,19 +298,23 @@
   }
 
   .work-title {
-    padding:
-      4rem
-      1.5rem
-      2rem
-      1.5rem;
+    top: 12%;
+    width: 100%;
   }
 
   .work-title h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
 
     line-height: 1.2;
 
+    letter-spacing: 0.16em;
+
     -webkit-text-stroke: 0;
+
+    text-shadow:
+      0 0 4px var(--gold-core),
+      0 0 10px rgba(255,214,98,0.85),
+      0 0 18px rgba(255,214,98,0.55);
   }
 
   .paragraph {
@@ -299,17 +324,53 @@
     line-height: 1.8;
   }
 
-  .vertical-menu .timeline-title {
-    font-size: 1.5rem;
-  }
+  /* MOBILE = VERTICAL */
 
   .vertical-menu .timeline-list {
-    gap: 2rem;
+    flex-direction: column;
+    gap: 2.6rem;
+  }
+
+  .vertical-menu .timeline-item {
+    min-width: auto;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .vertical-menu .timeline-dot {
-    width: 12px;
-    height: 12px;
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    transform: none;
+
+    margin-right: 1.3rem;
+
+    width: 16px;
+    height: 16px;
+  }
+
+  .vertical-menu .timeline-content {
+    position: relative;
+
+    left: auto;
+    top: auto;
+    bottom: auto;
+
+    transform: none;
+
+    width: auto;
+
+    text-align: left;
+  }
+
+  .vertical-menu .timeline-title {
+    font-size: 1.75rem;
+    letter-spacing: 0.1em;
   }
 
   .timeline-toggle {
@@ -362,10 +423,6 @@
 
   <div class="orbit"></div>
 
-  <!-- TIMELINE TOGGLE -->
-
-  <div class="timeline-toggle" id="timelineToggle"></div>
-
 </div>
 
 <!-- MENU OVERLAY -->
@@ -378,31 +435,31 @@
 
       <a href="topic-1.html" class="timeline-item">
 
-        <div class="timeline-dot"></div>
-
         <div class="timeline-content">
           <div class="timeline-title">Ý thức</div>
         </div>
+
+        <div class="timeline-dot"></div>
 
       </a>
 
       <a href="topic-2.html" class="timeline-item">
 
-        <div class="timeline-dot"></div>
-
         <div class="timeline-content">
           <div class="timeline-title">Tự do</div>
         </div>
+
+        <div class="timeline-dot"></div>
 
       </a>
 
       <a href="topic-3.html" class="timeline-item">
 
-        <div class="timeline-dot"></div>
-
         <div class="timeline-content">
           <div class="timeline-title">Cái đẹp</div>
         </div>
+
+        <div class="timeline-dot"></div>
 
       </a>
 
@@ -411,6 +468,10 @@
   </div>
 
 </div>
+
+<!-- TOGGLE BUTTON -->
+
+<div class="timeline-toggle" id="timelineToggle"></div>
 
 <script>
 
@@ -421,7 +482,9 @@ const timelineToggle = document.getElementById('timelineToggle');
 const timelineOverlay = document.getElementById('timelineOverlay');
 
 timelineToggle.addEventListener('click', () => {
+
   timelineOverlay.classList.toggle('is-open');
+
 });
 
 timelineOverlay.addEventListener('click', (e) => {
