@@ -18,7 +18,7 @@
 
 <style>
 
-/* ===== CIRCLE (TRUE DEAD CENTER) ===== */
+/* ===== CIRCLE ===== */
 
 .circle {
   position: absolute;
@@ -32,7 +32,7 @@
     0 0 70px rgba(255,214,98,0.18);
   animation: orbit 90s linear infinite;
   z-index: 1;
-  top: 50%;
+  top: calc(50% + 8px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -45,7 +45,7 @@
   height: 520px;
   animation: orbit 30s linear infinite;
   z-index: 0;
-  top: 50%;
+  top: calc(50% + 8px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -53,12 +53,10 @@
 /* ===== TITLE ===== */
 
 .work-title {
-  position: fixed;
-  top: 2rem;
-  left: 3rem;
-  z-index: 50;
+  position: relative;
+  padding: 2rem 5rem;
+  z-index: 5;
   text-align: left;
-  padding: 0;
 }
 
 .work-title h1 {
