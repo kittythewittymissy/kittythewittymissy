@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width,
-           initial-scale=1,
-           maximum-scale=1,
-           user-scalable=no,
-           viewport-fit=cover">
+<!-- LOCK VIEWPORT -->
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no,
+               viewport-fit=cover">
 
 <title>Bàn</title>
 
@@ -25,7 +25,7 @@
 
 <style>
 
-/* ===== PAGE ===== */
+/* ===== PAGE LOCK ===== */
 
 html,
 body {
@@ -34,11 +34,6 @@ body {
   margin: 0;
   overflow: hidden;
   touch-action: none;
-}
-
-body {
-  position: fixed;
-  inset: 0;
 }
 
 /* ===== STAGE ===== */
@@ -50,7 +45,7 @@ body {
   overflow: hidden;
 }
 
-/* ===== ORBIT ===== */
+/* ===== ORBIT / TABLE ===== */
 
 .orbit {
   position: absolute;
@@ -65,7 +60,7 @@ body {
 
   animation: orbit 30s linear infinite;
 
-  z-index: 1;
+  z-index: 10;
 }
 
 /* ===== TITLE ===== */
@@ -83,16 +78,19 @@ body {
 
 .work-title h1 {
   font-family: 'Raleway Dots', sans-serif;
-  z-index: 5;
   font-size: 4rem;
   letter-spacing: 0.16em;
   font-weight: 100;
+
   color: #222;
+
   text-shadow:
     0 0 1px var(--gold-core),
     0 0 2px var(--gold-core),
     0 0 4px var(--gold-core);
+
   opacity: 0;
+
   animation: neonSign-Gold 1.2s ease forwards;
   animation-delay: 0.3s;
 }
@@ -106,7 +104,7 @@ body {
   66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
   83% { opacity:0.6; color:#222; text-shadow:none; }
   92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
-  100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+  100% { opacity:1; color:var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
 }
 
 /* ===== TIMELINE MENU ===== */
@@ -178,8 +176,10 @@ body {
 
 <div class="stage">
 
+  <!-- RESTORED TABLE / ORBIT -->
   <div class="orbit"></div>
 
+  <!-- TITLE -->
   <div class="work-title">
     <h1>Bàn</h1>
   </div>
