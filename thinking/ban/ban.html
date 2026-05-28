@@ -18,6 +18,17 @@
 
 <style>
 
+/* ===== STAGE ===== */
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top: calc(50% + 8px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* ===== CIRCLE ===== */
 
 .circle {
@@ -98,9 +109,6 @@
   opacity: 0;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
-}
-
-.stage .paragraph {
   top: calc(50% + 8px);
   left: 50%;
   transform: translate(-50%, -50%);
