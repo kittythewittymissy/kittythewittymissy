@@ -70,30 +70,26 @@ html, body {
     orbitPulse 6s ease-in-out infinite;
 }
 
-/* ===== ORBIT VISUAL ===== */
+/* ===== SINGLE DASHED GLOW RING ===== */
 
-.orbit::before,
-.orbit::after {
+.orbit::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
-}
 
-.orbit::before {
-  border: 1px solid rgba(255,255,255,0.9);
+  border: 1.5px dashed rgba(255,255,255,0.92);
+
   box-shadow:
-    0 0 8px rgba(255,255,255,0.9),
-    0 0 18px rgba(255,255,255,0.8),
-    0 0 36px rgba(255,255,255,0.5);
+    0 0 6px rgba(255,255,255,0.95),
+    0 0 14px rgba(255,255,255,0.8),
+    0 0 30px rgba(255,255,255,0.45),
+    inset 0 0 10px rgba(255,255,255,0.18);
 }
 
+/* remove second ring */
 .orbit::after {
-  inset: 28px;
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow:
-    0 0 10px rgba(255,255,255,0.5),
-    inset 0 0 18px rgba(255,255,255,0.35);
+  display: none;
 }
 
 /* ===== CENTER TEXT PLANE ===== */
@@ -126,19 +122,21 @@ html, body {
 /* ===== TITLE ===== */
 
 .work-title {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  top: auto;
+  left: auto;
   padding: 2rem 5rem;
   z-index: 5;
 }
 
 .work-title h1 {
   margin: 0;
+
   font-family: 'Raleway Dots', sans-serif;
   font-size: 4rem;
   letter-spacing: 0.16em;
   font-weight: 100;
+
   color: #222;
 
   text-shadow:
@@ -147,6 +145,7 @@ html, body {
     0 0 4px var(--gold-core);
 
   opacity: 0;
+
   animation: neonSign-Gold 1.2s ease forwards;
   animation-delay: 0.3s;
 }
@@ -205,15 +204,15 @@ html, body {
   }
 
   .work-title {
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2rem 0;
-    text-align: center;
-  }
+  position: static;
+  padding: 4rem 1.5rem 2rem 1.5rem;
+  text-align: center;
+}
 
-  .work-title h1 {
-    font-size: 3rem;
-  }
+.work-title h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
 
   .vertical-menu .timeline-list {
     flex-direction: column;
