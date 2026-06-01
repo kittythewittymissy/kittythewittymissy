@@ -138,42 +138,26 @@
 /* ===== ORBIT ===== */
 
 .orbit {
-  position: absolute;
+  width: 440px;
+  height: 440px;
 
-  width: 520px;
-  height: 520px;
-
-  animation: orbit 30s linear infinite;
+  animation: orbitRotate 90s linear infinite;
 }
 
-.response {
-  position: absolute;
+.orbit::before {
+  content: "";
 
-  width: 22px;
-  height: 22px;
+  position: absolute;
+  inset: 0;
 
   border-radius: 50%;
 
-  border: 1px dashed var(--gold-core);
+  border: 1px dashed rgba(255,255,255,0.22);
 
   box-shadow:
-    0 0 6px var(--gold-core),
-    0 0 14px var(--gold-bloom);
-
-  cursor: pointer;
-
-  opacity: 0;
-
-  transform: translate(-50%, -50%) scale(0.6);
-
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-.response.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+    0 0 6px rgba(255,255,255,0.18),
+    0 0 12px rgba(255,255,255,0.10),
+    0 0 24px rgba(255,255,255,0.04);
 }
 
 /* ===== CENTERED OVERLAY TEXT ===== */
