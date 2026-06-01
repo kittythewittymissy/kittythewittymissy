@@ -70,25 +70,55 @@ html, body {
   animation: orbitRotate 90s linear infinite;
 }
 
+/* THE ACTUAL SPINNING DASHED RING */
+
+.orbit::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  border: 1px dashed rgba(255,255,255,0.28);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.12),
+    0 0 24px rgba(255,255,255,0.08);
+
+  animation: orbitPulse 6s ease-in-out infinite;
+}
+
 /* ===== CENTER TEXT ===== */
 
 .centerpiece {
   position: absolute;
+
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   z-index: 3;
-  width: 100%;
+
+  width: 520px;
+
   pointer-events: none;
+
   text-align: center;
 }
 
 .paragraph {
   max-width: 520px;
+
   margin: 0 auto;
+
   text-align: center;
+
   font-size: 1.25rem;
+
   opacity: 0;
+
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
 }
@@ -109,11 +139,6 @@ html, body {
 
   animation: bodyFade 1s ease forwards;
   animation-delay: 1.8s;
-}
-
-@keyframes bodyFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* ===== TITLE ===== */
