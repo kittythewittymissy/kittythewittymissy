@@ -43,7 +43,8 @@ html, body {
 /* ===== STAGE ===== */
 
 .stage {
-  position: relative;
+  position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -65,12 +66,11 @@ html, body {
   border-radius: 50%;
 
   z-index: 1;
+
   pointer-events: none;
 
   animation: orbitRotate 90s linear infinite;
 }
-
-/* THE ACTUAL SPINNING DASHED RING */
 
 .orbit::before {
   content: "";
@@ -80,13 +80,15 @@ html, body {
 
   border-radius: 50%;
 
-  border: 1px dashed rgba(255,255,255,0.28);
+  border: 1px dashed rgba(255,255,255,0.8);
 
   box-shadow:
-    0 0 10px rgba(255,255,255,0.12),
-    0 0 24px rgba(255,255,255,0.08);
+    0 0 8px rgba(255,255,255,0.9),
+    0 0 16px rgba(255,255,255,0.7),
+    0 0 32px rgba(255,255,255,0.45),
+    0 0 64px rgba(255,255,255,0.2);
 
-  animation: orbitPulse 6s ease-in-out infinite;
+  animation: orbitPulse 5s ease-in-out infinite;
 }
 
 /* ===== CENTER TEXT ===== */
@@ -99,16 +101,18 @@ html, body {
 
   transform: translate(-50%, -50%);
 
-  z-index: 3;
-
   width: 520px;
 
-  pointer-events: none;
+  z-index: 3;
 
   text-align: center;
+
+  pointer-events: none;
 }
 
 .paragraph {
+  color: #fff;
+
   max-width: 520px;
 
   margin: 0 auto;
@@ -116,6 +120,13 @@ html, body {
   text-align: center;
 
   font-size: 1.25rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  line-height: 1.8;
+
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.9),
+    0 0 12px rgba(255,255,255,0.4);
 
   opacity: 0;
 
@@ -216,6 +227,10 @@ html, body {
   .orbit {
     width: 360px;
     height: 360px;
+  }
+
+  .centerpiece {
+    width: 360px;
   }
 
   .paragraph {
