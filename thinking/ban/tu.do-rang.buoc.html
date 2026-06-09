@@ -31,31 +31,63 @@
   justify-content: center;
 }
 
-/* ===== OUTER  ===== */
-.circle {
+/* ===== OVAL TABLE ===== */
+.oval-table {
 position: fixed;
-
   left: 50%;
   top: 50%;
-
   transform: translate(-50%, -50%);
-
   width: 95vw;
   height: 75vh;
-
   border-radius: 50%;
-
-  border: 1px dashed rgba(255,255,255,0.15);
-
   box-shadow:
     0 0 6px rgba(255,255,255,0.10),
     0 0 12px rgba(255,255,255,0.06);
-
-  animation: orbit 120s linear infinite;
-
   pointer-events: none;
-
   z-index: 0;
+}
+
+.oval-table::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  padding: 1px;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255,255,255,0.18) 0deg 4deg,
+      transparent 4deg 8deg
+    );
+
+  animation: dashOrbit 60s linear infinite;
+
+  mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      white calc(100% - 2px)
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      white calc(100% - 2px)
+    );
+}
+
+@keyframes dashOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== TITLE ===== */
@@ -67,7 +99,7 @@ position: fixed;
   transform: translateY(-50%);
   width: auto;
   text-align: left;
-  z-index: 3;
+  z-index: 4;
 }
 
 .work-title h1 {
@@ -102,7 +134,7 @@ position: fixed;
   opacity: 0;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
-  z-index: 5;
+  z-index: 3;
 }
 
 .center-bold {
@@ -166,7 +198,7 @@ position: fixed;
   position: relative;
   width: 440px;
   height: 440px;
-  z-index: 4;
+  z-index: 2;
   animation: orbit 90s linear infinite;
 }
 
@@ -190,7 +222,7 @@ position: fixed;
 
 .response {
   position: absolute;
-  z-index: 10;
+  z-index: 4;
 
   width: 18px;
   height: 18px;
@@ -261,7 +293,7 @@ position: fixed;
     padding: 2rem;
   }
 
-  .circle {
+  .oval-table {
     display: none;
   }
 
@@ -354,7 +386,7 @@ position: fixed;
 
 <div class="stage">
 
-  <div class="circle"></div>
+  <div class="oval-table"></div>
 
   <div class="work-title">
     <h1>Tự do<br>-<br>Ràng buộc</h1>
