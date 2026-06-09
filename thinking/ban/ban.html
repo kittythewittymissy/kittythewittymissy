@@ -2,52 +2,106 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- VIEWPORT LOCK -->
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1,
-               maximum-scale=1,
-               minimum-scale=1,
-               user-scalable=no,
-               viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Bàn</title>
 
+<!-- Favicon -->
 <link rel="icon" href="../../favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
 <link rel="manifest" href="favicon/site.webmanifest">
 
+<!-- GLOBAL CSS -->
 <link rel="stylesheet" href="../../style.css">
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;600&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
 
 <style>
 
-/* ===== HARD RESET ===== */
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  overscroll-behavior: none;
-  touch-action: none;
-  -webkit-user-select: none;
-  user-select: none;
+/* ===== OVAL TABLE ===== */
+.oval-table {
+position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 98vw;
+  height: 89vh;
+  border-radius: 50%;
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.10),
+    0 0 12px rgba(255,255,255,0.06);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* ===== STAGE ===== */
+/* ===== TITLE ===== */
 
-.stage {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+.work-title {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  text-align: center;
+  z-index: 4;
+}
+
+.work-title h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.16em;
+  font-weight: 100;
+  color: #222;
+  text-shadow:
+    0 0 1px var(--gold-core),
+    0 0 2px var(--gold-core),
+    0 0 4px var(--gold-core);
+  opacity: 0;
+  animation: neonSign-Gold 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes neonSign-Gold {
+  0%   { opacity:0; color:#222; text-shadow:none; }
+  8%   { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+  16%  { opacity:0; color:#222; text-shadow:none; }
+  25%  { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+  50%  { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+  66%  { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+  83%  { opacity:0.6; color:#222; text-shadow:none; }
+  92%  { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+  100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
+}
+
+/* ===== TOPIC ===== */
+
+.paragraph {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 520px;
+  text-align: center;
+  font-size: 1.25rem;
+  opacity: 0;
+  animation: bodyFade 1.2s ease forwards;
+  animation-delay: 0.6s;
+  z-index: 3;
+}
+
+.center-bold {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  text-shadow: var(--glow-white);
+  opacity: 0;
+  animation: bodyFade 1s ease forwards;
+  animation-delay: 1.8s;
 }
 
 /* ===== ORBIT ===== */
@@ -76,185 +130,64 @@ html, body {
     0 0 24px rgba(255,255,255,0.04);
 }
 
-/* ===== CENTER TEXT ===== */
-
-.centerpiece {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: 520px;
-
-  z-index: 3;
-
-  text-align: center;
-
-  pointer-events: none;
-}
-
-.paragraph {
-  color: #fff;
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.25rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  line-height: 1.8;
-  text-shadow:
-    0 0 4px rgba(255,255,255,0.9),
-    0 0 12px rgba(255,255,255,0.4);
-  opacity: 0;
-  animation: bodyFade 1.2s ease forwards;
-  animation-delay: 0.6s;
-}
-  
-    @keyframes bodyFade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-.center-bold {
-  display: block;
-
-  margin-top: 1rem;
-
-  font-weight: 600;
-  font-size: 1.4rem;
-
-  letter-spacing: 0.05em;
-
-  text-shadow: var(--glow-white);
-
-  opacity: 0;
-
-  animation: bodyFade 1s ease forwards;
-  animation-delay: 1.8s;
-}
-
-/* ===== TITLE ===== */
-
-.work-title {
-  position: relative;
-  top: auto;
-  left: auto;
-  padding: 2rem 5rem;
-  z-index: 5;
-}
-
-.work-title h1 {
-  font-family: 'Raleway Dots', sans-serif;
-  font-size: 4rem;
-  letter-spacing: 0.16em;
-  font-weight: 100;
-
-  color: #222;
-
-  text-shadow:
-    0 0 1px var(--gold-core),
-    0 0 2px var(--gold-core),
-    0 0 4px var(--gold-core);
-
-  opacity: 0;
-
-  animation: neonSign-Gold 1.2s ease forwards;
-  animation-delay: 0.3s;
-}
-
-/* ===== ANIMATIONS ===== */
-
-@keyframes orbitRotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes orbitPulse {
-  0%,100% { opacity: 0.85; }
-  50%     { opacity: 1; }
-}
-
-@keyframes neonSign-Gold {
-  0%   { opacity:0; color:#222; text-shadow:none; }
-  8%   { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
-  16%  { opacity:0; color:#222; text-shadow:none; }
-  25%  { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
-  50%  { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
-  66%  { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
-  83%  { opacity:0.6; color:#222; text-shadow:none; }
-  92%  { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
-  100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
-}
-
-/* ===== TIMELINE ===== */
-
-.vertical-menu .timeline-list {
-  flex-direction: row;
-  gap: 5rem;
-}
-
-.vertical-menu .timeline-item {
-  position: relative;
-  min-width: 220px;
-  padding: 6rem 0;
-  display: flex;
-  justify-content: center;
-}
-
 /* ===== MOBILE ===== */
 
 @media(max-width:768px) {
+
+  .oval-table {
+    display: none;
+  }
 
   .orbit {
     width: 360px;
     height: 360px;
   }
 
-  .centerpiece {
-    width: 360px;
-  }
-
-  .paragraph {
-  max-width: 88%;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  }
-
-  .center-bold {
-  font-size: 1.15rem;
-  }
-
   .work-title {
-  position: static;
-  padding: 4rem 1.5rem 2rem 1.5rem;
-  text-align: center;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
   }
 
   .work-title h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+    font-size: 2.6rem;
+    line-height: 1.2;
   }
 
-  .vertical-menu .timeline-list {
-    flex-direction: column;
+  .paragraph {
+    max-width: 88%;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
 
-  .vertical-menu .timeline-item {
-    flex-direction: row;
-    align-items: center;
+  .center-bold {
+    font-size: 1.15rem;
   }
 
-  .vertical-menu .timeline-dot {
-    position: relative;
-    order: 0;
-    margin-right: 1rem;
+  .timeline-toggle {
+    width: 56px;
+    height: 56px;
+
+    right: 1rem;
+    bottom: 5rem;
   }
 
-  .vertical-menu .timeline-content {
-    position: relative;
-    order: 1;
+  .back-button {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .back-button .kitty-text {
+    font-size: 2rem;
+  }
+
+  .back-button .back-text {
+    font-size: 1rem;
   }
 }
 
@@ -263,64 +196,66 @@ html, body {
 
 <body>
 
-<a href="../../index.html" class="back-button">
+<!-- BACK BUTTON -->
+
+<a href="ban.html" class="back-button">
   <span class="back-text">Back to</span>
   <span class="kitty-text">Kitty</span>
 </a>
+
+<!-- 'THE EYE' STAGE' -->
+
+  <div class="oval-table"></div>
 
   <div class="work-title">
     <h1>Bàn</h1>
   </div>
 
-<div class="stage">
+  <div class="paragraph body-text">
+    Ta vào bàn, để bàn.
+
+    <span class="center-bold">
+      Hãy lên tiếng.
+    </span>
+  </div>
 
   <div class="orbit"></div>
 
-  <div class="centerpiece">
-    <div class="paragraph">
-      Ta vào bàn, để bàn.
-    <span class="center-bold">Hãy lên tiếng.</span>
-    </div>
-  </div>
-
-</div>
-
-<div class="timeline-overlay" id="timelineOverlay">
-
-  <div class="timeline-wrap vertical-menu">
-
-    <div class="timeline-list">
-
-      <a href="topic-1.html" class="timeline-item">
-        <div class="timeline-content"><div class="timeline-title">Ý thức</div></div>
-        <div class="timeline-dot"></div>
-      </a>
-
-      <a href="topic-2.html" class="timeline-item">
-        <div class="timeline-content"><div class="timeline-title">Tự do</div></div>
-        <div class="timeline-dot"></div>
-      </a>
-
-      <a href="topic-3.html" class="timeline-item">
-        <div class="timeline-content"><div class="timeline-title">Cái đẹp</div></div>
-        <div class="timeline-dot"></div>
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
+<!-- TIMELINE TOGGLE -->
 
 <div class="timeline-toggle" id="timelineToggle"></div>
 
-<script>
-document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('gesturechange', e => e.preventDefault());
-document.addEventListener('gestureend', e => e.preventDefault());
+<!-- MENU OVERLAY -->
 
-const timelineToggle = document.getElementById('timelineToggle');
-const timelineOverlay = document.getElementById('timelineOverlay');
+<div class="timeline-overlay" id="timelineOverlay">
+
+  <div class="timeline-wrap">
+
+    <div class="timeline-list">
+
+      <a href="tu.do-rang.buoc.html" class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-content">
+          <div class="timeline-title">Tự do<br>&<br>Ràng buộc</div>
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const timelineToggle =
+  document.getElementById('timelineToggle');
+
+const timelineOverlay =
+  document.getElementById('timelineOverlay');
 
 timelineToggle.addEventListener('click', () => {
   timelineOverlay.classList.toggle('is-open');
@@ -331,6 +266,7 @@ timelineOverlay.addEventListener('click', (e) => {
     timelineOverlay.classList.remove('is-open');
   }
 });
+
 </script>
 
 </body>
