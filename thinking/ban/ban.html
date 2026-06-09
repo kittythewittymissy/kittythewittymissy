@@ -21,7 +21,18 @@
 
 <style>
 
+/* ===== STAGE ===== */
+
+.stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ===== OVAL TABLE ===== */
+
 .oval-table {
 position: fixed;
   left: 50%;
@@ -204,6 +215,7 @@ position: fixed;
 </a>
 
 <!-- 'THE EYE' STAGE' -->
+<div class="stage"></div>
 
   <div class="oval-table"></div>
 
@@ -221,6 +233,7 @@ position: fixed;
 
   <div class="orbit"></div>
 
+</div>
 <!-- TIMELINE TOGGLE -->
 
 <div class="timeline-toggle" id="timelineToggle"></div>
