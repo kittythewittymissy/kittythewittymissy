@@ -427,9 +427,8 @@ let responses = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 function createNode(text) {
 
-  const rect = orbit.getBoundingClientRect();
-  const size = rect.width;
-  const radius = size * 0.5;
+  const size = orbit.offsetWidth;
+  const radius = size * 0.48;
   const center = size / 2;
   const angle = Math.random() * Math.PI * 2;
 
