@@ -53,10 +53,11 @@ html, body {
 /* ===== ORBIT ===== */
 
 .orbit {
+  position: relative;
   width: 440px;
   height: 440px;
-
-  animation: orbitRotate 90s linear infinite;
+  z-index: 2;
+  animation: orbit 90s linear infinite;
 }
 
 .orbit::before {
