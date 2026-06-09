@@ -100,7 +100,7 @@ position: fixed;
   opacity: 0;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
-  z-index: 3;
+  z-index: 7;
 }
 
 .center-bold {
@@ -118,12 +118,14 @@ position: fixed;
 /* ===== ORBIT ===== */
 
 .orbit {
-  position: relative;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 440px;
   height: 440px;
+  margin-left: -220px;
+  margin-top: -220px;
   z-index: 2;
   animation: orbit 90s linear infinite;
 }
@@ -236,7 +238,6 @@ position: fixed;
 
   <div class="orbit"></div>
 
-</div>
 <!-- TIMELINE TOGGLE -->
 
 <div class="timeline-toggle" id="timelineToggle"></div>
