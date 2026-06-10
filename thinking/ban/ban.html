@@ -124,12 +124,14 @@ position: fixed;
 }
 
 /* ===== ORBIT ===== */
-
-.orbit {
+.orbit-wrap {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+.orbit {
+  position: relative;
   width: 440px;
   height: 440px;
   z-index: 2;
@@ -241,7 +243,9 @@ position: fixed;
     </span>
   </div>
 
+<div class="orbit-wrap"></div>
   <div class="orbit"></div>
+</div>
 
 </div>
 
