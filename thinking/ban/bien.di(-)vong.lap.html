@@ -145,6 +145,8 @@ position: fixed;
 
   animation: bodyFade 1s ease forwards;
   animation-delay: 2.4s;
+
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input::placeholder {
@@ -155,6 +157,73 @@ position: fixed;
   border-bottom: 1px solid var(--gold-core);
 
   box-shadow: 0 0 8px var(--gold-bloom);
+}
+
+/* ===== THOUGHT BUBBLE ===== */
+
+.thought-bubble {
+  position: fixed;
+  right: 10rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  min-width: 200px;
+  max-width: 380px;
+  min-height: 60px;
+
+  padding: 1.2rem 1.5rem;
+
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,214,98,0.25);
+  border-radius: 24px;
+
+  color: var(--white-accent);
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  line-height: 1.7;
+
+  text-align: left;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.5s ease;
+
+  box-shadow:
+    0 0 12px rgba(255,214,98,0.12),
+    0 0 28px rgba(0,0,0,0.5);
+
+  z-index: 5;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.thought-bubble.active {
+  opacity: 1;
+}
+
+/* Thought bubble tail */
+.thought-bubble::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  transform: translateY(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 18px solid rgba(255,214,98,0.25);
 }
 
 /* ===== ORBIT ===== */
@@ -345,6 +414,29 @@ position: fixed;
     font-size: 0.95rem;
   }
 
+  .thought-bubble {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 20%;
+    transform: translateX(-50%);
+    max-width: 85vw;
+    min-width: 180px;
+    font-size: 0.9rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .thought-bubble::after {
+    top: auto;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 16px solid rgba(255,214,98,0.25);
+    border-bottom: none;
+  }
+
   .response {
     width: 16px;
     height: 16px;
@@ -415,6 +507,10 @@ position: fixed;
 
 </div>
 
+<!-- THOUGHT BUBBLE -->
+
+<div class="thought-bubble" id="thoughtBubble"></div>
+
 <!-- TIMELINE TOGGLE -->
 
 <div class="timeline-toggle" id="timelineToggle"></div>
@@ -483,18 +579,68 @@ const orbit = document.getElementById("orbit");
 const overlay = document.getElementById("overlay");
 const display = document.getElementById("singleResponse");
 const contextMenu = document.getElementById("contextMenu");
+const thoughtBubble = document.getElementById("thoughtBubble");
 
 /* ===== STATE ===== */
 
 const STORAGE_KEY = "tdrb_fragments";
 let fragments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 let activeContextFragment = null;
+let bubbleTimeout = null;
 
 /* ===== HELPERS ===== */
 
 function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(fragments));
 }
+
+/* ===== THOUGHT BUBBLE ===== */
+
+function showThoughtBubble(text) {
+  if (!text || text.trim() === "") {
+    hideThoughtBubble();
+    return;
+  }
+  
+  thoughtBubble.textContent = text;
+  thoughtBubble.classList.add("active");
+}
+
+function hideThoughtBubble() {
+  thoughtBubble.classList.remove("active");
+}
+
+// Show bubble while typing (after a character threshold)
+input.addEventListener("input", function() {
+  const text = input.value;
+  
+  // Only show bubble if text is long enough to warrant it
+  if (text.length > 30) {
+    showThoughtBubble(text);
+  } else {
+    hideThoughtBubble();
+  }
+});
+
+// Hide bubble when input loses focus
+input.addEventListener("blur", function() {
+  // Small delay so submit can happen first
+  bubbleTimeout = setTimeout(() => {
+    hideThoughtBubble();
+  }, 200);
+});
+
+// Cancel hide if focusing back
+input.addEventListener("focus", function() {
+  if (bubbleTimeout) {
+    clearTimeout(bubbleTimeout);
+    bubbleTimeout = null;
+  }
+  // Re-show if text is long enough
+  if (input.value.length > 30) {
+    showThoughtBubble(input.value);
+  }
+});
 
 /* ===== CREATE NODE ===== */
 
@@ -579,6 +725,7 @@ input.addEventListener("keydown", function(e) {
     save();
     createNode(fragment);
     input.value = "";
+    hideThoughtBubble();
   }
 });
 
