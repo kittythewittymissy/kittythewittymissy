@@ -206,7 +206,7 @@ position: fixed;
 
 .thought-bubble-wrap {
   position: fixed;
-  right: 10rem;
+  right: 6rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -225,10 +225,11 @@ position: fixed;
 }
 
 .thought-bubble {
-  min-width: 200px;
-  max-width: 380px;
-  min-height: 60px;
-  padding: 1.2rem 1.5rem;
+  min-width: 260px;
+  max-width: 480px;
+  min-height: 80px;
+  max-height: 55vh;
+  padding: 1.5rem 1.8rem;
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -237,14 +238,15 @@ position: fixed;
   color: var(--white-accent);
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.8;
   text-align: left;
   resize: none;
   outline: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  overflow-y: auto;
   box-shadow:
     0 0 12px rgba(255,214,98,0.12),
     0 0 28px rgba(0,0,0,0.5);
