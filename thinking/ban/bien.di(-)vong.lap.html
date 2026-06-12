@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Tự do - Ràng buộc</title>
+<title>Biến dị trong vòng lặp</title>
 
 <!-- Favicon -->
 <link rel="icon" href="../../favicon/favicon.ico">
@@ -217,6 +217,50 @@ position: fixed;
   transform: translate(-50%, -50%);
 }
 
+/* ===== CONTEXT MENU ===== */
+
+.context-menu {
+  position: fixed;
+  z-index: 3000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,214,98,0.3);
+  border-radius: 8px;
+  padding: 0.4rem 0;
+  min-width: 180px;
+  box-shadow:
+    0 0 12px rgba(255,214,98,0.15),
+    0 0 24px rgba(0,0,0,0.6);
+  display: none;
+}
+
+.context-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, text-shadow 0.2s;
+}
+
+.context-menu button:hover {
+  background: rgba(255,214,98,0.1);
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.7);
+}
+
+.context-menu .divider {
+  border-top: 1px solid rgba(255,214,98,0.2);
+  margin: 0.2rem 0;
+}
+
 /* ===== CENTERED OVERLAY TEXT ===== */
 
 #singleResponse {
@@ -354,16 +398,16 @@ position: fixed;
   <div class="oval-table"></div>
 
   <div class="work-title">
-    <h1>Tự do
-      <br>&<br>
-      Ràng buộc</h1>
+    <h1>Biến dị
+      <br>trong<br>
+      vòng lặp</h1>
   </div>
 
   <div class="paragraph body-text">
-    Mọi thứ càng ngày càng tệ?
+    Trong mỗi vòng lặp,
 
     <span class="center-bold">
-      Chúng ta có tự do không?
+      một sai lệch nhỏ xảy ra.
     </span>
   </div>
 
@@ -383,6 +427,15 @@ position: fixed;
 
 <div class="timeline-overlay" id="overlay">
   <div id="singleResponse" class="body-text"></div>
+</div>
+
+<!-- CONTEXT MENU -->
+
+<div class="context-menu" id="contextMenu">
+  <button id="ctxView">Xem</button>
+  <div class="divider"></div>
+  <button id="ctxEdit">Chỉnh sửa</button>
+  <button id="ctxDetach">Gỡ khỏi quỹ đạo</button>
 </div>
 
 <!-- MENU OVERLAY -->
@@ -411,62 +464,85 @@ position: fixed;
 
 <script>
 
+/* ===== SESSION FINGERPRINT ===== */
+
+const FINGERPRINT_KEY = 'tdrb_user_fp';
+let userFingerprint = sessionStorage.getItem(FINGERPRINT_KEY);
+if (!userFingerprint) {
+  userFingerprint = crypto.randomUUID();
+  sessionStorage.setItem(FINGERPRINT_KEY, userFingerprint);
+}
+
+const ADMIN_TOKEN = 'tdrb_admin_2026';
+let isAdmin = sessionStorage.getItem('tdrb_admin') === ADMIN_TOKEN;
+
+/* ===== DOM REFERENCES ===== */
+
 const input = document.getElementById("input");
 const orbit = document.getElementById("orbit");
-
 const overlay = document.getElementById("overlay");
 const display = document.getElementById("singleResponse");
+const contextMenu = document.getElementById("contextMenu");
 
-const STORAGE_KEY = "response";
+/* ===== STATE ===== */
 
-/* ===== LOAD ===== */
+const STORAGE_KEY = "tdrb_fragments";
+let fragments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let activeContextFragment = null;
 
-let responses = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+/* ===== HELPERS ===== */
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(fragments));
+}
 
 /* ===== CREATE NODE ===== */
 
-function createNode(text) {
-
+function createNode(fragment) {
   const size = orbit.offsetWidth;
   const radius = size * 0.5;
   const center = size / 2;
-  const angle = Math.random() * Math.PI * 2;
+  
+  // Use stored angle or create new one
+  let angle = fragment.angle;
+  if (angle === undefined) {
+    angle = Math.random() * Math.PI * 2;
+    fragment.angle = angle;
+    save();
+  }
 
   const x = center + radius * Math.cos(angle);
   const y = center + radius * Math.sin(angle);
 
   const node = document.createElement("div");
-
   node.className = "response";
-
+  node.id = fragment.id;
   node.style.left = x + "px";
   node.style.top = y + "px";
 
+  // Left click: view
   node.addEventListener("click", (e) => {
+    e.stopPropagation();
+    overlay.classList.add("is-open");
+    display.innerText = fragment.text;
+  });
 
-  if (e.shiftKey) {
-
-    const index = responses.indexOf(text);
-
-    if (index > -1) {
-
-      responses.splice(index, 1);
-
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(responses)
-      );
-
-      node.remove();
-    }
-
-    return;
-  }
-
-  overlay.classList.add("is-open");
-  display.innerText = text;
-
-});
+  // Right click: context menu
+  node.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    activeContextFragment = fragment;
+    
+    const canModify = fragment.createdBy === userFingerprint || isAdmin;
+    
+    document.getElementById("ctxView").style.display = "block";
+    document.getElementById("ctxEdit").style.display = canModify ? "block" : "none";
+    document.getElementById("ctxDetach").style.display = canModify ? "block" : "none";
+    
+    contextMenu.style.display = "block";
+    contextMenu.style.left = e.clientX + "px";
+    contextMenu.style.top = e.clientY + "px";
+  });
 
   orbit.appendChild(node);
 
@@ -475,31 +551,35 @@ function createNode(text) {
   });
 }
 
+function removeNodeFromOrbit(id) {
+  const node = document.getElementById(id);
+  if (node) node.remove();
+}
+
 /* ===== INITIAL LOAD ===== */
 
-responses.forEach(createNode);
+fragments.forEach(fragment => {
+  createNode(fragment);
+});
 
 /* ===== INPUT ===== */
 
 input.addEventListener("keydown", function(e) {
-
   if (e.key === "Enter" && input.value.trim() !== "") {
-
     const text = input.value.trim();
 
-    responses.push(text);
+    const fragment = {
+      id: crypto.randomUUID(),
+      text: text,
+      createdBy: userFingerprint,
+      createdAt: Date.now()
+    };
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(responses)
-    );
-
-    createNode(text);
-
+    fragments.push(fragment);
+    save();
+    createNode(fragment);
     input.value = "";
-
   }
-
 });
 
 /* ===== CLOSE RESPONSE OVERLAY ===== */
@@ -508,10 +588,46 @@ overlay.onclick = () => {
   overlay.classList.remove("is-open");
 };
 
+/* ===== CONTEXT MENU ACTIONS ===== */
+
+document.getElementById("ctxView").addEventListener("click", () => {
+  if (activeContextFragment) {
+    overlay.classList.add("is-open");
+    display.innerText = activeContextFragment.text;
+  }
+  contextMenu.style.display = "none";
+});
+
+document.getElementById("ctxEdit").addEventListener("click", () => {
+  if (!activeContextFragment) return;
+  
+  const newText = prompt("Chỉnh sửa:", activeContextFragment.text);
+  if (newText && newText.trim() !== "") {
+    activeContextFragment.text = newText.trim();
+    save();
+  }
+  contextMenu.style.display = "none";
+});
+
+document.getElementById("ctxDetach").addEventListener("click", () => {
+  if (!activeContextFragment) return;
+  
+  if (confirm("Gỡ fragment này khỏi quỹ đạo? Hành động này không thể hoàn tác.")) {
+    fragments = fragments.filter(f => f.id !== activeContextFragment.id);
+    save();
+    removeNodeFromOrbit(activeContextFragment.id);
+  }
+  contextMenu.style.display = "none";
+});
+
+// Hide context menu on any other click
+document.addEventListener("click", () => {
+  contextMenu.style.display = "none";
+});
+
 /* ===== TIMELINE MENU ===== */
 
 const timelineToggle = document.getElementById('timelineToggle');
-
 const timelineOverlay = document.getElementById('timelineOverlay');
 
 timelineToggle.addEventListener('click', () => {
@@ -519,11 +635,9 @@ timelineToggle.addEventListener('click', () => {
 });
 
 timelineOverlay.addEventListener('click', (e) => {
-
   if (e.target === timelineOverlay) {
     timelineOverlay.classList.remove('is-open');
   }
-
 });
 
 </script>
