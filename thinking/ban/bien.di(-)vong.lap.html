@@ -116,36 +116,32 @@ position: fixed;
 
 /* ===== INPUT BOX ===== */
 
-.input {
+.input-wrap {
   position: fixed;
   bottom: 12%;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: bodyFade 1s ease forwards;
+  animation-delay: 2.4s;
+  z-index: 6;
+}
 
+.input {
   width: 280px;
-
   background: transparent;
-
   border: none;
   border-bottom: 1px solid rgba(255,214,98,0.4);
-
   color: var(--white-accent);
-
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
   font-size: 1rem;
-
   text-align: center;
-
   padding: 6px;
-
   outline: none;
-
-  opacity: 0;
-
-  animation: bodyFade 1s ease forwards;
-  animation-delay: 2.4s;
-
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -155,75 +151,127 @@ position: fixed;
 
 .input:focus {
   border-bottom: 1px solid var(--gold-core);
-
   box-shadow: 0 0 8px var(--gold-bloom);
+}
+
+/* ===== PLACE BUTTON ===== */
+
+.place-btn {
+  font-family: 'Raleway Dots', sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: var(--white-accent);
+  background: transparent;
+  border: 1px solid rgba(255,214,98,0.35);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4);
+  box-shadow:
+    0 0 6px rgba(255,214,98,0.2),
+    0 0 14px rgba(255,214,98,0.1);
+  transition:
+    text-shadow 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s,
+    transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.place-btn:hover {
+  color: var(--gold-core);
+  text-shadow:
+    0 0 4px var(--gold-core),
+    0 0 10px var(--gold-bloom),
+    0 0 20px rgba(255,214,98,0.5);
+  border-color: var(--gold-core);
+  box-shadow:
+    0 0 10px var(--gold-core),
+    0 0 22px var(--gold-bloom);
+  transform: scale(1.05);
+}
+
+.place-btn:active {
+  transform: scale(0.95);
 }
 
 /* ===== THOUGHT BUBBLE ===== */
 
-.thought-bubble {
+.thought-bubble-wrap {
   position: fixed;
   right: 10rem;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
 
+.thought-bubble-wrap.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.thought-bubble {
   min-width: 200px;
   max-width: 380px;
   min-height: 60px;
-
   padding: 1.2rem 1.5rem;
-
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
   border: 1px solid rgba(255,214,98,0.25);
   border-radius: 24px;
-
   color: var(--white-accent);
-
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
   font-size: 1rem;
   line-height: 1.7;
-
   text-align: left;
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition: opacity 0.5s ease;
-
-  box-shadow:
-    0 0 12px rgba(255,214,98,0.12),
-    0 0 28px rgba(0,0,0,0.5);
-
-  z-index: 5;
-
+  resize: none;
+  outline: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  box-shadow:
+    0 0 12px rgba(255,214,98,0.12),
+    0 0 28px rgba(0,0,0,0.5);
 }
 
-.thought-bubble.active {
-  opacity: 1;
+.thought-bubble::placeholder {
+  color: rgba(255,255,255,0.3);
 }
 
 /* Thought bubble tail */
-.thought-bubble::after {
+.thought-bubble-wrap::before {
   content: "";
-
   position: absolute;
   top: 50%;
   left: -18px;
   transform: translateY(-50%);
-
   width: 0;
   height: 0;
-
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 18px solid rgba(255,214,98,0.25);
+  pointer-events: none;
+}
+
+/* Place button inside bubble wrap */
+.thought-bubble-wrap .place-btn {
+  margin-right: 0.5rem;
 }
 
 /* ===== ORBIT ===== */
@@ -238,14 +286,10 @@ position: fixed;
 
 .orbit::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   border-radius: 50%;
-
   border: 1px dashed rgba(255,255,255,0.36);
-
   box-shadow:
     0 0 10px rgba(255,255,255,0.20),
     0 0 20px rgba(255,255,255,0.11),
@@ -257,27 +301,19 @@ position: fixed;
 .response {
   position: absolute;
   z-index: 4;
-
   width: 18px;
   height: 18px;
-
   border-radius: 50%;
-
   background: var(--gold-core);
-
   box-shadow:
     0 0 6px var(--gold-core),
     0 0 16px var(--gold-core),
     0 0 36px var(--gold-bloom);
-
   opacity: 0;
-
   transform: translate(-50%, -50%);
-
   transition:
     opacity 0.4s ease,
     transform 0.4s ease;
-
   cursor: pointer;
 }
 
@@ -334,19 +370,21 @@ position: fixed;
 
 #singleResponse {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
-
-  max-width: 700px;
-
+  max-width: 540px;
+  width: auto;
   text-align: center;
-
   font-size: 1.8rem;
   font-weight: 200;
   line-height: 1.8;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow-y: auto;
+  max-height: 70vh;
+  padding: 1.5rem;
 }
 
 /* ===== FADE ===== */
@@ -406,27 +444,32 @@ position: fixed;
     font-size: 1.15rem;
   }
 
-  .input {
-    width: 72%;
-
+  .input-wrap {
+    width: 85%;
     bottom: 10%;
+  }
 
+  .input {
+    width: 100%;
     font-size: 0.95rem;
   }
 
-  .thought-bubble {
+  .thought-bubble-wrap {
     right: auto;
     left: 50%;
     top: auto;
     bottom: 20%;
     transform: translateX(-50%);
+  }
+
+  .thought-bubble {
     max-width: 85vw;
     min-width: 180px;
     font-size: 0.9rem;
     padding: 1rem 1.2rem;
   }
 
-  .thought-bubble::after {
+  .thought-bubble-wrap::before {
     top: auto;
     bottom: -16px;
     left: 50%;
@@ -448,11 +491,9 @@ position: fixed;
     line-height: 1.8;
   }
 
-
   .timeline-toggle {
     width: 56px;
     height: 56px;
-
     right: 1rem;
     bottom: 5rem;
   }
@@ -507,17 +548,23 @@ position: fixed;
 
 </div>
 
-<!-- THOUGHT BUBBLE -->
+<!-- INPUT + PLACE BUTTON -->
 
-<div class="thought-bubble" id="thoughtBubble"></div>
+<div class="input-wrap">
+  <input id="input" class="input" placeholder="Bạn nghĩ sao?" />
+  <button class="place-btn" id="placeBtn" title="Đặt">Đ</button>
+</div>
+
+<!-- THOUGHT BUBBLE + PLACE BUTTON -->
+
+<div class="thought-bubble-wrap" id="thoughtBubbleWrap">
+  <textarea class="thought-bubble" id="thoughtBubble" placeholder="Tiếp tục gõ..."></textarea>
+  <button class="place-btn" id="placeBtnBubble" title="Đặt">Đ</button>
+</div>
 
 <!-- TIMELINE TOGGLE -->
 
 <div class="timeline-toggle" id="timelineToggle"></div>
-
-<!-- INPUT -->
-
-<input id="input" class="input" placeholder="Bạn nghĩ sao?" />
 
 <!-- RESPONSE OVERLAY -->
 
@@ -580,6 +627,9 @@ const overlay = document.getElementById("overlay");
 const display = document.getElementById("singleResponse");
 const contextMenu = document.getElementById("contextMenu");
 const thoughtBubble = document.getElementById("thoughtBubble");
+const thoughtBubbleWrap = document.getElementById("thoughtBubbleWrap");
+const placeBtn = document.getElementById("placeBtn");
+const placeBtnBubble = document.getElementById("placeBtnBubble");
 
 /* ===== STATE ===== */
 
@@ -594,6 +644,28 @@ function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(fragments));
 }
 
+function submitFragment(text) {
+  const trimmed = text.trim();
+  if (trimmed === "") return;
+
+  const fragment = {
+    id: crypto.randomUUID(),
+    text: trimmed,
+    createdBy: userFingerprint,
+    createdAt: Date.now()
+  };
+
+  fragments.push(fragment);
+  save();
+  createNode(fragment);
+
+  // Reset
+  input.value = "";
+  thoughtBubble.value = "";
+  thoughtBubbleWrap.classList.remove("active");
+  input.focus();
+}
+
 /* ===== THOUGHT BUBBLE ===== */
 
 function showThoughtBubble(text) {
@@ -602,19 +674,22 @@ function showThoughtBubble(text) {
     return;
   }
   
-  thoughtBubble.textContent = text;
-  thoughtBubble.classList.add("active");
+  thoughtBubble.value = text;
+  thoughtBubbleWrap.classList.add("active");
+  
+  // Auto-focus bubble
+  setTimeout(() => thoughtBubble.focus(), 100);
 }
 
 function hideThoughtBubble() {
-  thoughtBubble.classList.remove("active");
+  thoughtBubbleWrap.classList.remove("active");
+  thoughtBubble.value = "";
 }
 
-// Show bubble while typing (after a character threshold)
+// Input: đồng bộ sang bubble nếu text > 30 ký tự
 input.addEventListener("input", function() {
   const text = input.value;
   
-  // Only show bubble if text is long enough to warrant it
   if (text.length > 30) {
     showThoughtBubble(text);
   } else {
@@ -622,24 +697,63 @@ input.addEventListener("input", function() {
   }
 });
 
-// Hide bubble when input loses focus
-input.addEventListener("blur", function() {
-  // Small delay so submit can happen first
-  bubbleTimeout = setTimeout(() => {
+// Bubble: đồng bộ ngược về input
+thoughtBubble.addEventListener("input", function() {
+  const text = thoughtBubble.value;
+  input.value = text;
+  
+  if (text.length <= 30) {
     hideThoughtBubble();
+    input.focus();
+  }
+});
+
+// Enter trong bubble = xuống dòng (mặc định, không làm gì thêm)
+
+// Input mất focus
+input.addEventListener("blur", function() {
+  bubbleTimeout = setTimeout(() => {
+    if (document.activeElement !== thoughtBubble) {
+      hideThoughtBubble();
+    }
   }, 200);
 });
 
-// Cancel hide if focusing back
+// Bubble mất focus
+thoughtBubble.addEventListener("blur", function() {
+  bubbleTimeout = setTimeout(() => {
+    if (thoughtBubble.value.length <= 30) {
+      hideThoughtBubble();
+    }
+  }, 200);
+});
+
+// Focus lại
 input.addEventListener("focus", function() {
   if (bubbleTimeout) {
     clearTimeout(bubbleTimeout);
     bubbleTimeout = null;
   }
-  // Re-show if text is long enough
   if (input.value.length > 30) {
     showThoughtBubble(input.value);
   }
+});
+
+thoughtBubble.addEventListener("focus", function() {
+  if (bubbleTimeout) {
+    clearTimeout(bubbleTimeout);
+    bubbleTimeout = null;
+  }
+});
+
+/* ===== PLACE BUTTONS ===== */
+
+placeBtn.addEventListener("click", () => {
+  submitFragment(input.value);
+});
+
+placeBtnBubble.addEventListener("click", () => {
+  submitFragment(thoughtBubble.value);
 });
 
 /* ===== CREATE NODE ===== */
@@ -649,7 +763,6 @@ function createNode(fragment) {
   const radius = size * 0.5;
   const center = size / 2;
   
-  // Use stored angle or create new one
   let angle = fragment.angle;
   if (angle === undefined) {
     angle = Math.random() * Math.PI * 2;
@@ -666,14 +779,12 @@ function createNode(fragment) {
   node.style.left = x + "px";
   node.style.top = y + "px";
 
-  // Left click: view
   node.addEventListener("click", (e) => {
     e.stopPropagation();
     overlay.classList.add("is-open");
     display.innerText = fragment.text;
   });
 
-  // Right click: context menu
   node.addEventListener("contextmenu", (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -706,27 +817,6 @@ function removeNodeFromOrbit(id) {
 
 fragments.forEach(fragment => {
   createNode(fragment);
-});
-
-/* ===== INPUT ===== */
-
-input.addEventListener("keydown", function(e) {
-  if (e.key === "Enter" && input.value.trim() !== "") {
-    const text = input.value.trim();
-
-    const fragment = {
-      id: crypto.randomUUID(),
-      text: text,
-      createdBy: userFingerprint,
-      createdAt: Date.now()
-    };
-
-    fragments.push(fragment);
-    save();
-    createNode(fragment);
-    input.value = "";
-    hideThoughtBubble();
-  }
 });
 
 /* ===== CLOSE RESPONSE OVERLAY ===== */
@@ -767,7 +857,6 @@ document.getElementById("ctxDetach").addEventListener("click", () => {
   contextMenu.style.display = "none";
 });
 
-// Hide context menu on any other click
 document.addEventListener("click", () => {
   contextMenu.style.display = "none";
 });
