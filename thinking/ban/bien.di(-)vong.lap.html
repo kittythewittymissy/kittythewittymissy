@@ -206,18 +206,18 @@ position: fixed;
 
 .thought-bubble-wrap {
   position: fixed;
-  right: 4rem;
+  left: calc(50% + 240px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 0.8rem;
   z-index: 5;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
-  max-width: calc(100vw - 4rem - 440px - 2rem);
+  max-width: calc(100vw - 50% - 260px);
 }
 
 .thought-bubble-wrap.active {
@@ -274,7 +274,7 @@ position: fixed;
 
 /* Place button inside bubble wrap */
 .thought-bubble-wrap .place-btn {
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 /* ===== ORBIT ===== */
@@ -554,7 +554,7 @@ position: fixed;
 <!-- INPUT + PLACE BUTTON -->
 
 <div class="input-wrap">
-  <input id="input" class="input" placeholder="Bạn nghĩ sao?" />
+  <input id="input" class="input" placeholder="Hãy lên tiếng." />
   <button class="place-btn" id="placeBtn" title="Đặt">Đặt</button>
 </div>
 
@@ -562,7 +562,7 @@ position: fixed;
 
 <div class="thought-bubble-wrap" id="thoughtBubbleWrap">
   <textarea class="thought-bubble" id="thoughtBubble" placeholder="Tiếp tục gõ..."></textarea>
-  <button class="place-btn" id="placeBtnBubble" title="Đặt">Đ</button>
+  <button class="place-btn" id="placeBtnBubble" title="Đặt">Đặt</button>
 </div>
 
 <!-- TIMELINE TOGGLE -->
@@ -711,7 +711,7 @@ thoughtBubble.addEventListener("input", function() {
   }
 });
 
-// Enter trong bubble = xuống dòng (mặc định, không làm gì thêm)
+// Enter trong bubble = xuống dòng
 
 // Input mất focus
 input.addEventListener("blur", function() {
