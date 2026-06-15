@@ -24,44 +24,38 @@
 /* ===== STAGE ===== */
 
 .stage {
-  position: fixed;
-  inset: 0;
+  position: relative;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* ===== OVAL TABLE ===== */
 .oval-table {
-position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 98vw;
-  height: 89vh;
-  border-radius: 50%;
-  box-shadow:
-      0 0 8px rgba(255,255,255,0.13),
-      0 0 16px rgba(255,255,255,0.07);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
-/* ===== TITLE ===== */
+/* ===== TITLE - Centered like htctt-uyen.tu ===== */
 
 .work-title {
-  position: absolute;
-  left: 10rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  width: 100%;
   text-align: center;
   z-index: 4;
+  margin: 2rem 0 1rem 0;
 }
 
 .work-title h1 {
   font-family: 'Raleway', sans-serif;
-  font-size: 4rem;
+  font-size: 2.8rem;
   letter-spacing: 0.16em;
   font-weight: 100;
   color: #222;
@@ -72,6 +66,8 @@ position: fixed;
   opacity: 0;
   animation: neonSign-Gold 1.2s ease forwards;
   animation-delay: 0.3s;
+  margin: 0;
+  line-height: 1.2;
 }
 
 @keyframes neonSign-Gold {
@@ -89,24 +85,25 @@ position: fixed;
 /* ===== TOPIC ===== */
 
 .paragraph {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
   max-width: 520px;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   opacity: 0;
   animation: bodyFade 1.2s ease forwards;
   animation-delay: 0.6s;
   z-index: 3;
+  margin: 1rem auto;
 }
 
 .center-bold {
   display: block;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   letter-spacing: 0.05em;
   text-shadow: var(--glow-white);
   opacity: 0;
@@ -114,13 +111,81 @@ position: fixed;
   animation-delay: 1.8s;
 }
 
-/* ===== INPUT BOX ===== */
+/* ===== ORBIT - Perfect Circle ===== */
+
+.orbit-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.orbit {
+  position: relative;
+  width: min(440px, 85vw);
+  height: min(440px, 85vw);
+  z-index: 2;
+  animation: orbit 90s linear infinite;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.36);
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.20),
+    0 0 20px rgba(255,255,255,0.11),
+    0 0 40px rgba(255,255,255,0.045);
+}
+
+@keyframes orbit { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(360deg); } 
+}
+
+/* ===== RESPONSE NODES ===== */
+
+.response {
+  position: absolute;
+  z-index: 4;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold-core);
+  box-shadow:
+    0 0 6px var(--gold-core),
+    0 0 16px var(--gold-core),
+    0 0 36px var(--gold-bloom);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  cursor: pointer;
+  animation: nodePulse 2s infinite alternate;
+}
+
+@keyframes nodePulse {
+  0% { box-shadow: 0 0 6px var(--gold-core), 0 0 16px var(--gold-core); }
+  100% { box-shadow: 0 0 10px var(--gold-core), 0 0 24px var(--gold-core), 0 0 40px var(--gold-bloom); }
+}
+
+.response.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* ===== INPUT BOX - Under circle ===== */
 
 .input-wrap {
-  position: fixed;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -128,6 +193,10 @@ position: fixed;
   animation: bodyFade 1s ease forwards;
   animation-delay: 2.4s;
   z-index: 6;
+  margin: 2rem auto;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .input {
@@ -198,26 +267,23 @@ position: fixed;
   transform: scale(1.05);
 }
 
-.place-btn:active {
-  transform: scale(0.95);
-}
-
 /* ===== THOUGHT BUBBLE ===== */
 
 .thought-bubble-wrap {
   position: fixed;
-  left: calc(50% + 240px);
+  left: auto;
+  right: 2rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 0.8rem;
   z-index: 5;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
-  max-width: calc(100vw - 50% - 260px);
+  max-width: 380px;
 }
 
 .thought-bubble-wrap.active {
@@ -231,7 +297,7 @@ position: fixed;
   min-height: 100px;
   max-height: 65vh;
   padding: 2rem 2.2rem;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,214,98,0.25);
@@ -262,111 +328,14 @@ position: fixed;
   content: "";
   position: absolute;
   top: 50%;
-  left: -18px;
+  right: -18px;
   transform: translateY(-50%);
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 18px solid rgba(255,214,98,0.25);
+  border-left: 18px solid rgba(255,214,98,0.25);
   pointer-events: none;
-}
-
-/* Place button inside bubble wrap */
-.thought-bubble-wrap .place-btn {
-  margin-left: 0.5rem;
-}
-
-/* ===== ORBIT ===== */
-
-.orbit {
-  position: relative;
-  width: 440px;
-  height: 440px;
-  z-index: 2;
-  animation: orbit 90s linear infinite;
-}
-
-.orbit::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,0.36);
-  box-shadow:
-    0 0 10px rgba(255,255,255,0.20),
-    0 0 20px rgba(255,255,255,0.11),
-    0 0 40px rgba(255,255,255,0.045);
-}
-
-/* ===== RESPONSE ===== */
-
-.response {
-  position: absolute;
-  z-index: 4;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--gold-core);
-  box-shadow:
-    0 0 6px var(--gold-core),
-    0 0 16px var(--gold-core),
-    0 0 36px var(--gold-bloom);
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
-  cursor: pointer;
-}
-
-.response.show {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-
-/* ===== CONTEXT MENU ===== */
-
-.context-menu {
-  position: fixed;
-  z-index: 3000;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,214,98,0.3);
-  border-radius: 8px;
-  padding: 0.4rem 0;
-  min-width: 180px;
-  box-shadow:
-    0 0 12px rgba(255,214,98,0.15),
-    0 0 24px rgba(0,0,0,0.6);
-  display: none;
-}
-
-.context-menu button {
-  display: block;
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 100;
-  font-size: 0.9rem;
-  padding: 0.5rem 1.2rem;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.2s, text-shadow 0.2s;
-}
-
-.context-menu button:hover {
-  background: rgba(255,214,98,0.1);
-  text-shadow:
-    0 0 8px #fff,
-    0 0 16px rgba(255,255,255,0.7);
-}
-
-.context-menu .divider {
-  border-top: 1px solid rgba(255,214,98,0.2);
-  margin: 0.2rem 0;
 }
 
 /* ===== CENTERED OVERLAY TEXT ===== */
@@ -397,85 +366,149 @@ position: fixed;
   to { opacity: 1; }
 }
 
-/* TIMELINE TOGGLE */
+/* ===== CONTEXT MENU ===== */
+
+.context-menu {
+  position: fixed;
+  z-index: 3000;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,214,98,0.3);
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  box-shadow:
+    0 0 12px rgba(255,214,98,0.15),
+    0 0 24px rgba(0,0,0,0.8);
+  display: none;
+}
+
+.context-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, text-shadow 0.2s;
+}
+
+.context-menu button:hover {
+  background: rgba(255,214,98,0.15);
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.7);
+}
+
+.context-menu .divider {
+  border-top: 1px solid rgba(255,214,98,0.2);
+  margin: 0.3rem 0;
+}
+
+/* ===== TIMELINE TOGGLE ===== */
 
 .timeline-toggle {
   z-index: 2000;
   position: fixed;
+  bottom: 5rem;
+  right: 1rem;
+  width: 56px;
+  height: 56px;
 }
 
-/* ===== MOBILE ===== */
+.back-button {
+  top: 1rem;
+  right: 1rem;
+}
 
+/* ===== MOBILE OVERRIDES ===== */
 @media(max-width:768px) {
 
   .stage {
-    padding: 2rem;
-  }
-
-  .oval-table {
-    display: none;
-  }
-
-  .orbit {
-    width: 360px;
-    height: 360px;
+    padding: 0 1rem;
+    min-height: auto;
   }
 
   .work-title {
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    text-align: center;
+    margin: 1rem 0 0.5rem 0;
   }
 
   .work-title h1 {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     line-height: 1.2;
   }
 
   .paragraph {
-    max-width: 88%;
-    left: 50%;
-    top: 42%;
-    transform: translate(-50%, -50%);
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    max-width: 90%;
+    margin: 0.5rem auto;
   }
 
   .center-bold {
-    font-size: 1.15rem;
+    font-size: 1rem;
+  }
+
+  .orbit {
+    width: min(360px, 80vw);
+    height: min(360px, 80vw);
+    margin: 0.5rem auto;
+  }
+
+  .response {
+    width: 14px;
+    height: 14px;
   }
 
   .input-wrap {
-    width: 85%;
-    bottom: 10%;
+    margin: 1rem auto 2rem auto;
+    width: 90%;
+    max-width: 320px;
   }
 
   .input {
     width: 100%;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
+  /* Thought bubble - full width on mobile */
   .thought-bubble-wrap {
-    right: auto;
+    position: fixed;
     left: 50%;
+    right: auto;
     top: auto;
     bottom: 20%;
     transform: translateX(-50%);
+    width: 90%;
+    max-width: none;
+    align-items: center;
+    z-index: 20;
   }
 
   .thought-bubble {
-    max-width: 85vw;
-    min-width: 180px;
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
     font-size: 0.9rem;
     padding: 1rem 1.2rem;
+    min-height: auto;
+  }
+
+  .thought-bubble-wrap .place-btn {
+    position: relative;
+    z-index: 21;
+    margin: 0 auto;
   }
 
   .thought-bubble-wrap::before {
     top: auto;
     bottom: -16px;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
@@ -483,35 +516,25 @@ position: fixed;
     border-bottom: none;
   }
 
-  .response {
-    width: 16px;
-    height: 16px;
+   /* Main input wrap button also higher */
+  .input-wrap .place-btn {
+    z-index: 10;
   }
 
   #singleResponse {
-    width: 82%;
-    font-size: 1.2rem;
-    line-height: 1.8;
+    width: 85%;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 1rem;
   }
 
-  .timeline-toggle {
-    width: 56px;
-    height: 56px;
-    right: 1rem;
-    bottom: 5rem;
+  .context-menu {
+    min-width: 180px;
   }
 
-  .back-button {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .back-button .kitty-text {
-    font-size: 2rem;
-  }
-
-  .back-button .back-text {
-    font-size: 1rem;
+  .context-menu button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
@@ -531,8 +554,6 @@ position: fixed;
 
 <div class="stage">
 
-  <div class="oval-table"></div>
-
   <div class="work-title">
     <h1>Biến dị
       <br>trong<br>
@@ -547,15 +568,16 @@ position: fixed;
     </span>
   </div>
 
-  <div class="orbit" id="orbit"></div>
+  <div class="orbit-wrapper">
+    <div class="orbit" id="orbit"></div>
+  </div>
 
-</div>
+  <!-- INPUT + PLACE BUTTON -->
+  <div class="input-wrap">
+    <input id="input" class="input" placeholder="Hãy lên tiếng." />
+    <button class="place-btn" id="placeBtn" title="Đặt">Đặt</button>
+  </div>
 
-<!-- INPUT + PLACE BUTTON -->
-
-<div class="input-wrap">
-  <input id="input" class="input" placeholder="Hãy lên tiếng." />
-  <button class="place-btn" id="placeBtn" title="Đặt">Đặt</button>
 </div>
 
 <!-- THOUGHT BUBBLE + PLACE BUTTON -->
@@ -578,34 +600,25 @@ position: fixed;
 <!-- CONTEXT MENU -->
 
 <div class="context-menu" id="contextMenu">
-  <button id="ctxView">Xem</button>
+  <button id="ctxView">📖 Xem</button>
   <div class="divider"></div>
-  <button id="ctxEdit">Chỉnh sửa</button>
-  <button id="ctxDetach">Gỡ khỏi quỹ đạo</button>
+  <button id="ctxEdit">✏️ Chỉnh sửa</button>
+  <button id="ctxDetach">🗑️ Gỡ khỏi quỹ đạo</button>
 </div>
 
-<!-- MENU OVERLAY -->
+<!-- TIMELINE OVERLAY -->
 
 <div class="timeline-overlay" id="timelineOverlay">
-
   <div class="timeline-wrap">
-
     <div class="timeline-list">
-
       <a href="bien.di(-)vong.lap.html" class="timeline-item">
-
         <div class="timeline-dot"></div>
-
         <div class="timeline-content">
           <div class="timeline-title">Biến dị<br>trong<br>vòng lặp</div>
         </div>
-
       </a>
-
     </div>
-
   </div>
-
 </div>
 
 <script>
@@ -640,6 +653,7 @@ const STORAGE_KEY = "tdrb_fragments";
 let fragments = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 let activeContextFragment = null;
 let bubbleTimeout = null;
+let longPressTimer = null;
 
 /* ===== HELPERS ===== */
 
@@ -680,8 +694,12 @@ function showThoughtBubble(text) {
   thoughtBubble.value = text;
   thoughtBubbleWrap.classList.add("active");
   
-  // Auto-focus bubble
-  setTimeout(() => thoughtBubble.focus(), 100);
+  // Auto-focus bubble on mobile after short delay
+  setTimeout(() => {
+    if (window.innerWidth <= 768) {
+      thoughtBubble.focus();
+    }
+  }, 100);
 }
 
 function hideThoughtBubble() {
@@ -689,11 +707,18 @@ function hideThoughtBubble() {
   thoughtBubble.value = "";
 }
 
-// Input: đồng bộ sang bubble nếu text > 30 ký tự
+// Check if text needs bubble (more than 1 line worth of characters - approx 30 chars)
+function needsBubble(text) {
+  // On mobile, bubble appears for any text > 1 line
+  // Rough estimate: ~30 chars per line
+  return text.length > 30;
+}
+
+// Input: đồng bộ sang bubble if needed
 input.addEventListener("input", function() {
   const text = input.value;
   
-  if (text.length > 30) {
+  if (needsBubble(text)) {
     showThoughtBubble(text);
   } else {
     hideThoughtBubble();
@@ -705,18 +730,18 @@ thoughtBubble.addEventListener("input", function() {
   const text = thoughtBubble.value;
   input.value = text;
   
-  if (text.length <= 30) {
+  if (!needsBubble(text)) {
     hideThoughtBubble();
-    input.focus();
+    if (window.innerWidth <= 768) {
+      input.focus();
+    }
   }
 });
-
-// Enter trong bubble = xuống dòng
 
 // Input mất focus
 input.addEventListener("blur", function() {
   bubbleTimeout = setTimeout(() => {
-    if (document.activeElement !== thoughtBubble) {
+    if (document.activeElement !== thoughtBubble && !needsBubble(input.value)) {
       hideThoughtBubble();
     }
   }, 200);
@@ -725,7 +750,7 @@ input.addEventListener("blur", function() {
 // Bubble mất focus
 thoughtBubble.addEventListener("blur", function() {
   bubbleTimeout = setTimeout(() => {
-    if (thoughtBubble.value.length <= 30) {
+    if (!needsBubble(thoughtBubble.value)) {
       hideThoughtBubble();
     }
   }, 200);
@@ -737,7 +762,7 @@ input.addEventListener("focus", function() {
     clearTimeout(bubbleTimeout);
     bubbleTimeout = null;
   }
-  if (input.value.length > 30) {
+  if (needsBubble(input.value)) {
     showThoughtBubble(input.value);
   }
 });
@@ -782,26 +807,38 @@ function createNode(fragment) {
   node.style.left = x + "px";
   node.style.top = y + "px";
 
+  // Single tap or click - show content
   node.addEventListener("click", (e) => {
     e.stopPropagation();
     overlay.classList.add("is-open");
     display.innerText = fragment.text;
   });
 
-  node.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
+  // Double tap/click - open edit menu
+  node.addEventListener("dblclick", (e) => {
     e.stopPropagation();
-    activeContextFragment = fragment;
-    
-    const canModify = fragment.createdBy === userFingerprint || isAdmin;
-    
-    document.getElementById("ctxView").style.display = "block";
-    document.getElementById("ctxEdit").style.display = canModify ? "block" : "none";
-    document.getElementById("ctxDetach").style.display = canModify ? "block" : "none";
-    
-    contextMenu.style.display = "block";
-    contextMenu.style.left = e.clientX + "px";
-    contextMenu.style.top = e.clientY + "px";
+    openContextMenuForNode(e, fragment);
+  });
+
+  // Long press for mobile
+  node.addEventListener("touchstart", (e) => {
+    longPressTimer = setTimeout(() => {
+      openContextMenuForNode(e, fragment);
+    }, 500);
+  });
+
+  node.addEventListener("touchend", (e) => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+  });
+
+  node.addEventListener("touchmove", (e) => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
   });
 
   orbit.appendChild(node);
@@ -809,6 +846,32 @@ function createNode(fragment) {
   requestAnimationFrame(() => {
     node.classList.add("show");
   });
+}
+
+function openContextMenuForNode(event, fragment) {
+  event.preventDefault();
+  event.stopPropagation();
+  
+  activeContextFragment = fragment;
+  
+  const canModify = fragment.createdBy === userFingerprint || isAdmin;
+  
+  document.getElementById("ctxView").style.display = "block";
+  document.getElementById("ctxEdit").style.display = canModify ? "block" : "none";
+  document.getElementById("ctxDetach").style.display = canModify ? "block" : "none";
+  
+  let clientX, clientY;
+  if (event.touches) {
+    clientX = event.touches[0].clientX;
+    clientY = event.touches[0].clientY;
+  } else {
+    clientX = event.clientX;
+    clientY = event.clientY;
+  }
+  
+  contextMenu.style.display = "block";
+  contextMenu.style.left = clientX + "px";
+  contextMenu.style.top = clientY + "px";
 }
 
 function removeNodeFromOrbit(id) {
@@ -852,7 +915,7 @@ document.getElementById("ctxEdit").addEventListener("click", () => {
 document.getElementById("ctxDetach").addEventListener("click", () => {
   if (!activeContextFragment) return;
   
-  if (confirm("Gỡ fragment này khỏi quỹ đạo? Hành động này không thể hoàn tác.")) {
+  if (confirm("Gỡ suy nghĩ này khỏi quỹ đạo? Hành động này không thể hoàn tác.")) {
     fragments = fragments.filter(f => f.id !== activeContextFragment.id);
     save();
     removeNodeFromOrbit(activeContextFragment.id);
@@ -877,6 +940,28 @@ timelineOverlay.addEventListener('click', (e) => {
   if (e.target === timelineOverlay) {
     timelineOverlay.classList.remove('is-open');
   }
+});
+
+/* ===== RESIZE HANDLER to maintain node positions ===== */
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  if (resizeTimeout) clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    // Reposition all nodes on resize
+    fragments.forEach(fragment => {
+      const node = document.getElementById(fragment.id);
+      if (node) {
+        const size = orbit.offsetWidth;
+        const radius = size * 0.5;
+        const center = size / 2;
+        const angle = fragment.angle;
+        const x = center + radius * Math.cos(angle);
+        const y = center + radius * Math.sin(angle);
+        node.style.left = x + "px";
+        node.style.top = y + "px";
+      }
+    });
+  }, 250);
 });
 
 </script>
