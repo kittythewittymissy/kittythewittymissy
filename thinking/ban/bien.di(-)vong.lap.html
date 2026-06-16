@@ -325,9 +325,9 @@ position: fixed;
   transform: translate(-50%, -50%);
 }
 
-/* ===== CONTEXT MENU ===== */
+/* ===== NODE MENU ===== */
 
-.context-menu {
+.node-menu {
   position: fixed;
   z-index: 3000;
   background: rgba(0,0,0,0.85);
@@ -342,7 +342,7 @@ position: fixed;
   display: none;
 }
 
-.context-menu button {
+.node-menu button {
   display: block;
   width: 100%;
   background: none;
@@ -357,14 +357,14 @@ position: fixed;
   transition: background 0.2s, text-shadow 0.2s;
 }
 
-.context-menu button:hover {
+.node-menu button:hover {
   background: rgba(255,214,98,0.1);
   text-shadow:
     0 0 8px #fff,
     0 0 16px rgba(255,255,255,0.7);
 }
 
-.context-menu .divider {
+.node-menu .divider {
   border-top: 1px solid rgba(255,214,98,0.2);
   margin: 0.2rem 0;
 }
@@ -397,25 +397,39 @@ position: fixed;
   to { opacity: 1; }
 }
 
-/* TIMELINE TOGGLE */
+/* ===== TIMELINE TOGGLE ===== */
 
 .timeline-toggle {
   z-index: 2000;
   position: fixed;
 }
 
-/* ===== MOBILE OVERRIDES ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media(max-width:768px) {
 
+  /* ===== STAGE ===== */
   .stage {
-    padding: 0 1rem;
-    min-height: auto;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+    overflow-y: auto;
   }
 
+  /* ===== OVAL TABLE ===== */
+  .oval-table {
+    display: none;
+  }
+
+  /* ===== TITLE ===== */
   .work-title {
     position: static;
     padding: 4rem 1.5rem 2rem 1.5rem;
     margin: 0;
+    text-align: center;
   }
 
   .work-title h1 {
@@ -424,107 +438,226 @@ position: fixed;
     -webkit-text-stroke: 0;
   }
 
+  /* ===== ORBIT ===== */
   .orbit {
-    width: min(360px, 80vw);
-    height: min(360px, 80vw);
-    margin: 1rem auto;
+    position: relative;
+    width: min(340px, 75vw);
+    height: min(340px, 75vw);
+    margin: 0.5rem auto 0.5rem;
+    flex-shrink: 0;
   }
 
-  .orbit-center-text .paragraph {
-    font-size: 1rem;
+  .orbit::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,0.36);
+    box-shadow:
+      0 0 10px rgba(255,255,255,0.20),
+      0 0 20px rgba(255,255,255,0.11),
+      0 0 40px rgba(255,255,255,0.045);
   }
 
-  .orbit-center-text .center-bold {
-    font-size: 1rem;
-  }
-
+  /* ===== RESPONSE NODES ===== */
   .response {
     width: 14px;
     height: 14px;
   }
 
+  /* ===== PARAGRAPH ===== */
+  .paragraph.body-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .center-bold {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== INPUT WRAP ===== */
   .input-wrap {
-    margin: 2rem auto 3rem auto;
-    width: 90%;
-    max-width: 320px;
+    position: relative;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin: 2rem auto 3rem;
+    width: 85%;
+    max-width: 340px;
+    justify-content: center;
+    gap: 0.6rem;
+    z-index: 10;
   }
 
   .input {
     width: 100%;
     font-size: 0.95rem;
+    padding: 8px 4px;
   }
 
-  /* Thought bubble - full width on mobile */
+  .place-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== THOUGHT BUBBLE ===== */
   .thought-bubble-wrap {
     position: fixed;
-    left: 50%;
-    right: auto;
-    top: auto;
-    bottom: 20%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: none;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: none;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    z-index: 20;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .thought-bubble-wrap.active {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .thought-bubble {
     width: 100%;
+    max-width: 600px;
     min-width: auto;
-    max-width: 100%;
-    font-size: 0.95rem;
-    padding: 1rem 1.2rem;
-    min-height: auto;
+    min-height: 200px;
+    max-height: 70vh;
+    font-size: 1.1rem;
+    padding: 2rem;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,214,98,0.3);
+    border-radius: 20px;
+    resize: none;
+    outline: none;
+    color: var(--white-accent);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    line-height: 1.9;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    box-shadow:
+      0 0 30px rgba(255,214,98,0.1),
+      0 0 60px rgba(0,0,0,0.8);
   }
 
-  .thought-bubble-wrap .place-btn {
-    position: relative;
-    z-index: 21;
-    margin: 0 auto;
-  }
-
+  /* Hide tail on mobile */
   .thought-bubble-wrap::before {
-    top: auto;
-    bottom: -16px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-top: 16px solid rgba(255,214,98,0.25);
-    border-bottom: none;
+    display: none;
   }
 
-  /* Main input wrap button also higher */
-  .input-wrap .place-btn {
-    z-index: 10;
+  /* Place button inside bubble - lower right */
+  .thought-bubble-wrap .place-btn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
+    z-index: 101;
+    border-radius: 50%;
+    background: rgba(255,214,98,0.15);
+    border: 1px solid rgba(255,214,98,0.4);
+    box-shadow:
+      0 0 20px rgba(255,214,98,0.2),
+      0 0 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
+  .thought-bubble-wrap .place-btn:hover {
+    background: rgba(255,214,98,0.25);
+    transform: scale(1.05);
+  }
+
+  /* Close button */
+  .thought-bubble-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2.5rem;
+    color: var(--white-accent);
+    cursor: pointer;
+    z-index: 102;
+    text-shadow: var(--glow-white);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    background: none;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .thought-bubble-close:hover {
+    opacity: 1;
+  }
+
+  /* ===== RESPONSE OVERLAY ===== */
   #singleResponse {
     width: 85%;
     font-size: 1.2rem;
     line-height: 1.6;
     padding: 1rem;
+    max-height: 70vh;
   }
 
-  .context-menu {
+  /* ===== BACK BUTTON ===== */
+  .back-button {
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+  }
+
+  .back-button .kitty-text {
+    font-size: 2rem;
+  }
+
+  .back-button .back-text {
+    font-size: 1rem;
+  }
+
+  /* ===== TIMELINE TOGGLE ===== */
+  .timeline-toggle {
+    bottom: 5rem;
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+  }
+
+  /* ===== NODE MENU ===== */
+  .node-menu {
     min-width: 180px;
   }
 
-  .context-menu button {
+  .node-menu button {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
   }
 
-  .timeline-toggle {
-    bottom: 5rem;
-    right: 1rem;
-  }
-
-  .back-button {
-    top: 1rem;
-    right: 1rem;
-  }
 }
 
 </style>
@@ -573,7 +706,8 @@ position: fixed;
 <!-- THOUGHT BUBBLE + PLACE BUTTON -->
 
 <div class="thought-bubble-wrap" id="thoughtBubbleWrap">
-  <textarea class="thought-bubble" id="thoughtBubble" placeholder="Tiếp tục gõ..."></textarea>
+  <button class="thought-bubble-close" id="bubbleCloseBtn" aria-label="Đóng">✕</button>
+  <textarea class="thought-bubble" id="thoughtBubble" placeholder="Tiếp tục..."></textarea>
   <button class="place-btn" id="placeBtnBubble" title="Đặt">Đặt</button>
 </div>
 
@@ -589,11 +723,11 @@ position: fixed;
 
 <!-- CONTEXT MENU -->
 
-<div class="context-menu" id="contextMenu">
-  <button id="ctxView">Xem</button>
+<div class="node-menu" id="nodeMenu">
+  <button id="nodeView">Xem</button>
   <div class="divider"></div>
-  <button id="ctxEdit">Chỉnh sửa</button>
-  <button id="ctxDetach">Gỡ khỏi quỹ đạo</button>
+  <button id="nodeEdit">Chỉnh sửa</button>
+  <button id="nodeDetach">Gỡ khỏi quỹ đạo</button>
 </div>
 
 <!-- MENU OVERLAY -->
@@ -640,7 +774,7 @@ const input = document.getElementById("input");
 const orbit = document.getElementById("orbit");
 const overlay = document.getElementById("overlay");
 const display = document.getElementById("singleResponse");
-const contextMenu = document.getElementById("contextMenu");
+const nodeMenu = document.getElementById("nodeMenu");
 const thoughtBubble = document.getElementById("thoughtBubble");
 const thoughtBubbleWrap = document.getElementById("thoughtBubbleWrap");
 const placeBtn = document.getElementById("placeBtn");
@@ -692,7 +826,6 @@ function showThoughtBubble(text) {
   thoughtBubble.value = text;
   thoughtBubbleWrap.classList.add("active");
   
-  // Auto-focus bubble
   setTimeout(() => thoughtBubble.focus(), 100);
 }
 
@@ -701,7 +834,6 @@ function hideThoughtBubble() {
   thoughtBubble.value = "";
 }
 
-// Input: đồng bộ sang bubble nếu text > 30 ký tự
 input.addEventListener("input", function() {
   const text = input.value;
   
@@ -712,7 +844,6 @@ input.addEventListener("input", function() {
   }
 });
 
-// Bubble: đồng bộ ngược về input
 thoughtBubble.addEventListener("input", function() {
   const text = thoughtBubble.value;
   input.value = text;
@@ -723,9 +854,6 @@ thoughtBubble.addEventListener("input", function() {
   }
 });
 
-// Enter trong bubble = xuống dòng
-
-// Input mất focus
 input.addEventListener("blur", function() {
   bubbleTimeout = setTimeout(() => {
     if (document.activeElement !== thoughtBubble) {
@@ -734,7 +862,7 @@ input.addEventListener("blur", function() {
   }, 200);
 });
 
-// Bubble mất focus
+
 thoughtBubble.addEventListener("blur", function() {
   bubbleTimeout = setTimeout(() => {
     if (thoughtBubble.value.length <= 30) {
@@ -743,7 +871,7 @@ thoughtBubble.addEventListener("blur", function() {
   }, 200);
 });
 
-// Focus lại
+
 input.addEventListener("focus", function() {
   if (bubbleTimeout) {
     clearTimeout(bubbleTimeout);
@@ -807,13 +935,13 @@ function createNode(fragment) {
     
     const canModify = fragment.createdBy === userFingerprint || isAdmin;
     
-    document.getElementById("ctxView").style.display = "block";
-    document.getElementById("ctxEdit").style.display = canModify ? "block" : "none";
-    document.getElementById("ctxDetach").style.display = canModify ? "block" : "none";
+    document.getElementById("nodeView").style.display = "block";
+    document.getElementById("nodeEdit").style.display = canModify ? "block" : "none";
+    document.getElementById("nodeDetach").style.display = canModify ? "block" : "none";
     
-    contextMenu.style.display = "block";
-    contextMenu.style.left = e.clientX + "px";
-    contextMenu.style.top = e.clientY + "px";
+    nodeMenu.style.display = "block";
+    nodeMenu.style.left = e.clientX + "px";
+    nodeMenu.style.top = e.clientY + "px";
   });
 
   orbit.appendChild(node);
@@ -840,17 +968,17 @@ overlay.onclick = () => {
   overlay.classList.remove("is-open");
 };
 
-/* ===== CONTEXT MENU ACTIONS ===== */
+/* ===== NODE MENU ACTIONS ===== */
 
-document.getElementById("ctxView").addEventListener("click", () => {
+document.getElementById("nodeView").addEventListener("click", () => {
   if (activeContextFragment) {
     overlay.classList.add("is-open");
     display.innerText = activeContextFragment.text;
   }
-  contextMenu.style.display = "none";
+  nodeMenu.style.display = "none";
 });
 
-document.getElementById("ctxEdit").addEventListener("click", () => {
+document.getElementById("nodeEdit").addEventListener("click", () => {
   if (!activeContextFragment) return;
   
   const newText = prompt("Chỉnh sửa:", activeContextFragment.text);
@@ -858,10 +986,10 @@ document.getElementById("ctxEdit").addEventListener("click", () => {
     activeContextFragment.text = newText.trim();
     save();
   }
-  contextMenu.style.display = "none";
+  nodeMenu.style.display = "none";
 });
 
-document.getElementById("ctxDetach").addEventListener("click", () => {
+document.getElementById("nodeDetach").addEventListener("click", () => {
   if (!activeContextFragment) return;
   
   if (confirm("Gỡ fragment này khỏi quỹ đạo? Hành động này không thể hoàn tác.")) {
@@ -869,11 +997,11 @@ document.getElementById("ctxDetach").addEventListener("click", () => {
     save();
     removeNodeFromOrbit(activeContextFragment.id);
   }
-  contextMenu.style.display = "none";
+  nodeMenu.style.display = "none";
 });
 
 document.addEventListener("click", () => {
-  contextMenu.style.display = "none";
+  nodeMenu.style.display = "none";
 });
 
 /* ===== TIMELINE MENU ===== */
