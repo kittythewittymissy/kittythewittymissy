@@ -192,12 +192,17 @@ position: fixed;
   }
 
   .paragraph {
-    position: relative;
-    max-width: 88%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    max-width: 520px;
+    text-align: center;
     font-size: 1.15rem;
     line-height: 1.8;
   }
-
+  
   .center-bold {
     font-size: 1.15rem;
   }
@@ -252,10 +257,8 @@ position: fixed;
     </span>
   </div>
 
-<div class="orbit-wrap"></div>
+<div class="orbit-wrap">
   <div class="orbit"></div>
-</div>
-
 </div>
 
 <!-- TIMELINE TOGGLE -->
