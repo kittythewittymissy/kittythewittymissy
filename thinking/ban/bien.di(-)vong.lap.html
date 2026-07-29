@@ -283,7 +283,7 @@ position: fixed;
 
 /* ===== ORBIT ===== */
 
-.orbit-wrap{
+.orbit-wrap {
     position:fixed;
     left:50%;
     top:50%;
@@ -697,16 +697,17 @@ html, body { overflow: hidden; }
       vòng lặp</h1>
   </div>
 
-  <div class="paragraph body-text">
-    Trong mỗi vòng lặp,
-
-    <span class="center-bold">
-      một sai lệch nhỏ xảy ra.
-    </span>
-  </div>
-
   <div class="orbit-wrap">
     <div class="orbit" id="orbit"></div>
+
+      <div class="paragraph body-text">
+        Trong mỗi vòng lặp,
+
+      <span class="center-bold">
+        một sai lệch nhỏ xảy ra.
+     </span>
+
+    </div>
   </div>
 
 </div>
@@ -877,7 +878,6 @@ input.addEventListener("blur", function() {
   }, 200);
 });
 
-
 thoughtBubble.addEventListener("blur", function() {
   bubbleTimeout = setTimeout(() => {
     if (thoughtBubble.value.length <= 30) {
@@ -885,7 +885,6 @@ thoughtBubble.addEventListener("blur", function() {
     }
   }, 200);
 });
-
 
 input.addEventListener("focus", function() {
   if (bubbleTimeout) {
