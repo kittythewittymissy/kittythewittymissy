@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hố Thẳm Của Tư Tưởng - Kết luận</title>
+  <title>Hố Thẳm Của Tư Tưởng - Phụ Lục</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
@@ -148,52 +148,20 @@
     .floating-paragraph:nth-child(8)  { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(9)  { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
-    
-    /* --- GLOW QUOTE LINE (INLINE WITH PARAGRAPHS) --- */
-    .glow-quote-text {
-      font-style: italic;
-      font-weight: 300;
-      color: #fff;
-      text-shadow:
-        0 0 2px #fff,
-        0 0 5px rgba(255,255,255,0.6),
-        0 0 9px rgba(255,255,255,0.4);
-      opacity: 0;
-    }
-    
-    .gold-quote {
-      display: inline-block;
-      font-family: 'Codystar', sans-serif;
-      font-size: 3.6rem;
-      line-height: 0;
-      color: var(--gold-core);
-      vertical-align: -0.3em;
-      text-shadow:
-        0 0 1px var(--gold-core),
-        0 0 2px var(--gold-core),
-        0 0 4px var(--gold-core),
-        0 0 10px rgba(255,214,98,0.7),
-        0 0 16px rgba(255,214,98,0.5);
-      transform: translateY(-0.12em);
-      opacity: 0;
-    }
-
-    .quote-start .gold-quote {
-      animation: neonSign-Gold 1.2s ease forwards;
-    }
-    
-    .quote-start .glow-quote-text {
-      animation: neonSign-White 1.2s ease forwards;
-      animation-delay: 0.4s;
-    }
-
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+      
     /* --- TEXT STYLE: STRONGER BOLD --- */
-    .center-bold, .center-bold-inline {
-      font-weight: 600; 
-      color: #fff;
-      text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
-      text-align: center;
+      .center-bold, .center-bold-inline {
+        font-weight: 600; 
+        color: #fff;
+        text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8);
+        text-align: center;
     }
+
+    /* --- TEXT STYLE: ITALIC --- */
+    .italic-inline {font-style: italic;}
 
     /* --- BULLET POINT --- */
     .timeline-dot.inline-dot {
@@ -226,11 +194,11 @@
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
-    /* CONTENT WRAPPING */
+    /* --- CONTENT WRAPPING --- */
     .work-content { padding-top: 5rem; }
     .page-content { position: relative; }
 
-    /* MOBILE RESPONSIVE */
+    /* --- MOBILE RESPONSIVE --- */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
       .series-background { font-size: 8rem; }
@@ -262,24 +230,20 @@
     .timeline-content a { text-decoration: none; }
 
   </style>
-
 </head>
-
 <body>
 
-<!-- SPOTLIGHT -->
-<div class="spotlight-stage">
+  <!-- SPOTLIGHT -->
+  <div class="spotlight-stage">
 
-  <div class="spotlight-cone"></div>
+    <div class="spotlight-cone"></div>
+    <div class="spotlight-pool"></div>
+    <div class="spotlight-vignette"></div>
 
-  <div class="spotlight-pool"></div>
+  </div>
 
-  <div class="spotlight-vignette"></div>
-
-</div>
-
-<!-- PAGE -->
-<div class="page-content spotlight-delayed">
+  <!-- PAGE -->
+  <div class="page-content spotlight-delayed">
 
   <div class="series-background">Thẳm</div>
 
@@ -297,8 +261,8 @@
   <!-- --- SUBTITLE --- -->
   <div class="subtitle-container">
       <h2 class="column-subheading animated-subtitle">
-       Kết Luận: 
-       <br>Mở ra sứ mệnh của Hố thẳm
+       Phụ Lục 
+       <br>Bóng tối của Hố Thẳm
       </h2>
   </div>
 
@@ -306,24 +270,25 @@
   <div class="text-section">
     
   <!-- UP ARROW -->
-  <span class="next-part up" data-target="htctt-hoa.va.tinh.html">︿</span>
+  <span class="next-part up" data-target="htctt-triet.va.tinh.html">︿</span>
     
-    <p class="floating-paragraph center-bold" style="font-size: 1.7em; font-style: italic;">Tìm lại Hàn Mặc Tử và thế giới vô hình</p>
-  
-    <p class="floating-paragraph">Không thể gọi Hàn Mặc Tử là thi sĩ vĩ đại nhất trong thi ca Việt Nam, Hàn Mặc Tử bay ra ngoài tất cả mọi chân trời, Hàn Mặc Tử là thi sĩ viết hoa bằng máu: THI SĨ.</p> 
-    <p class="floating-paragraph">Leopardi, Keats, Rimbaud, Hölderlin, Hàn Mặc Tử là những THI SĨ của Hố Thẳm Vô Hình:</p> 
-        
-    <p class="floating-paragraph glow-quote-line">
-      <span class="gold-quote open">“</span>
-        <em class="glow-quote-text">Hoa kim tước thơm ngát an phận với sa mạc</em>
-      <span class="gold-quote close">”</span>
-    </p>
-    <p class="floating-paragraph">(Leopardi, La Ginestra)</p>
-   
-    <p class="floating-paragraph">Sau Hàn Mặc Tử ngôn ngữ Việt Nam vỗ cánh run rẩy sương mai trong rừng đông bàng bạc.</p>
-    <p class="floating-paragraph">Trong thế giới vô hình, Rimbaud, Leopardi, Keats và Hoelderlin đều gặp nhau; khi bốn thi sĩ gặp nhau, họ đều thì thầm bàn tán nhau về con chim phượng hoàng ở trời Đâu Suất. Bỗng nhiên từ cõi vô hình một hoả diệm sơn của Thiên Thanh vụt nổ bùng lên, chấn động cả từng tượng thanh khí: Rimbaud, Leopardi, Keats và Hoelderlin hốt hoảng kinh hồn: bốn thi sĩ run lẩy bẩy, “run như hơi thở chạm tơ vàng” vì Hàn Mặc Tử vụt hiện trên ngọn núi lửa và mỉm cười đưa tay rắc máu xuống Hố Thẳm của Việt Nam; lúc bây giờ Leopardi, Rimbaud, Keats và Hoelderlin liền quì xuống cúi lạy những giọt máu cô liêu của thi ca Á Đông.</p> 
-    <p class="floating-paragraph">Hàn Mặc Tử vỗ cánh phượng hoàng và bay xuống đậu giữa Thiên Thanh, Rimbaud và Hoelderlin đứng dậy chắp tay, đứng về phía trái; Keats và Leopardi đứng dậy chắp tay, đứng về phía mặt; Hàn Mặc Tử bay xà xuống đậu ngay chính giữa; ngay lúc ấy, lập tức hai Thi Sĩ bên trái và hai Thi Sĩ bên mặt quì xuống lạy ba triệu lạy; khi bốn Thi Sĩ lạy xong và ngước mặt lên thì Hàn Mặc Tử đã vụt biến mất và hoả diệm sơn biến thành một quả trứng phượng hoàng khổng lồ: quả trứng phượng hoàng cô liêu xoay tròn năm vòng và thu hình nhỏ lại thành trái đất; từ ấy, trái đất liên tục xoay tròn giữa vũ trụ vô biên và con người không còn làm thơ nữa.</p>     
+    <p class="floating-paragraph center-bold" style="font-size: 2em;">IV</p>
+    
+    <p class="floating-paragraph">Các ngài mong đợi những gì? Ngay bây giờ, ngay phút này, tại đây, các ngài mong đợi những gì? Chúng ta có đang <span class=center-bold style="font-style: italic !important;">sống</span> không? Có <span style="font-style: italic;">“hiện sinh”</span> không? Có phải chúng ta đã sống quá dễ dãi không? Chúng ta sợ một đời sống lưỡng lự.</p>
+    <p class="floating-paragraph">Sống là sống lưỡng lự, ngập ngừng, do dự. Phải lưỡng lự, phải hoàn toàn lưỡng lự trong cuộc sống. Hết lưỡng lự là bắt đầu hết sáng tạo; hết lưỡng lự là rơi vào sự nhất định, bị trói buộc vào ý niệm, hết lưỡng lự là bắt đầu chạy đều như một máy điện, bắt đầu đi thẳng; sống là đi vòng, lang thang, đi quanh quẩn, chứ không phải đi thẳng: con đường tắt là con đường của người tầm thường; người sáng tạo là người lang thang lưỡng lự trên một con đường thực dài, con đường quanh co, con đường không về thành phố, con đường băng qua rừng, qua suối, qua núi cao; con đường về Hy Mã Lạp sơn, không phải Hy Mã Lạp sơn của Tây Tạng. mà là Hy Mã Lạp sơn của nỗi lưỡng lự vô biên trong tâm hồn; con người ngập ngừng lưỡng lự là kẻ đi trong đêm tối vào lúc ba giờ khuya, trên một con đường vô tận, con đường không định hướng, con đường yêu ma, con đường chênh vênh giữa một ngàn hố thẳm.</p>
+    <p class="floating-paragraph">Hãy đập nổ tất cả ngôi sao trên trời để cho bóng tối làm một với con đường, hãy đập nổ hai con mắt để hai bàn chân trở thành con đường của bóng tối; tất cả ánh sáng đều lường gạt; tất cả mặt trời, mặt trăng, tất cả ngôi sao đều là kẻ thù của người sáng tạo. Kẻ sáng tạo là kẻ đi một mình trong lưỡng lự cùng cực. Sống lưỡng lự là sống liều lĩnh, sống bạt mạng, sống lưỡng lự là bước đi dò dẫm và ý thức đến độ đứt gân máu rằng mỗi bước chân là một hố thẳm không đáy; chỉ cần một giây, một tiếng tích tắc, một tiếng đập tim là cuộc đời biến thành Tính Mệnh và sự chết là cử chỉ cuối cùng, đồng thời cũng là cử chỉ đầu tiên, cử chỉ sáng tạo đầu tiên của tất cả thiên tài, của tất cả con người nghệ sĩ trên mặt đất này.</p>
+    <p class="floating-paragraph">Sống lưỡng lự là nói ấm ớ, nói ấp úng, nói không ra lời, vì sự diễn đạt chỉ là diễn đạt hữu hình, bên ngoài hữu hình là vô hình; thi sĩ là người lưỡng lự bước đi với vô hình; thi sĩ là người nói không ra lời mà vẫn phải nói; nói trôi chảy, nói thông suốt rõ ràng, nói dễ dàng là chỉ bước đi trên con đường tắt, nghĩa là không còn lưỡng lự. Do đó, ngôn ngữ trở thành dụng cụ và biến thành một mớ mồm mép ba hoa lải nhải; người ta nói và nói quá dễ dàng, có thể nói về bất cứ cái gì và lời nói đã trở thành tuyên truyền và tất cả những diễn giả, tất cả những thuyết trình viên chỉ là những kẻ quảng cáo rẻ tiền và con người sinh ra đời trong nông cạn, làm việc trong nông cạn, sống trong nông cạn và chết đi trong nông cạn.</p>
+    <p class="floating-paragraph">Phải sống lưỡng lự, phải nói không ra lời, phải nói ấm ớ, nói ấp úng, phải nói khó khăn như thế thì nói mới là cử chỉ tối hậu, nói mới là sự chinh phục của ý thức, nói mới là bước đi giữa hư vô và trên Hố thẳm, có thể thì nói mới có nghĩa bị đặt trước sự sống và sự chết, có thế Ngôn Ngữ mới trở thành thiêng liêng, Ngôn Ngữ mới là Nguyên Ngôn, mới là lời nói đầu tiên và cuối cùng của một người cô đơn cùng cực, của một người đã sống và chết cùng độ căng thẳng thần kinh, của một người mà ý thức hắn nổ tung như một triệu mặt trời chấn động.</p>
+    <p class="floating-paragraph">Các ngài đợi mong những gì?</p>
+    <p class="floating-paragraph">Tôi không nói về tư tưởng hiện sinh mới và tư tưởng Thiền của nhóm Beatniks ở Greenwich Village và ở Saint Germain des Prés. Tôi khinh bỉ nhóm Beatniks; tôi khinh bỉ tất cả thiền sư; tôi khinh bỉ tất cả triết lý hiện sinh. Tôi không nói về một đề tài, mà tôi chính là đề tài. Tôi xin mời các ngài làm một với đề tài, các ngài không phải nghe về hiện sinh mới và Thiền, mà các ngài là hiện sinh mới và Thiền, vì tất cả ý nghĩa tối hậu của tư tưởng hiện sinh mới và tư tưởng Thiền là nằm ngay giờ phút này, tại nơi đây; giờ phút này là giờ phút tuyệt đối linh thiêng, người nói và người nghe chỉ là một người, các ngài nói trong tôi và tôi nghe trong các ngài.</p>
+    <p class="floating-paragraph">Các ngài đang nghe những gì?</p>
+    <p class="floating-paragraph">Tất cả chúng ta đều không biết nghe; nghe không có nghĩa là để đồng ý hay bất đồng ý, để phủ nhận hay chấp nhận; nghe không có nghĩa là phê phán, nghe không phải là để so sánh những gì ở hiện tại với những gì mình đã hình dung ở quá khứ. Sống lưỡng lự có nghĩa biết nghe, nghe nỗi chết trườn mình qua cơ thể, nghe tiếng ồn ào của cơ khí đang tàn phá bầu trời và trái đất, nghe sự sợ hãi ngự trị trong con người và biến con người thành một cái gì bần tiện nhất, xấu xa nhất trên đời.</p>
+    <p class="floating-paragraph">Các ngài có đang sống sợ hãi không? Các ngài sợ dư luận, các ngài sợ người ta nghĩ về các ngài như thế này, thế kia; các ngài sợ nhà tù, sợ ám sát, sợ tai nạn, sợ thất bại; các ngài sợ điên loạn, sợ mất quân bình, các ngài sợ nguy hiểm, sợ chết. Các ngài có dám lao mình xuống Hố thẳm hay không? Các ngài có dám lao mình xuống núi lửa hay không? Hố thẳm đây chính là hố thẳm của tâm hồn mình, núi lửa đây chính là núi lửa hừng hực của ý thức mình. Con đường đi đến tự do toàn triệt là con đường lao xuống hố thẳm và núi lửa. Chỉ khi nào chúng ta dám liều lĩnh, dám bạt mạng, dám yêu hố thẳm, dám yêu núi lửa, chỉ lúc ấy chúng ta mới được mọc cánh và mới được hưởng mùa nổ sao ngây ngất trong phương trời mây đen tuyệt đối và vô hạn.</p>
+    <p class="floating-paragraph" style="font-style: italic; font-size: 1.3rem;">(Bài này đáng lẽ đã được đọc lại tại Viện Đại học Vạn Hạnh để mở đầu niên khoá giảng dạy Triết lý tỷ giáo, nhưng nhờ một cơn khủng hoảng tâm tư, trong buổi diễn thuyết ấy, tôi đã nói ấm ớ khác đi hoàn toàn để tránh cho thính giả khỏi rơi vào Hố thẳm của Hư vô mà thiền sư Ngộ Ấn ở thời Lý gọi là “Diệu Tính Hư Vô”.)</p>
 
+  <!-- DOWN ARROW -->
+  <span class="next-part down" data-target="htctt-ai.va.tinh.html">﹀</span>
+  
   </div>
 
   <!-- AUDIO BUTTON -->
@@ -336,8 +301,8 @@
   <!-- SPOTIFY POP-UP -->
   <div class="spotify-popup" id="spotifyPopup">
     <span class="close-btn" id="closePopup">&times;</span>
-    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/39hFoLW86B63ot3YDvS65G?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
-  </div>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3buuuACbjOmPXzODHJpCZZ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
 
   <!-- TIMELINE TOGGLE -->
   <div class="timeline-toggle" id="timelineToggle"></div>
@@ -385,8 +350,8 @@
         </a>
       </div>
       <div class="timeline-dot"></div>
-    </div>
-      
+    </div>        
+
     <!-- CHƯƠNG TƯ -->
     <div class="timeline-item">
       <div class="timeline-content">
@@ -404,20 +369,20 @@
           <h2 class="timeline-title">Chương<br>Năm</h2>
         </a>
       </div>
-      <div class="timeline-dot"></div>
-    </div>
+     <div class="timeline-dot"></div>
+    </div> 
 
-    <!-- KẾT LUẬN -->
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <a href="htctt-su.menh.html">
-          <h2 class="timeline-title">Kết<br>Luận</h2>
-        </a>
-      </div>
-      <div class="timeline-dot"></div>
-    </div>
+     <!-- KẾT LUẬN -->
+     <div class="timeline-item">
+       <div class="timeline-content">
+         <a href="htctt-su.menh.html">
+           <h2 class="timeline-title">Kết<br>Luận</h2>
+         </a>
+       </div>
+       <div class="timeline-dot"></div>
+     </div>
 
-     <!-- PHỤ LỤC -->
+    <!-- PHỤ LỤC -->
      <div class="timeline-item">
        <div class="timeline-content">
          <a href="htctt-bong.toi.html">
@@ -426,13 +391,13 @@
        </div>
        <div class="timeline-dot"></div>
      </div>
-  
+        
     </div>
    </div>
   </div>
 
   </div>
-
+      
   <!-- UI INTERACTION (modal + transition) -->
   <script>
     const audioBtn = document.getElementById('audioBtn');
@@ -453,22 +418,14 @@
     const timelineOverlay = document.getElementById('timelineOverlay');
 
     timelineToggle.addEventListener('click', () => {
-    timelineOverlay.classList.toggle('is-open');
+     timelineOverlay.classList.toggle('is-open');
     });
+
     timelineOverlay.addEventListener('click', (e) => {
     if (e.target === timelineOverlay) {
     timelineOverlay.classList.remove('is-open'); }
     });
-
-    const paragraphs = document.querySelectorAll('.floating-paragraph');
-    const quote = document.querySelector('.glow-quote-line');
-    
-    paragraphs[1].addEventListener('animationend', () => {
-      quote.classList.add('quote-start');
-    }, { once: true });
     
   </script>
-
 </body>
-
 </html>
